@@ -22,7 +22,7 @@ private:
     int y;
     
 public:
-//    <#member functions#>
+    
 };
 
 

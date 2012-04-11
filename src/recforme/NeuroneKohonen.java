@@ -8,6 +8,9 @@ package recforme;
  *
  * @author hubert
  */
-public class Neurone {
+public class NeuroneKohonen {
+
+    private double[] poids;
+    int x,y;
     
 }

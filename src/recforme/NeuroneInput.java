@@ -8,8 +8,7 @@ package recforme;
  *
  * @author hubert
  */
-public class CarteKohonen {
-
-    NeuroneKohonen[][] carte;
-    NeuroneInput[][] input;
+public class NeuroneInput {
+ 
+    int valeur;
 }

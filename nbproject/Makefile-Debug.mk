@@ -34,7 +34,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/RecForme/Carte.o \
+	${OBJECTDIR}/RecForme/NeuroneInput.o \
+	${OBJECTDIR}/RecForme/NeuroneCarte.o \
+	${OBJECTDIR}/RecForme/main.o
 
 
 # C Compiler Flags
@@ -51,20 +54,37 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-L/opt/local/lib /opt/local/lib/libpng.dylib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/recforme
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/recforme: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code: /opt/local/lib/libpng.dylib
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/recforme ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/main.o: main.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/RecForme/Carte.o: RecForme/Carte.cpp 
+	${MKDIR} -p ${OBJECTDIR}/RecForme
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/Carte.o RecForme/Carte.cpp
+
+${OBJECTDIR}/RecForme/NeuroneInput.o: RecForme/NeuroneInput.cpp 
+	${MKDIR} -p ${OBJECTDIR}/RecForme
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/NeuroneInput.o RecForme/NeuroneInput.cpp
+
+${OBJECTDIR}/RecForme/NeuroneCarte.o: RecForme/NeuroneCarte.cpp 
+	${MKDIR} -p ${OBJECTDIR}/RecForme
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/NeuroneCarte.o RecForme/NeuroneCarte.cpp
+
+${OBJECTDIR}/RecForme/main.o: RecForme/main.cpp 
+	${MKDIR} -p ${OBJECTDIR}/RecForme
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/main.o RecForme/main.cpp
 
 # Subprojects
 .build-subprojects:
@@ -72,7 +92,7 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/recforme
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code
 
 # Subprojects
 .clean-subprojects:

@@ -8,7 +8,22 @@
 
 #ifndef RecForme_Carte_h
 #define RecForme_Carte_h
+#include "NeuroneCarte.h"
+#include "NeuroneInput.h"
 
+class Carte {
+    
+private:
+    
+    NeuroneCarte** carte;
+    NeuroneInput** input;
+    
+    int x;
+    int y;
+    
+public:
+//    <#member functions#>
+};
 
 
 #endif

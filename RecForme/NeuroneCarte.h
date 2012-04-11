@@ -9,6 +9,18 @@
 #ifndef RecForme_NeuroneKohonen_h
 #define RecForme_NeuroneKohonen_h
 
+class NeuroneCarte {
+    
+private:
+    
+    int dim;
+    double* poids;
+    int x,y;
+    int normeComp;
+    
+public:
+    //    <#member functions#>
+};
 
 
 #endif

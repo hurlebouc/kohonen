@@ -10,5 +10,17 @@
 #define RecForme_NeuroneInput_h
 
 
+class NeuroneInput {
+    
+private:
+    int valeur;
+    
+public:
+    
+    
+    
+};
+
+
 
 #endif

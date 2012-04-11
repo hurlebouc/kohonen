@@ -9,8 +9,17 @@ package recforme;
  * @author hubert
  */
 public class NeuroneKohonen {
+    
+    /*
+     * Définition des constantes
+     */
+    
+    public static final int N1 = 1;
+    public static final int N2 = 2;
 
     private double[] poids;
-    int x,y;
+    private int x,y;
+    private int normeComp;
+    
     
 }

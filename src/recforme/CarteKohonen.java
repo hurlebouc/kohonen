@@ -12,4 +12,7 @@ public class CarteKohonen {
 
     NeuroneKohonen[][] carte;
     NeuroneInput[][] input;
+    
+    public final int X = 10;
+    public final int Y = 10;
 }

@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 Mines de Nancy. All rights reserved.
 //
 
+
 #ifndef RecForme_NeuroneInput_h
 #define RecForme_NeuroneInput_h
+
 
 
 class NeuroneInput {

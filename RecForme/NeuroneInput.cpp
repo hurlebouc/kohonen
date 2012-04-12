@@ -7,7 +7,6 @@
 //
 
 #include <iostream>
-#include <png.h>
 #include "NeuroneInput.h"
 
 

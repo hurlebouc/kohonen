@@ -269,9 +269,8 @@ Image::Image(string path){
     
     for (int i = 0; i < this->height; ++i)
     {
-//        row_pointers[i] = (png_bytep)(this->texels +
-//                                      ((this->height - (i + 1)) * this->width * this->nbrComposantes));
-        row_pointers[i] = (png_bytep)(this->texels + i*this->width*this->nbrComposantes);
+        row_pointers[i] = (png_bytep)(this->texels+((this->height - (i+1))*this->width*this->nbrComposantes));
+//        row_pointers[i] = (png_bytep)(this->texels + i*this->width*this->nbrComposantes);
     }
     
     /* read pixel data using row pointers */
@@ -404,12 +403,31 @@ void Image::save(){
         exit(EXIT_FAILURE);
     }
     
+    int type_image;
+    switch (format) {
+        case GL_RGB:
+            type_image = PNG_COLOR_TYPE_RGB;
+            break;
+        case GL_RGBA:
+            type_image = PNG_COLOR_TYPE_RGBA;
+            break;
+        case GL_LUMINANCE:
+            type_image = PNG_COLOR_TYPE_GRAY;
+            break;
+        case GL_LUMINANCE_ALPHA:
+            type_image = PNG_COLOR_TYPE_GRAY_ALPHA;
+            break;
+        default:
+            type_image = PNG_COLOR_TYPE_RGB;
+            break;
+    }
+    
     png_set_IHDR (png_ptr,
                   info_ptr,
                   width,
                   height,
                   depth,
-                  PNG_COLOR_TYPE_RGB,
+                  type_image,
                   PNG_INTERLACE_NONE,
                   PNG_COMPRESSION_TYPE_DEFAULT,
                   PNG_FILTER_TYPE_DEFAULT);
@@ -421,10 +439,19 @@ void Image::save(){
         png_byte *row = (png_byte*) png_malloc (png_ptr, sizeof (uint8_t) * width * nbrComposantes);
         row_pointers[y] = row;
         for (x = 0; x < width; ++x) {
-            Pixel* pixel = this->getPix(x, y);
-            *row++ = pixel->getRed();
-            *row++ = pixel->getGreen();
-            *row++ = pixel->getBlue();
+            Pixel* pixel = this->getPix(x, height-1 - y);
+            if (format == GL_RGB || format == GL_RGBA) {
+                *row++ = pixel->getRed();
+                *row++ = pixel->getGreen();
+                *row++ = pixel->getBlue();
+            }
+            if (format == GL_LUMINANCE || format == GL_LUMINANCE_ALPHA) {
+                *row++ = pixel->getGray();
+            }
+            if (format == GL_RGBA || format == GL_LUMINANCE_ALPHA) {
+                *row++ = pixel->getAlpha();
+            }
+            
         }
     }
     

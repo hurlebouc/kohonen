@@ -7,11 +7,29 @@
 //
 
 #include <iostream>
+#include "Image.h"
+
+using namespace std;
+
+
 
 int main(int argc, const char * argv[])
 {
     
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    string c = "ckjkjhkjhkaca";
+    cout<<c<<"\n";
+    
+    Image* lena = new Image("/Users/hubert/Desktop/Lenna.png");
+    cout<<"width : "<<lena->getWidth()<<" height : "<<lena->getHeight()<<"\n";
+    
+    Pixel* pix = lena->getPix(lena->getWidth()-1, lena->getHeight()-1);
+    cout<<"rouge : "<<(int) pix->getRed()
+        <<" vert : "<<(int) pix->getGreen()
+        <<" bleu : "<<(int) pix->getBlue();
+    
+    lena->write("/Users/hubert/Desktop/Lenna2.png");
+    delete lena;
+    delete pix;
+    
     return 0;
 }

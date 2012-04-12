@@ -39,7 +39,7 @@ public:
 class Image {
     
 private:
-    
+    std::string chemin;
     GLuint  width;           /* largeur */
     GLuint  height;          /* hauteur */
     GLenum  format;          /* RVB, RVBA, Luminance, Luminance Alpha */
@@ -48,11 +48,16 @@ private:
     
 public:
     
-    Image(const char* path);
+    Image(std::string path);
     Image(int width, int height);
+    Image(int width, int height, std::string path);
     ~Image();
     
     Pixel* getPix(int x, int y);
+    int getWidth();
+    int getHeight();
+    void save();
+    void write(std::string path);
 };
 
 #endif

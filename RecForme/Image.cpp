@@ -103,7 +103,9 @@ uint8_t Pixel::getGray(){
 
 /* ===================================================================== */
 
-Image::Image(const char* filename){
+Image::Image(string path){
+    this->chemin = path;
+    const char* filename = chemin.c_str();
     
     /*
      * Ouverture et vérification du fichier
@@ -258,7 +260,7 @@ Image::Image(const char* filename){
     
     /* we can now allocate memory for storing pixel data */
     this->texels = (GLubyte *)malloc (sizeof (GLubyte) * this->width
-                                         * this->height * this->nbrComposantes);
+                                      * this->height * this->nbrComposantes);
     
     png_bytep *row_pointers;
     
@@ -267,8 +269,9 @@ Image::Image(const char* filename){
     
     for (int i = 0; i < this->height; ++i)
     {
-        row_pointers[i] = (png_bytep)(this->texels +
-                                      ((this->height - (i + 1)) * this->width * this->nbrComposantes));
+//        row_pointers[i] = (png_bytep)(this->texels +
+//                                      ((this->height - (i + 1)) * this->width * this->nbrComposantes));
+        row_pointers[i] = (png_bytep)(this->texels + i*this->width*this->nbrComposantes);
     }
     
     /* read pixel data using row pointers */
@@ -286,12 +289,23 @@ Image::Image(const char* filename){
 }
 
 Image::Image(int width, int height){
+    this->chemin.clear();
     this->width = width;
     this->height = height;
     this->format = GL_RGB;
     this->nbrComposantes = 3;
     this->texels = (GLubyte *) malloc (sizeof (GLubyte) * this->width
-                                      * this->height * this->nbrComposantes);
+                                       * this->height * this->nbrComposantes);
+}
+
+Image::Image(int width, int height, string path){
+    this->chemin = path;
+    this->width = width;
+    this->height = height;
+    this->format = GL_RGB;
+    this->nbrComposantes = 3;
+    this->texels = (GLubyte *) malloc (sizeof (GLubyte) * this->width
+                                       * this->height * this->nbrComposantes);
 }
 
 Image::~Image(){
@@ -299,6 +313,16 @@ Image::~Image(){
 }
 
 Pixel* Image::getPix(int x, int y){
+    if (x>=width) {
+        cout<<"depassement de la largeur de l'image : "<<x
+        <<" (max : "<<width-1<<")\n";
+        exit(EXIT_FAILURE);
+    }
+    if (y>=height) {
+        cout<<"depassement de la hauteur de l'image : "<<y
+        <<" (max : "<<height-1<<")\n";
+        exit(EXIT_FAILURE);
+    }
     GLubyte r;
     GLubyte g;
     GLubyte b;
@@ -337,11 +361,93 @@ Pixel* Image::getPix(int x, int y){
     }
 }
 
+int Image::getWidth(){
+    return width;
+}
 
+int Image::getHeight(){
+    return height;
+}
 
+void Image::save(){
+    
+    if (chemin.empty()) {
+        cout<<"le nom de l'image n'a pas été initialisé";
+        exit(EXIT_FAILURE);
+    }
+    
+    FILE * fp;
+    png_structp png_ptr = NULL;
+    png_infop info_ptr = NULL;
+    size_t x, y;
+    png_byte ** row_pointers = NULL;
+    
+    int depth = 8;
+    
+    fp = fopen (chemin.c_str(), "wb");
+    if (! fp) {
+        cout<<"ouverture du fichier impossible\n";
+        exit(EXIT_FAILURE);
+    }
+    png_ptr = png_create_write_struct (PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+    if (png_ptr == NULL) {
+        cout<<"initialisation du png_ptr impossible\n";
+        exit(EXIT_FAILURE);
+    }
+    info_ptr = png_create_info_struct (png_ptr);
+    if (info_ptr == NULL) {
+        cout<<"initialisation du png_info impossible\n";
+        exit(EXIT_FAILURE);
+    }
+    if (setjmp (png_jmpbuf (png_ptr))) {
+        cout<<"truc umpossible\n";
+        exit(EXIT_FAILURE);
+    }
+    
+    png_set_IHDR (png_ptr,
+                  info_ptr,
+                  width,
+                  height,
+                  depth,
+                  PNG_COLOR_TYPE_RGB,
+                  PNG_INTERLACE_NONE,
+                  PNG_COMPRESSION_TYPE_DEFAULT,
+                  PNG_FILTER_TYPE_DEFAULT);
+    
+    /* Initialize rows of PNG. */
+    
+    row_pointers = (png_byte**) png_malloc (png_ptr, height * sizeof (png_byte *));
+    for (y = 0; y < height; ++y) {
+        png_byte *row = (png_byte*) png_malloc (png_ptr, sizeof (uint8_t) * width * nbrComposantes);
+        row_pointers[y] = row;
+        for (x = 0; x < width; ++x) {
+            Pixel* pixel = this->getPix(x, y);
+            *row++ = pixel->getRed();
+            *row++ = pixel->getGreen();
+            *row++ = pixel->getBlue();
+        }
+    }
+    
+    /* PRINCIPE ACTIF */
+    
+    png_init_io (png_ptr, fp);
+    png_set_rows (png_ptr, info_ptr, row_pointers);
+    png_write_png (png_ptr, info_ptr, PNG_TRANSFORM_IDENTITY, NULL);
+        
+    
+    /* libération mémoire */
+    
+    for (y = 0; y < height; y++) {
+        png_free (png_ptr, row_pointers[y]);
+    }
+    png_free (png_ptr, row_pointers);
+    png_destroy_write_struct (&png_ptr, &info_ptr);
+    fclose (fp);
+}
 
-
-
-
-
-
+void Image::write(string path){
+    string tampon = chemin;
+    chemin = path;
+    save();
+    chemin = tampon;
+}

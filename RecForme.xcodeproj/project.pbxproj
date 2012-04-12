@@ -12,7 +12,6 @@
 		B4254A4E1535E30C00E7D173 /* NeuroneCarte.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4254A4D1535E30C00E7D173 /* NeuroneCarte.cpp */; };
 		B4254A511535EF5900E7D173 /* NeuroneInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4254A501535EF5900E7D173 /* NeuroneInput.cpp */; };
 		B4254A541535EF7800E7D173 /* Carte.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4254A531535EF7800E7D173 /* Carte.cpp */; };
-		B499D3701536245D0033CDFA /* libpng14.14.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B499D36F1536245D0033CDFA /* libpng14.14.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,7 +37,7 @@
 		B4254A521535EF6600E7D173 /* NeuroneInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NeuroneInput.h; sourceTree = "<group>"; };
 		B4254A531535EF7800E7D173 /* Carte.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Carte.cpp; sourceTree = "<group>"; };
 		B4254A551535EF8200E7D173 /* Carte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Carte.h; sourceTree = "<group>"; };
-		B499D36F1536245D0033CDFA /* libpng14.14.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng14.14.dylib; path = ../../../../../../../opt/local/lib/libpng14.14.dylib; sourceTree = "<group>"; };
+		B4FE1F961536CDD0001B7000 /* CImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CImg.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +45,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B499D3701536245D0033CDFA /* libpng14.14.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +54,6 @@
 		B4254A331535D86E00E7D173 = {
 			isa = PBXGroup;
 			children = (
-				B499D36F1536245D0033CDFA /* libpng14.14.dylib */,
 				B4254A411535D86F00E7D173 /* RecForme */,
 				B4254A3F1535D86F00E7D173 /* Products */,
 			);
@@ -84,6 +81,7 @@
 		B4254A4B1535E14300E7D173 /* headers */ = {
 			isa = PBXGroup;
 			children = (
+				B4FE1F961536CDD0001B7000 /* CImg.h */,
 				B4254A521535EF6600E7D173 /* NeuroneInput.h */,
 				B4254A4F1535ECF500E7D173 /* NeuroneCarte.h */,
 				B4254A551535EF8200E7D173 /* Carte.h */,
@@ -219,7 +217,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/local/lib,
+					/usr/X11/lib,
 				);
+				OTHER_LDFLAGS = "-lX11";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -230,7 +230,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/local/lib,
+					/usr/X11/lib,
 				);
+				OTHER_LDFLAGS = "-lX11";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -54,7 +54,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/opt/local/lib /opt/local/lib/libpng.dylib
+LDLIBSOPTIONS=-L/opt/local/lib -L/usr/X11R6/lib /opt/local/lib/libpng.dylib -lX11
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}

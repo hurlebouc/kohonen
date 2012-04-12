@@ -54,7 +54,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/opt/local/lib /opt/local/lib/libpng.dylib
+LDLIBSOPTIONS=-L/opt/local/lib -L/usr/X11R6/lib /opt/local/lib/libpng.dylib -lX11
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -66,22 +66,22 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/RecForme/Carte.o: RecForme/Carte.cpp 
+${OBJECTDIR}/RecForme/Carte.o: nbproject/Makefile-${CND_CONF}.mk RecForme/Carte.cpp 
 	${MKDIR} -p ${OBJECTDIR}/RecForme
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/Carte.o RecForme/Carte.cpp
 
-${OBJECTDIR}/RecForme/NeuroneInput.o: RecForme/NeuroneInput.cpp 
+${OBJECTDIR}/RecForme/NeuroneInput.o: nbproject/Makefile-${CND_CONF}.mk RecForme/NeuroneInput.cpp 
 	${MKDIR} -p ${OBJECTDIR}/RecForme
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/NeuroneInput.o RecForme/NeuroneInput.cpp
 
-${OBJECTDIR}/RecForme/NeuroneCarte.o: RecForme/NeuroneCarte.cpp 
+${OBJECTDIR}/RecForme/NeuroneCarte.o: nbproject/Makefile-${CND_CONF}.mk RecForme/NeuroneCarte.cpp 
 	${MKDIR} -p ${OBJECTDIR}/RecForme
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/NeuroneCarte.o RecForme/NeuroneCarte.cpp
 
-${OBJECTDIR}/RecForme/main.o: RecForme/main.cpp 
+${OBJECTDIR}/RecForme/main.o: nbproject/Makefile-${CND_CONF}.mk RecForme/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/RecForme
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/main.o RecForme/main.cpp

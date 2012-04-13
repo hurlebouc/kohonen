@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>RecForme/Carte.h</itemPath>
+      <itemPath>/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen-code/RecForme/Image.h</itemPath>
       <itemPath>RecForme/NeuroneCarte.h</itemPath>
       <itemPath>RecForme/NeuroneInput.h</itemPath>
     </logicalFolder>
@@ -16,6 +17,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>RecForme/Carte.cpp</itemPath>
+      <itemPath>RecForme/Image.cpp</itemPath>
       <itemPath>RecForme/NeuroneCarte.cpp</itemPath>
       <itemPath>RecForme/NeuroneInput.cpp</itemPath>
       <itemPath>RecForme/main.cpp</itemPath>
@@ -53,11 +55,10 @@
         <linkerTool>
           <linkerAddLib>
             <pElem>/opt/local/lib</pElem>
-            <pElem>/usr/X11R6/lib</pElem>
+            <pElem>/usr/X11</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibFileItem>/opt/local/lib/libpng.dylib</linkerLibFileItem>
-            <linkerLibLibItem>X11</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -86,11 +87,10 @@
         <linkerTool>
           <linkerAddLib>
             <pElem>/opt/local/lib</pElem>
-            <pElem>/usr/X11R6/lib</pElem>
+            <pElem>/usr/X11</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibFileItem>/opt/local/lib/libpng.dylib</linkerLibFileItem>
-            <linkerLibLibItem>X11</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

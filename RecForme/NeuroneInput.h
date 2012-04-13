@@ -10,17 +10,14 @@
 #ifndef RecForme_NeuroneInput_h
 #define RecForme_NeuroneInput_h
 
-
-
 class NeuroneInput {
     
 private:
-    int valeur;
+    double valeur;
     
 public:
-    
-    
-    
+    NeuroneInput(double valeur);
+    double getValeur();
 };
 
 

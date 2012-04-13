@@ -9,19 +9,23 @@
 #ifndef RecForme_Carte_h
 #define RecForme_Carte_h
 #include "NeuroneCarte.h"
-#include "NeuroneInput.h"
+#include "InputLayer.h"
 
 class Carte {
     
 private:
     
-    NeuroneCarte** carte;
-    NeuroneInput** input;
+    /*
+     * On utilisera des listes et non des tableaux pour rendre la classe plus
+     * portable
+     */
     
-    int x;
-    int y;
+    NeuroneCarte** carte;
+    InputLayer* input;
     
 public:
+    
+    Carte(InputLayer* input, int mapsize);
     
 };
 

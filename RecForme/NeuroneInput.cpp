@@ -9,4 +9,10 @@
 #include <iostream>
 #include "NeuroneInput.h"
 
+NeuroneInput::NeuroneInput(double valeur){
+    this->valeur = valeur;
+}
 
+double NeuroneInput::getValeur(){
+    return valeur;
+}

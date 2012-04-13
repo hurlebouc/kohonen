@@ -9,17 +9,23 @@
 #ifndef RecForme_NeuroneKohonen_h
 #define RecForme_NeuroneKohonen_h
 
+#include "InputLayer.h"
+
 class NeuroneCarte {
     
 private:
     
-    int dim;
+    long dim;
     double* poids;
-    int x,y;
-    int normeComp;
+    bool apprentit;
+    InputLayer* input;
+    
+    void maj_poid(int index);
     
 public:
-    //    <#member functions#>
+    NeuroneCarte(InputLayer* input);
+    double fct_transfert();
+    
 };
 
 

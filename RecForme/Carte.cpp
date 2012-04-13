@@ -8,3 +8,9 @@
 
 #include <iostream>
 #include "Carte.h"
+
+Carte::Carte(InputLayer* input, int mapsize){
+    carte = (NeuroneCarte**) malloc(sizeof(NeuroneCarte*)*mapsize);
+    this->input = input;
+}
+

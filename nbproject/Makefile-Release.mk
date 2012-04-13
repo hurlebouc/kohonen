@@ -34,6 +34,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/RecForme/Image.o \
 	${OBJECTDIR}/RecForme/Carte.o \
 	${OBJECTDIR}/RecForme/NeuroneInput.o \
 	${OBJECTDIR}/RecForme/NeuroneCarte.o \
@@ -54,7 +55,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/opt/local/lib -L/usr/X11R6/lib /opt/local/lib/libpng.dylib -lX11
+LDLIBSOPTIONS=-L/opt/local/lib -L/usr/X11 /opt/local/lib/libpng.dylib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -65,6 +66,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code: /opt/local/lib/libpng.d
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/RecForme/Image.o: RecForme/Image.cpp 
+	${MKDIR} -p ${OBJECTDIR}/RecForme
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/Image.o RecForme/Image.cpp
 
 ${OBJECTDIR}/RecForme/Carte.o: RecForme/Carte.cpp 
 	${MKDIR} -p ${OBJECTDIR}/RecForme

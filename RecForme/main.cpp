@@ -16,9 +16,6 @@ using namespace std;
 int main(int argc, const char * argv[])
 {
     
-    string c = "ckjkjhkjhkaca";
-    cout<<c<<"\n";
-    
     Image* lena = new Image("/Users/hubert/Desktop/Lenna.png");
     cout<<"width : "<<lena->getWidth()<<" height : "<<lena->getHeight()<<"\n";
     

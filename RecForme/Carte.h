@@ -22,11 +22,44 @@ private:
     
     NeuroneCarte** carte;
     InputLayer* input;
+    int mapsize;
+    int iteration;
     
+    
+    
+    /**
+     * Donne le neurone de la carte le plus proche de la couche d'entrée
+     * @return 
+     */
+    int getPPN();
+    
+    /**
+     * Modifie les poids du neurone d'index n ainsi que ceux de ces voisins.
+     * @param index
+     */
+    void maj_neurone(int index);
+    
+protected:
+    
+    /**
+     * Cette méthode permet de trouver le facteur d'atténuation (qui sert à 
+     * répercuter la modification des poids d'un neurone central sur ses 
+     * voisins) entre deux points de la carte.
+     * Cette méthode est virtuelle pure car elle dépend de la configuration des 
+     * neurones de la carte.
+     * @param i1
+     * @param i2
+     * @return 
+     */
+    virtual double facteurAttenuation(int i1, int i2) = 0;    
 public:
     
-    Carte(InputLayer* input, int mapsize);
+    static const int ITERATION_MAX = 100;
     
+    Carte(InputLayer* input, int mapsize);
+    NeuroneCarte* getNeurone(int i);
+    
+    void reconnaitre();
 };
 
 #endif

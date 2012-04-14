@@ -38,7 +38,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/RecForme/Carte.o \
 	${OBJECTDIR}/RecForme/NeuroneInput.o \
 	${OBJECTDIR}/RecForme/NeuroneCarte.o \
-	${OBJECTDIR}/RecForme/main.o
+	${OBJECTDIR}/RecForme/main.o \
+	${OBJECTDIR}/RecForme/InputLayerPNG.o \
+	${OBJECTDIR}/RecForme/InputLayer.o
 
 
 # C Compiler Flags
@@ -91,6 +93,16 @@ ${OBJECTDIR}/RecForme/main.o: RecForme/main.cpp
 	${MKDIR} -p ${OBJECTDIR}/RecForme
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/main.o RecForme/main.cpp
+
+${OBJECTDIR}/RecForme/InputLayerPNG.o: RecForme/InputLayerPNG.cpp 
+	${MKDIR} -p ${OBJECTDIR}/RecForme
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/InputLayerPNG.o RecForme/InputLayerPNG.cpp
+
+${OBJECTDIR}/RecForme/InputLayer.o: RecForme/InputLayer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/RecForme
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/InputLayer.o RecForme/InputLayer.cpp
 
 # Subprojects
 .build-subprojects:

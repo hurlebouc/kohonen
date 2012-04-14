@@ -9,8 +9,49 @@
 #include <iostream>
 #include "Carte.h"
 
-Carte::Carte(InputLayer* input, int mapsize){
-    carte = (NeuroneCarte**) malloc(sizeof(NeuroneCarte*)*mapsize);
+Carte::Carte(InputLayer* input, int mapsize) {
+    carte = (NeuroneCarte**) malloc(sizeof (NeuroneCarte*) * mapsize);
     this->input = input;
+    this->mapsize = mapsize;
+    this->iteration = 0;
+    for (int i = 0; i < mapsize; i++) {
+        carte[i] = new NeuroneCarte(input);
+    }
+
 }
 
+NeuroneCarte* Carte::getNeurone(int i) {
+    return this->carte[i];
+}
+
+void Carte::maj_neurone(int index) {
+    for (int i = 0; i < mapsize; i++) {
+        double attenuation = facteurAttenuation(index, i);
+        NeuroneCarte* n = getNeurone(i);
+        n->maj_poid(attenuation);
+    }
+}
+
+int Carte::getPPN() {
+    int res = 0;
+    int ecart = getNeurone(0)->fct_transfert();
+    for (int i = 1; i < mapsize; i++) {
+        NeuroneCarte* n = getNeurone(i);
+        double d = n->fct_transfert();
+        if (d < ecart) {
+            ecart = d;
+            res = i;
+        }
+    }
+
+    return res;
+}
+
+void Carte::reconnaitre() {
+
+    int n = getPPN();
+    if (iteration < ITERATION_MAX) {
+        maj_neurone(n);
+    }
+    iteration++;
+}

@@ -6,18 +6,18 @@
                    projectFiles="true">
       <itemPath>RecForme/Carte.h</itemPath>
       <itemPath>/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen-code/RecForme/Image.h</itemPath>
+      <itemPath>RecForme/InputLayer.h</itemPath>
+      <itemPath>RecForme/InputLayerPNG.h</itemPath>
       <itemPath>RecForme/NeuroneCarte.h</itemPath>
       <itemPath>RecForme/NeuroneInput.h</itemPath>
-    </logicalFolder>
-    <logicalFolder name="ResourceFiles"
-                   displayName="Resource Files"
-                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>RecForme/Carte.cpp</itemPath>
       <itemPath>RecForme/Image.cpp</itemPath>
+      <itemPath>RecForme/InputLayer.cpp</itemPath>
+      <itemPath>RecForme/InputLayerPNG.cpp</itemPath>
       <itemPath>RecForme/NeuroneCarte.cpp</itemPath>
       <itemPath>RecForme/NeuroneInput.cpp</itemPath>
       <itemPath>RecForme/main.cpp</itemPath>

@@ -15,16 +15,20 @@ class NeuroneCarte {
     
 private:
     
-    long dim;
+    long nbrPoids;
     double* poids;
     bool apprentit;
     InputLayer* input;
+    double tempsApprentissage;
     
-    void maj_poid(int index);
+    void maj_poid_composante(int index, double distance);
     
 public:
+    static const double CONST_APPRENTISSAGE = 100;
+    
     NeuroneCarte(InputLayer* input);
     double fct_transfert();
+    void maj_poid(double attenuation);
     
 };
 

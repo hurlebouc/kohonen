@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "Carte.h"
+using namespace std;
 
 Carte::Carte(InputLayer* input, int mapsize) {
     carte = (NeuroneCarte**) malloc(sizeof (NeuroneCarte*) * mapsize);
@@ -50,8 +51,13 @@ int Carte::getPPN() {
 void Carte::reconnaitre() {
 
     int n = getPPN();
+    cout<<n<<"\n";
     if (iteration < ITERATION_MAX) {
         maj_neurone(n);
     }
     iteration++;
+}
+
+InputLayer* Carte::getInputLayer(){
+    return input;
 }

@@ -101,6 +101,51 @@ uint8_t Pixel::getGray(){
     }
 }
 
+uint8_t Pixel::getComposante(int i){
+    if (i>= nbrComposantes) {
+        cout<<"Pixel : ce pixel n'a que "<<nbrComposantes<<" composantes (donné "<<i<<")\n";
+        exit(EXIT_FAILURE);
+    }
+    return composantes[i];
+}
+
+GLenum Pixel::getFormat(){
+    return format;
+}
+
+void Pixel::setFormat(int nbrComposantes){
+    this->nbrComposantes = nbrComposantes;
+    switch (nbrComposantes) {
+        case 1:
+            format = GL_LUMINANCE;
+            break;
+        case 2:
+            format = GL_LUMINANCE_ALPHA;
+            break;
+        case 3:
+            format = GL_RGB;
+            break;
+        case 4:
+            format = GL_RGBA;
+            break;
+        default:
+            break;
+    }
+    free(composantes);
+    composantes = (uint8_t*) malloc(sizeof(uint8_t)*nbrComposantes);
+    for (int i = 0; i<nbrComposantes; i++) {
+        composantes[i] = 0;
+    }
+}
+
+void Pixel::setComposante(int indexComposante, uint8_t byte){
+    if (indexComposante>=nbrComposantes) {
+        cout<<"Pixel : out of composante : "<<indexComposante<<"(taille "<<nbrComposantes<<")\n";
+        exit(EXIT_FAILURE);
+    }
+    composantes[indexComposante] = byte;
+}
+
 /* ===================================================================== */
 
 Image::Image(string path){
@@ -313,13 +358,13 @@ Image::~Image(){
 
 Pixel* Image::getPix(int x, int y){
     if (x>=width) {
-        cout<<"depassement de la largeur de l'image : "<<x
-        <<" (max : "<<width-1<<")\n";
+        cout<<"Image : depassement de la largeur de l'image : "<<x
+        <<" (taille : "<<width<<")\n";
         exit(EXIT_FAILURE);
     }
     if (y>=height) {
-        cout<<"depassement de la hauteur de l'image : "<<y
-        <<" (max : "<<height-1<<")\n";
+        cout<<"Image : depassement de la hauteur de l'image : "<<y
+        <<" (taille : "<<height<<")\n";
         exit(EXIT_FAILURE);
     }
     GLubyte r;
@@ -360,12 +405,61 @@ Pixel* Image::getPix(int x, int y){
     }
 }
 
+void Image::setPix(int x, int y, Pixel *pix){
+    if (x>=width) {
+        cout<<"Image : depassement de la largeur de l'image : "<<x
+        <<" (taille : "<<width<<")\n";
+        exit(EXIT_FAILURE);
+    }
+    if (y>=height) {
+        cout<<"Image : depassement de la hauteur de l'image : "<<y
+        <<" (taille : "<<height<<")\n";
+        exit(EXIT_FAILURE);
+    }
+    if (pix->getFormat() != this->format) {
+        cout<<"Image : format de pixel incompatible avec le format de l'image\n";
+        exit(EXIT_FAILURE);
+    }
+    switch (format) {
+        case GL_RGB:
+            texels[y*width*nbrComposantes + x*nbrComposantes]=pix->getRed();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix->getGreen();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 2]=pix->getBlue();
+            break;
+            
+        case GL_RGBA:
+            texels[y*width*nbrComposantes + x*nbrComposantes]=pix->getRed();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix->getGreen();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 2]=pix->getBlue();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 3]=pix->getAlpha();
+            break;
+            
+        case GL_LUMINANCE:
+            texels[y*width*nbrComposantes + x*nbrComposantes]=pix->getGray();
+            break;
+            
+        case GL_LUMINANCE_ALPHA:
+            texels[y*width*nbrComposantes + x*nbrComposantes]=pix->getGray();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix->getAlpha();
+            break;
+            
+        default:
+            cout<<"format d'image inconnu\n";
+            exit(EXIT_FAILURE);
+            break;
+    }
+}
+
 int Image::getWidth(){
     return width;
 }
 
 int Image::getHeight(){
     return height;
+}
+
+int Image::getNbrComposantes(){
+    return nbrComposantes;
 }
 
 void Image::save(){

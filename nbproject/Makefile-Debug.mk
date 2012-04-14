@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/RecForme/NeuroneInput.o \
 	${OBJECTDIR}/RecForme/NeuroneCarte.o \
 	${OBJECTDIR}/RecForme/main.o \
+	${OBJECTDIR}/RecForme/CartePNG.o \
 	${OBJECTDIR}/RecForme/InputLayerPNG.o \
 	${OBJECTDIR}/RecForme/InputLayer.o
 
@@ -93,6 +94,11 @@ ${OBJECTDIR}/RecForme/main.o: nbproject/Makefile-${CND_CONF}.mk RecForme/main.cp
 	${MKDIR} -p ${OBJECTDIR}/RecForme
 	${RM} $@.d
 	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/main.o RecForme/main.cpp
+
+${OBJECTDIR}/RecForme/CartePNG.o: nbproject/Makefile-${CND_CONF}.mk RecForme/CartePNG.cpp 
+	${MKDIR} -p ${OBJECTDIR}/RecForme
+	${RM} $@.d
+	$(COMPILE.cc) -g -I/opt/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/RecForme/CartePNG.o RecForme/CartePNG.cpp
 
 ${OBJECTDIR}/RecForme/InputLayerPNG.o: nbproject/Makefile-${CND_CONF}.mk RecForme/InputLayerPNG.cpp 
 	${MKDIR} -p ${OBJECTDIR}/RecForme

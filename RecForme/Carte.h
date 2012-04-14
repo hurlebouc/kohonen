@@ -51,9 +51,10 @@ protected:
      * @param i2
      * @return 
      */
-    virtual double facteurAttenuation(int i1, int i2) = 0;    
-public:
+    virtual double facteurAttenuation(int i1, int i2) = 0;
+    InputLayer* getInputLayer();
     
+public:
     static const int ITERATION_MAX = 100;
     
     Carte(InputLayer* input, int mapsize);

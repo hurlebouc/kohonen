@@ -17,10 +17,19 @@ private:
     long size;
     NeuroneInput** input;
     
+protected:
+    void setNeurone(uint64_t index, NeuroneInput* n);
+    /**
+     * Modifie la valeur de la première composante du neurone.
+     */
+    void setNeurone(uint64_t index, double value);
+    void setNeurone(uint64_t index, int indexComposante, double value);
+    
 public:
-    InputLayer(uint64_t size);
+    InputLayer(uint64_t size, int nbrComposantes);
     NeuroneInput* getNeurone(uint64_t index);
     long getSize();
+    int getNbrComposantes();
 };
 
 #endif

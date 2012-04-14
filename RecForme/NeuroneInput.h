@@ -13,11 +13,23 @@
 class NeuroneInput {
     
 private:
-    double valeur;
+    int nbrComposantes;
+    int* composantes;
     
 public:
-    NeuroneInput(double valeur);
-    double getValeur();
+    NeuroneInput(int nbrComposantes);
+    /**
+     * Donne la valeur de la première composante
+     */
+    //double getValeur();
+    double getValeur(int indexComposante);
+    
+    /**
+     * Modifie la valeur de la première composante
+     */
+    void setValeur(double v);
+    void setValeur(int index, double v);
+    int getNbrComposantes();
 };
 
 

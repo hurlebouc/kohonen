@@ -27,11 +27,15 @@ public:
     Pixel(uint8_t g, uint8_t a);
     ~Pixel();
     
+    GLenum getFormat();
     uint8_t getRed();
     uint8_t getGreen();
     uint8_t getBlue();
     uint8_t getAlpha();
     uint8_t getGray();
+    uint8_t getComposante(int i);
+    void setFormat(int nbrComposantes);
+    void setComposante(int indexComposante, uint8_t byte);
 };
 
 /* ===================================================================== */
@@ -54,8 +58,10 @@ public:
     ~Image();
     
     Pixel* getPix(int x, int y);
+    void setPix(int x, int y, Pixel* pix);
     int getWidth();
     int getHeight();
+    int getNbrComposantes();
     void save();
     void write(std::string path);
 };

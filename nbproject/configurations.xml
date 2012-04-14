@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>RecForme/Carte.h</itemPath>
+      <itemPath>RecForme/CartePNG.h</itemPath>
       <itemPath>/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen-code/RecForme/Image.h</itemPath>
       <itemPath>RecForme/InputLayer.h</itemPath>
       <itemPath>RecForme/InputLayerPNG.h</itemPath>
@@ -15,6 +16,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>RecForme/Carte.cpp</itemPath>
+      <itemPath>RecForme/CartePNG.cpp</itemPath>
       <itemPath>RecForme/Image.cpp</itemPath>
       <itemPath>RecForme/InputLayer.cpp</itemPath>
       <itemPath>RecForme/InputLayerPNG.cpp</itemPath>

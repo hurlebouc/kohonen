@@ -16,11 +16,15 @@ class InputLayerPNG : public InputLayer {
     
 private:
     int width, height;
+
+protected:
     
 public:
-    InputLayerPNG(int width, int height);
+    InputLayerPNG(int width, int height, int nbrComposantes);
     InputLayerPNG(Image* png);
-    NeuroneInput* getNeurone(int x, int y);    
+    NeuroneInput* getNeurone(int x, int y);
+    int getWidth();
+    int getHeight();
 };
 
 #endif

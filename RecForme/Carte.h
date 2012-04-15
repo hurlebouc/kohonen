@@ -55,9 +55,9 @@ protected:
     InputLayer* getInputLayer();
     
 public:
-    static const int ITERATION_MAX = 100;
+    int ITERATION_MAX = INT32_MAX;
     
-    Carte(InputLayer* input, int mapsize);
+    Carte(InputLayer* input, int mapsize, AleaBox* alea);
     NeuroneCarte* getNeurone(int i);
     
     void reconnaitre();

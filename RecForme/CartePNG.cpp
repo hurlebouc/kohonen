@@ -9,8 +9,14 @@
 #include "CartePNG.h"
 #include "InputLayerPNG.h"
 
+int AleaBoxPNG::aleatoire(){
+    return rand()%255;
+}
+
+/* ======================================================================= */
+
 CartePNG::CartePNG(InputLayer* input, int width, int height)
-: Carte(input, width*height){
+: Carte(input, width*height, new AleaBoxPNG()){
     this->width = width;
     this->heigth = height;
 }
@@ -21,7 +27,8 @@ double CartePNG::facteurAttenuation(int i1, int i2){
     int y1 = i1 / width;
     int y2 = i2 / width;
     double distance = sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
-    double res = exp(-distance/(double) ((width + heigth)/2.0));
+//    double res = exp(-distance/(double) ((width + heigth)/10.0));
+    double res = exp(-distance/(double) 1);    
     return res;
 }
 
@@ -30,7 +37,7 @@ Image* CartePNG::getImage(){
     int nbrComposantes = input->getNbrComposantes();
     int ewidth = width*input->getWidth();
     int eheight = heigth*input->getHeight();
-    Image* res = new Image(ewidth, eheight, "/Users/hubert/Desktop/res.png");
+    Image* res = new Image(ewidth, eheight, nbrComposantes);
     for (int X = 0; X<width; X++) {
         for (int Y = 0; Y<heigth; Y++) {
             NeuroneCarte* n = getNeurone(Y*width + X);

@@ -4,16 +4,29 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "RecForme/main.cpp"
+         timestampString = "356183819.152864"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "main(int argc, const char * argv[])"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "RecForme/NeuroneCarte.cpp"
-         timestampString = "356117328.317156"
+         filePath = "RecForme/Image.cpp"
+         timestampString = "356184542.777548"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "51"
-         endingLineNumber = "51"
-         landmarkName = "NeuroneCarte::maj_poid_composante(int index, double attenuation)"
+         startingLineNumber = "457"
+         endingLineNumber = "457"
+         landmarkName = "Image::setPix(int x, int y, Pixel *pix)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

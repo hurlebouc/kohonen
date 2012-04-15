@@ -11,6 +11,14 @@
 #include "Carte.h"
 #include "Image.h"
 
+class AleaBoxPNG : public AleaBox {
+    
+public:
+    int aleatoire();
+};
+
+/* ======================================================================= */
+
 class CartePNG : public Carte{
 private:
     int width, heigth;

@@ -11,6 +11,12 @@
 
 #include "InputLayer.h"
 
+class AleaBox {
+    
+public:
+    virtual int aleatoire() = 0;
+};
+
 class NeuroneCarte {
     
 private:
@@ -27,7 +33,7 @@ public:
     static const int AMMORTISSEMENT = 0;
     static const double CONST_APPRENTISSAGE = 100;
     
-    NeuroneCarte(InputLayer* input);
+    NeuroneCarte(InputLayer* input, AleaBox* alea);
     double fct_transfert();
     void maj_poid(double attenuation);
     double getPoid(long indexPoid, int indexComposante);

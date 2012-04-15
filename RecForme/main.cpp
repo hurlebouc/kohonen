@@ -18,28 +18,34 @@ using namespace std;
 int main(int argc, const char * argv[])
 {
     
-    Image* lena = new Image("/Users/hubert/Desktop/Lenna.png");
-    cout<<"width : "<<lena->getWidth()<<" height : "<<lena->getHeight()<<"\n";
+//    Image* lena = new Image("/Users/hubert/Desktop/Lenna.png");
+//    lena->simplifier();
+//    lena->write("/Users/hubert/Desktop/Lenna2.png");
+//    delete lena;
     
-    Pixel* pix = lena->getPix(lena->getWidth()-1, lena->getHeight()-1);
-    cout<<"rouge : "<<(int) pix->getRed()
-        <<" vert : "<<(int) pix->getGreen()
-        <<" bleu : "<<(int) pix->getBlue()
-        <<"\n";
+    Image* chiffre = new Image("/Volumes/Chiffres_redimensionnes/mnist_test_/2_1.png");
+    chiffre->simplifier();
+    cout<<chiffre->getNbrComposantes()<<"\n";
+    InputLayerPNG* input = new InputLayerPNG(chiffre);
+    CartePNG* carte = new CartePNG(input, 10, 10);
     
-    lena->write("/Users/hubert/Desktop/Lenna2.png");
-    delete pix;
-    
-    InputLayerPNG* input = new InputLayerPNG(lena);
-    CartePNG* carte = new CartePNG(input, 2, 2);
-    
-    for (int i = 0; i<18; i++) {
+    char* snum = (char*) malloc(sizeof(char)*10);
+    for (int i = 0; i<1000; i++) {
+        string s = "/Volumes/Chiffres_redimensionnes/mnist_test_/";
+        int num = rand()%10;
+        int n = 1 + (rand()%800);
+        sprintf(snum, "%d_%d.png", num, n);
+        s.append(snum);
+        cout<<s<<"\n";
         carte->reconnaitre();
+        chiffre->initImage(s);
+        chiffre->simplifier();
+        input->initInputLayerPNG(chiffre);
     }
+    carte->reconnaitre();
+    carte->getImage()->write("/Users/hubert/Desktop/res.png");
     
-    carte->getImage()->save();
-    
-    delete lena;
+    delete chiffre;
     
     
     return 0;

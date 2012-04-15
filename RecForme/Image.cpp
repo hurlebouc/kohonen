@@ -148,7 +148,7 @@ void Pixel::setComposante(int indexComposante, uint8_t byte){
 
 /* ===================================================================== */
 
-Image::Image(string path){
+void Image::initImage(string path){
     this->chemin = path;
     const char* filename = chemin.c_str();
     
@@ -315,7 +315,7 @@ Image::Image(string path){
     for (int i = 0; i < this->height; ++i)
     {
         row_pointers[i] = (png_bytep)(this->texels+((this->height - (i+1))*this->width*this->nbrComposantes));
-//        row_pointers[i] = (png_bytep)(this->texels + i*this->width*this->nbrComposantes);
+        //        row_pointers[i] = (png_bytep)(this->texels + i*this->width*this->nbrComposantes);
     }
     
     /* read pixel data using row pointers */
@@ -332,22 +332,58 @@ Image::Image(string path){
     fclose (fp);
 }
 
-Image::Image(int width, int height){
+Image::Image(string path){
+    initImage(path);
+}
+
+Image::Image(int width, int height, int nbrComposantes){
     this->chemin.clear();
     this->width = width;
     this->height = height;
-    this->format = GL_RGB;
-    this->nbrComposantes = 3;
+    this->nbrComposantes = nbrComposantes;
+    switch (nbrComposantes) {
+        case 1:
+            this->format = GL_LUMINANCE;
+            break;
+        case 2:
+            this->format = GL_LUMINANCE_ALPHA;
+            break;
+        case 3:
+            this->format = GL_RGB;
+            break;
+        case 4:
+            this->format = GL_RGBA;
+            break;
+            
+        default:
+            break;
+    }
     this->texels = (GLubyte *) malloc (sizeof (GLubyte) * this->width
                                        * this->height * this->nbrComposantes);
 }
 
-Image::Image(int width, int height, string path){
+Image::Image(int width, int height, int nbrComposantes,string path){
     this->chemin = path;
     this->width = width;
     this->height = height;
-    this->format = GL_RGB;
-    this->nbrComposantes = 3;
+    this->nbrComposantes = nbrComposantes;
+    switch (nbrComposantes) {
+        case 1:
+            this->format = GL_LUMINANCE;
+            break;
+        case 2:
+            this->format = GL_LUMINANCE_ALPHA;
+            break;
+        case 3:
+            this->format = GL_RGB;
+            break;
+        case 4:
+            this->format = GL_RGBA;
+            break;
+            
+        default:
+            break;
+    }
     this->texels = (GLubyte *) malloc (sizeof (GLubyte) * this->width
                                        * this->height * this->nbrComposantes);
 }
@@ -570,4 +606,20 @@ void Image::write(string path){
     chemin = path;
     save();
     chemin = tampon;
+}
+
+void Image::simplifier(){
+    format = GL_LUMINANCE;
+    
+    GLubyte* newtexels = (GLubyte*) malloc(sizeof(GLubyte)*width*height);
+    for (int i = 0; i<height*width; i++) {
+        int tot = 0;
+        for (int j = 0; j<nbrComposantes; j++) {
+            tot+=texels[i*nbrComposantes + j];
+        }
+        newtexels[i] = tot/nbrComposantes;
+    }
+    free(texels);
+    texels = newtexels;
+    nbrComposantes = 1;
 }

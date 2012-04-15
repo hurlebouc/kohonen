@@ -53,10 +53,11 @@ private:
 public:
     
     Image(std::string path);
-    Image(int width, int height);
-    Image(int width, int height, std::string path);
+    Image(int width, int height, int nbrComposantes);
+    Image(int width, int height,  int nbrComposantes, std::string path);
     ~Image();
     
+    void initImage(std::string path);
     Pixel* getPix(int x, int y);
     void setPix(int x, int y, Pixel* pix);
     int getWidth();
@@ -64,6 +65,7 @@ public:
     int getNbrComposantes();
     void save();
     void write(std::string path);
+    void simplifier();
 };
 
 #endif

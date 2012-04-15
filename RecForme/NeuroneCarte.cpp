@@ -10,13 +10,13 @@
 #include <cmath>
 #include "NeuroneCarte.h"
 
-NeuroneCarte::NeuroneCarte(InputLayer* input) {
+NeuroneCarte::NeuroneCarte(InputLayer* input, AleaBox* alea) {
     int nbrComposantes = input->getNbrComposantes();
     this->input = input;
     nbrPoids = input->getSize();
     poids = (double*) malloc(sizeof (double) * nbrPoids * nbrComposantes);
     for (long i = 0; i < nbrPoids*nbrComposantes; i++) {
-        poids[i] = rand();
+        poids[i] = alea->aleatoire();
     }
     apprentit = true;
     tempsApprentissage = 0;

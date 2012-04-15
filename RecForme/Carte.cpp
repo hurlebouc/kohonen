@@ -10,13 +10,13 @@
 #include "Carte.h"
 using namespace std;
 
-Carte::Carte(InputLayer* input, int mapsize) {
+Carte::Carte(InputLayer* input, int mapsize, AleaBox* alea) {
     carte = (NeuroneCarte**) malloc(sizeof (NeuroneCarte*) * mapsize);
     this->input = input;
     this->mapsize = mapsize;
     this->iteration = 0;
     for (int i = 0; i < mapsize; i++) {
-        carte[i] = new NeuroneCarte(input);
+        carte[i] = new NeuroneCarte(input, alea);
     }
 
 }

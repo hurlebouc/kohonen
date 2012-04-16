@@ -18,7 +18,6 @@ NeuroneCarte::NeuroneCarte(InputLayer* input, AleaBox* alea) {
     for (long i = 0; i < nbrPoids*nbrComposantes; i++) {
         poids[i] = alea->aleatoire();
     }
-    apprentit = true;
     tempsApprentissage = 0;
 }
 
@@ -27,7 +26,7 @@ double NeuroneCarte::fct_transfert() {
     double res = 0;
     for (long i = 0; i < nbrPoids; i++) {
         for (int j = 0; j<nbrComposantes; j++) {
-            double val = input->getNeurone(i)->getValeur(j);
+            double val = input->getNeurone(i)->getComposante(j);
             res += (poids[i*nbrComposantes + j] - val)*(poids[i*nbrComposantes + j] - val);
         }
     }
@@ -36,18 +35,15 @@ double NeuroneCarte::fct_transfert() {
 
 void NeuroneCarte::maj_poid(double attenuation){
     for (int i = 0; i < nbrPoids; i++) {
-        this->maj_poid_composante(i, attenuation);
+        this->maj_poid_numero(i, attenuation);
     }
 
 }
 
-void NeuroneCarte::maj_poid_composante(int index, double attenuation) {
-    if (!apprentit) {
-        return;
-    }
+void NeuroneCarte::maj_poid_numero(int index, double attenuation) {
     int nbrComposantes = getNbrComposantes();
     for (int i = 0; i<nbrComposantes; i++) {
-        double ecart = input->getNeurone(index)->getValeur(i) - poids[index*nbrComposantes + i];
+        double ecart = input->getNeurone(index)->getComposante(i) - poids[index*nbrComposantes + i];
         poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*tempsApprentissage/CONST_APPRENTISSAGE)*attenuation;
     }
     tempsApprentissage += attenuation;

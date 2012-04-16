@@ -23,16 +23,20 @@ private:
     
     long nbrPoids;
     double* poids;
-    bool apprentit;
     InputLayer* input;
     double tempsApprentissage;
     
-    void maj_poid_composante(int index, double distance);
+    void maj_poid_numero(int index, double distance);
     
 public:
     static const int AMMORTISSEMENT = 0;
     static const double CONST_APPRENTISSAGE = 100;
     
+    /**
+     * Contructeur permettant de choisir la classe d'entrée et la méthode d'initialisation aléatoire des neurones de la carte
+     * @param input
+     * @param alea
+     */
     NeuroneCarte(InputLayer* input, AleaBox* alea);
     double fct_transfert();
     void maj_poid(double attenuation);

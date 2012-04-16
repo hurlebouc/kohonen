@@ -27,7 +27,7 @@ protected:
     double facteurAttenuation(int i1, int i2);
     
 public:
-    CartePNG(InputLayer* input, int width, int height);
+    CartePNG(InputLayer* input, int width, int height, int nbrApprentissage);
     Image* getImage();
     
 };

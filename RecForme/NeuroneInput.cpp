@@ -21,7 +21,7 @@ NeuroneInput::NeuroneInput(int nbrComposantes){
 //    return composantes[0];
 //}
 
-double NeuroneInput::getValeur(int index){
+double NeuroneInput::getComposante(int index){
     if (index>= nbrComposantes) {
         std::cout<<"NeuroneInput : out of boundaries : "<<index<<" ("<<nbrComposantes<<")";
         exit(EXIT_FAILURE);

@@ -17,7 +17,7 @@ private:
     
     /*
      * On utilisera des listes et non des tableaux pour rendre la classe plus
-     * portable
+     * universelle
      */
     
     NeuroneCarte** carte;
@@ -55,9 +55,9 @@ protected:
     InputLayer* getInputLayer();
     
 public:
-    int ITERATION_MAX = INT32_MAX;
+    int ITERATION_MAX;
     
-    Carte(InputLayer* input, int mapsize, AleaBox* alea);
+    Carte(InputLayer* input, int mapsize, AleaBox* alea, int nbrApprentissage);
     NeuroneCarte* getNeurone(int i);
     
     void reconnaitre();

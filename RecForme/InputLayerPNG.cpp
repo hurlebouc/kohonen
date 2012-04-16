@@ -53,7 +53,9 @@ void InputLayerPNG::initInputLayerPNG(Image *png){
     for (int y = 0; y<height; y++) {
         for (int x = 0; x<width; x++) {
             for (int i = 0; i<png->getNbrComposantes(); i++) {
-                setNeurone(y*width+x, i, png->getPix(x, y)->getComposante(i));
+                Pixel* pix = png->getPix(x, y);
+                setNeurone(y*width+x, i, pix->getComposante(i));
+                delete pix;
             }
         }
     }

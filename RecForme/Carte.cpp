@@ -10,7 +10,7 @@
 #include "Carte.h"
 using namespace std;
 
-Carte::Carte(InputLayer* input, int mapsize, AleaBox* alea) {
+Carte::Carte(InputLayer* input, int mapsize, AleaBox* alea, int n) {
     carte = (NeuroneCarte**) malloc(sizeof (NeuroneCarte*) * mapsize);
     this->input = input;
     this->mapsize = mapsize;
@@ -18,6 +18,7 @@ Carte::Carte(InputLayer* input, int mapsize, AleaBox* alea) {
     for (int i = 0; i < mapsize; i++) {
         carte[i] = new NeuroneCarte(input, alea);
     }
+    ITERATION_MAX = n;
 
 }
 
@@ -51,7 +52,7 @@ int Carte::getPPN() {
 void Carte::reconnaitre() {
 
     int n = getPPN();
-    cout<<n<<"\n";
+    //cout<<n<<"\n";
     if (iteration < ITERATION_MAX) {
         maj_neurone(n);
     }

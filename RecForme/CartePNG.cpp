@@ -5,6 +5,7 @@
  * Created on 14 avril 2012, 14:40
  */
 #include <iostream>
+#include "ctime"
 #include "cmath"
 #include "CartePNG.h"
 #include "InputLayerPNG.h"
@@ -15,8 +16,8 @@ int AleaBoxPNG::aleatoire(){
 
 /* ======================================================================= */
 
-CartePNG::CartePNG(InputLayer* input, int width, int height)
-: Carte(input, width*height, new AleaBoxPNG()){
+CartePNG::CartePNG(InputLayer* input, int width, int height, int n)
+: Carte(input, width*height, new AleaBoxPNG(), n){
     this->width = width;
     this->heigth = height;
 }

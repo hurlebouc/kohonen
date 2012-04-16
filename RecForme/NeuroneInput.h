@@ -18,11 +18,8 @@ private:
     
 public:
     NeuroneInput(int nbrComposantes);
-    /**
-     * Donne la valeur de la première composante
-     */
-    //double getValeur();
-    double getValeur(int indexComposante);
+    
+    double getComposante(int indexComposante);
     
     /**
      * Modifie la valeur de la première composante

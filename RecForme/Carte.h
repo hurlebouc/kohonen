@@ -39,6 +39,11 @@ private:
      */
     void maj_neurone(int index);
     
+    /*
+     * Il faut au moins deux éléments dans le tableau
+     */
+    double min_dst(int* tabCurs, int taille, int i);
+    
 protected:
     
     /**
@@ -52,6 +57,7 @@ protected:
      * @return 
      */
     virtual double facteurAttenuation(int i1, int i2) = 0;
+    virtual double distance(int i1, int i2) = 0;
     InputLayer* getInputLayer();
     
 public:
@@ -59,8 +65,8 @@ public:
     
     Carte(InputLayer* input, int mapsize, AleaBox* alea, int nbrApprentissage);
     NeuroneCarte* getNeurone(int i);
-    
     void reconnaitre();
+    int* getClasses(int nbrCurs);
 };
 
 #endif

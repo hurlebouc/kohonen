@@ -22,14 +22,18 @@ CartePNG::CartePNG(InputLayer* input, int width, int height, int n)
     this->heigth = height;
 }
 
-double CartePNG::facteurAttenuation(int i1, int i2){
+double CartePNG::distance(int i1, int i2){
     int x1 = i1 % width;
     int x2 = i2 % width;
     int y1 = i1 / width;
     int y2 = i2 / width;
-    double distance = sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+    return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+}
+
+double CartePNG::facteurAttenuation(int i1, int i2){
+    double distance = this->distance(i1, i2);
 //    double res = exp(-distance/(double) ((width + heigth)/10.0));
-    double res = exp(-distance/(double) 1);    
+    double res = exp(-distance/(double) 2);    
     return res;
 }
 

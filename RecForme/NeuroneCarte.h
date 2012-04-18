@@ -29,7 +29,7 @@ private:
     void maj_poid_numero(int index, double distance);
     
 public:
-    static const int AMMORTISSEMENT = 0;
+    static const int AMMORTISSEMENT = 1;
     static const double CONST_APPRENTISSAGE = 100;
     
     /**

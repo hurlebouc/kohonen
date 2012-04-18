@@ -10,6 +10,10 @@
 #include "Carte.h"
 using namespace std;
 
+typedef struct _curs {
+    double min;
+}curs;
+
 Carte::Carte(InputLayer* input, int mapsize, AleaBox* alea, int n) {
     carte = (NeuroneCarte**) malloc(sizeof (NeuroneCarte*) * mapsize);
     this->input = input;
@@ -61,4 +65,47 @@ void Carte::reconnaitre() {
 
 InputLayer* Carte::getInputLayer(){
     return input;
+}
+
+double Carte::min_dst(int *tabCurs, int taille, int n){
+    double min;
+    if (n == 0) {
+        min = distance(tabCurs[n], tabCurs[1]);
+    } else {
+        min = distance(tabCurs[n], tabCurs[0]);
+    }
+    for (int i = 0; i<taille; i++) {
+        if (i!=n) {
+            double k = distance(tabCurs[n], tabCurs[i]);
+            if (k<min) {
+                min = k;
+            }
+        }
+    }
+    return min;
+}
+
+int* Carte::getClasses(int nbrCurs){
+    
+    if (nbrCurs>mapsize) {
+        cout<<"Carte : on ne peut pas créer plus de classes que d'éléments dans la carte\n";
+        throw 1;
+    }
+    int* res = (int*) malloc(sizeof(int)*nbrCurs);
+    for (int i = 0; i<nbrCurs; i++) {
+        bool existe = true;
+        int alea;
+        while (existe) {
+            alea = rand()%mapsize;
+            existe = false;
+            for (int j = 0; j<i; j++) {
+                if (alea==res[j]) {
+                    existe = true;
+                    break;
+                }
+            }
+        }
+        res[i] = alea;
+    }
+    
 }

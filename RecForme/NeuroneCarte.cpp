@@ -37,7 +37,7 @@ void NeuroneCarte::maj_poid(double attenuation){
     for (int i = 0; i < nbrPoids; i++) {
         this->maj_poid_numero(i, attenuation);
     }
-
+    tempsApprentissage += attenuation;
 }
 
 void NeuroneCarte::maj_poid_numero(int index, double attenuation) {
@@ -45,8 +45,8 @@ void NeuroneCarte::maj_poid_numero(int index, double attenuation) {
     for (int i = 0; i<nbrComposantes; i++) {
         double ecart = input->getNeurone(index)->getComposante(i) - poids[index*nbrComposantes + i];
         poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*tempsApprentissage/CONST_APPRENTISSAGE)*attenuation;
+        //std::cout<<CONST_APPRENTISSAGE<<"\n";
     }
-    tempsApprentissage += attenuation;
 }
 
 double NeuroneCarte::getPoid(long indexPoid, int indexComposante){

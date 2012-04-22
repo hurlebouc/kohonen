@@ -24,6 +24,8 @@ private:
     InputLayer* input;
     int mapsize;
     int iteration;
+    int nbrCurs;
+    int* tabCurs;
     
     
     
@@ -39,10 +41,16 @@ private:
      */
     void maj_neurone(int index);
     
-    /*
+    /**
      * Il faut au moins deux éléments dans le tableau
+     * @param
+     * @param
+     * @param i index du neuone dans tabCurs
      */
     double min_dst(int* tabCurs, int taille, int i);
+    // renvoie vrai si la modification est valide : dans ce cas, le tableau est 
+    // modifié. Sinon non.
+    bool updateDst(int* tabCurs, double* tabDst, int taille);
     
 protected:
     
@@ -58,7 +66,11 @@ protected:
      */
     virtual double facteurAttenuation(int i1, int i2) = 0;
     virtual double distance(int i1, int i2) = 0;
+    virtual int* getVoisins(int index) = 0; // le premier élément donne le nombre de voisins
     InputLayer* getInputLayer();
+    int* getTabCurs();
+    int getNbrCurs();
+    bool estCurs(int index);
     
 public:
     int ITERATION_MAX;
@@ -66,7 +78,7 @@ public:
     Carte(InputLayer* input, int mapsize, AleaBox* alea, int nbrApprentissage);
     NeuroneCarte* getNeurone(int i);
     void reconnaitre();
-    int* getClasses(int nbrCurs);
+    void getClasses(int nbrCurs);
 };
 
 #endif

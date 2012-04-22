@@ -36,7 +36,7 @@ int main(int argc, const char * argv[])
     CartePNG* carte = new CartePNG(input, 20, 20, INT32_MAX);
     
     char* snum = (char*) malloc(sizeof(char)*10);
-    for (int i = 0; i<100; i++) {
+    for (int i = 0; i<500; i++) {
         string s = "/Volumes/Chiffres_redimensionnes/mnist_test_/";
         int num = rand()%10;
         int n = 1 + (rand()%800);
@@ -49,7 +49,10 @@ int main(int argc, const char * argv[])
         input->initInputLayerPNG(chiffre);
     }
     carte->reconnaitre();
-    carte->getImage()->write("/Users/hubert/Desktop/res.png");
+    cout<<"fin de la reconnaissance\n";
+    carte->getClasses(10);
+    cout<<"fin du classement";
+    carte->getImageWithClass()->write("/Users/hubert/Desktop/res.png");
     
     delete chiffre;
     

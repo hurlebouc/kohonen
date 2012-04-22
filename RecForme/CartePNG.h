@@ -12,9 +12,12 @@
 #include "Image.h"
 
 class AleaBoxPNG : public AleaBox {
-    
+private:
+    static uint32_t t;
 public:
+    AleaBoxPNG();
     int aleatoire();
+    
 };
 
 /* ======================================================================= */

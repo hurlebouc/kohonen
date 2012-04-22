@@ -10,6 +10,17 @@
 #include "CartePNG.h"
 #include "InputLayerPNG.h"
 
+uint32_t AleaBoxPNG::t = 0;
+
+AleaBoxPNG::AleaBoxPNG(){
+    if (t==0) {
+        t = time(NULL);
+        srand(time(NULL));
+        t = rand();
+        srand(t);
+    }
+}
+
 int AleaBoxPNG::aleatoire(){
     return rand()%255;
 }

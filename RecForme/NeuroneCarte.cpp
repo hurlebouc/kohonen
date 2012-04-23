@@ -61,5 +61,23 @@ int NeuroneCarte::getNbrComposantes(){
     return input->getNbrComposantes();
 }
 
+double NeuroneCarte::distance(NeuroneCarte *n){
+    if (n->nbrPoids != this->nbrPoids) {
+        std::cout<<"NeuroneCarte::distance() : les deux neurones n'ont pas le même nombre de poids\n";
+        throw 1;
+    }
+    if (n->getNbrComposantes() != this->getNbrComposantes()) {
+        std::cout<<"NeuroneCarte::distance() : les deux neurones n'ont pas le même nombre de composantes\n";
+        throw 1;
+    }
+    double res = 0;
+    for (uint64_t i = 0; i<nbrPoids; i++) {
+        for (int j = 0; j<getNbrComposantes(); j++) {
+            res += pow(this->getPoid(i, j) - n->getPoid(i,j), 2);
+        }
+    }
+    return sqrt(res);
+}
+
 
 

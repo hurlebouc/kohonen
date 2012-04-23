@@ -47,10 +47,10 @@ private:
      * @param
      * @param i index du neuone dans tabCurs
      */
-    double min_dst(int* tabCurs, int taille, int i);
+    double min_dst(int i);
     // renvoie vrai si la modification est valide : dans ce cas, le tableau est 
     // modifié. Sinon non.
-    bool updateDst(int* tabCurs, double* tabDst, int taille);
+    bool updateDst(double* tabDst);
     
 protected:
     
@@ -67,10 +67,12 @@ protected:
     virtual double facteurAttenuation(int i1, int i2) = 0;
     virtual double distance(int i1, int i2) = 0;
     virtual int* getVoisins(int index) = 0; // le premier élément donne le nombre de voisins
+    virtual void representeWithClass(char* chemin) = 0;
     InputLayer* getInputLayer();
     int* getTabCurs();
     int getNbrCurs();
     bool estCurs(int index);
+    uint64_t getNbrPoid();
     
 public:
     int ITERATION_MAX;

@@ -10,6 +10,8 @@
 #include "Carte.h"
 using namespace std;
 
+const char* chemin = "/Users/hubert/Desktop/classement/";
+
 typedef struct _curs {
     double min;
 }curs;
@@ -68,16 +70,21 @@ InputLayer* Carte::getInputLayer(){
     return input;
 }
 
-double Carte::min_dst(int *tabCurs, int taille, int n){
+/* =========================== Classement ================================= */
+
+double Carte::min_dst(int n){
     double min;
     if (n == 0) {
-        min = distance(tabCurs[n], tabCurs[1]);
+        min = getNeurone(tabCurs[n])->distance(getNeurone(tabCurs[1]));
+//        min = distance(tabCurs[n], tabCurs[1]);
     } else {
-        min = distance(tabCurs[n], tabCurs[0]);
+        min = getNeurone(tabCurs[n])->distance(getNeurone(tabCurs[0]));
+//        min = distance(tabCurs[n], tabCurs[0]);
     }
-    for (int i = 0; i<taille; i++) {
+    for (int i = 0; i<nbrCurs; i++) {
         if (i!=n) {
-            double k = distance(tabCurs[n], tabCurs[i]);
+            double k = getNeurone(tabCurs[n])->distance(getNeurone(tabCurs[i]));
+//            double k = distance(tabCurs[n], tabCurs[i]);
             if (k<min) {
                 min = k;
             }
@@ -94,6 +101,10 @@ int Carte::getNbrCurs(){
     return nbrCurs;
 }
 
+uint64_t Carte::getNbrPoid(){
+    return input->getSize();
+}
+
 bool Carte::estCurs(int index){
     for (int i = 0; i<nbrCurs; i++) {
         if (index == tabCurs[i]) {
@@ -103,11 +114,11 @@ bool Carte::estCurs(int index){
     return false;
 }
 
-bool Carte::updateDst(int *tabCurs, double *tabDst, int taille){
-    double* tampon = (double*) malloc(sizeof(double)*taille);
+bool Carte::updateDst(double *tabDst){
+    double* tampon = (double*) malloc(sizeof(double)*nbrCurs);
     bool valide = true;
-    for (int i = 0; i<taille; i++) {
-        double d = min_dst(tabCurs, taille, i);
+    for (int i = 0; i<nbrCurs; i++) {
+        double d = min_dst(i);
         if (d<tabDst[i]) {
             valide = false;
             break;
@@ -116,7 +127,7 @@ bool Carte::updateDst(int *tabCurs, double *tabDst, int taille){
         }
     }
     if (valide) {
-        for (int i = 0; i<taille; i++) {
+        for (int i = 0; i<nbrCurs; i++) {
             tabDst[i] = tampon[i];
         }
     }
@@ -125,6 +136,8 @@ bool Carte::updateDst(int *tabCurs, double *tabDst, int taille){
 }
 
 void Carte::getClasses(int nbrCurs){
+    char path[1024];
+    strcpy(path, chemin);
     this->nbrCurs = nbrCurs;
     if (nbrCurs>mapsize) {
         cout<<"Carte : on ne peut pas créer plus de classes que d'éléments dans la carte\n";
@@ -157,24 +170,29 @@ void Carte::getClasses(int nbrCurs){
     
     double* tabDst = (double*) malloc(sizeof(double) * nbrCurs); // à effacer
     for (int i = 0; i<nbrCurs; i++) {
-        tabDst[i] = min_dst(tabCurs, nbrCurs, i);
+        tabDst[i] = min_dst(i);
     }
     
     /* Optimisation des places de curseur */
     
     bool modification = true;
+    int compteur = 0;
     while (modification) {
+        compteur++;
+        sprintf(path, "%simage_%d.png",chemin,compteur);
+        representeWithClass(path);
+        
         modification = false;
         for (int i = 0; i<nbrCurs; i++) {
             int placeini = tabCurs[i];
             int* voisins = getVoisins(placeini); // à effacer
             int bestPlace = placeini;
-            double bestDst = min_dst(tabCurs, nbrCurs, i);
+            double bestDst = min_dst(i);
             for (int j = 1; j<= voisins[0]; j++) {
                 int newPlace = voisins[j];
                 tabCurs[i] = newPlace;
-                double newDst = min_dst(tabCurs, nbrCurs, i);
-                if (newDst > bestDst || updateDst(tabCurs, tabDst, nbrCurs)) {
+                double newDst = min_dst(i);
+                if (newDst > bestDst && updateDst(tabDst)) {
                     bestDst = newDst;
                     bestPlace = newPlace;
                     modification = true;

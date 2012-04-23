@@ -27,6 +27,7 @@ private:
     int width, heigth;
     int getNumero(int x, int y);
     int* getVoisins(int index);
+    void representeWithClass(char* chemin);
     
 protected:
     double facteurAttenuation(int i1, int i2);

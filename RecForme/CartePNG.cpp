@@ -226,6 +226,12 @@ int* CartePNG::getVoisins(int index){
     return getVoisins(x, y);
 }
 
+void CartePNG::representeWithClass(char* chemin){
+    Image* image = getImageWithClass();
+    image->write(chemin);
+    delete image;
+}
+
 Image* CartePNG::getImage(){
     InputLayerPNG* input = (InputLayerPNG*) getInputLayer();
     int nbrComposantes = input->getNbrComposantes();

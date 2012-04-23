@@ -501,7 +501,7 @@ int Image::getNbrComposantes(){
 void Image::save(){
     
     if (chemin.empty()) {
-        cout<<"le nom de l'image n'a pas été initialisé";
+        cout<<"Image::save() le nom de l'image n'a pas été initialisé";
         exit(EXIT_FAILURE);
     }
     
@@ -515,21 +515,22 @@ void Image::save(){
     
     fp = fopen (chemin.c_str(), "wb");
     if (! fp) {
-        cout<<"ouverture du fichier impossible\n";
+        cout<<"Image::save() ouverture du fichier impossible\n";
+        throw 1;
         exit(EXIT_FAILURE);
     }
     png_ptr = png_create_write_struct (PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
     if (png_ptr == NULL) {
-        cout<<"initialisation du png_ptr impossible\n";
+        cout<<"Image::save() initialisation du png_ptr impossible\n";
         exit(EXIT_FAILURE);
     }
     info_ptr = png_create_info_struct (png_ptr);
     if (info_ptr == NULL) {
-        cout<<"initialisation du png_info impossible\n";
+        cout<<"Image::save() initialisation du png_info impossible\n";
         exit(EXIT_FAILURE);
     }
     if (setjmp (png_jmpbuf (png_ptr))) {
-        cout<<"truc umpossible\n";
+        cout<<"Image::save() truc umpossible\n";
         exit(EXIT_FAILURE);
     }
     

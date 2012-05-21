@@ -81,6 +81,7 @@ public:
     NeuroneCarte* getNeurone(int i);
     void reconnaitre();
     void getClasses(int nbrCurs);
+    void getClasses_k_means(int nbrcurs);
 };
 
 #endif

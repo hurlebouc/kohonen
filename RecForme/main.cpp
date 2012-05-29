@@ -44,6 +44,8 @@ int main(int argc, const char * argv[])
         s.append(snum);
         //cout<<s<<"\n";
         carte->reconnaitre();
+        
+        //nouvelle initialisation
         chiffre->initImage(s);
         chiffre->simplifier();
         input->initInputLayerPNG(chiffre);

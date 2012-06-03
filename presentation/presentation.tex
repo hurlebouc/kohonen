@@ -2,6 +2,8 @@
 \usepackage[francais]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{beamerthemesplit}
+\newcommand{\diapo}[2]{\frame{\frametitle{#1}#2}}
+
 
 \title{Carte de Kohonen}
 \author{Hubert Godfroy}
@@ -12,15 +14,25 @@
 \frame{\titlepage}
 
 \section[Plan]{}
-\frame{\tableofcontents}
+\frame{\frametitle{Plan}\tableofcontents}
 
 \section{Rappels}
 
-\frame{
+\diapo{Rappels}{
 \begin{itemize}
-\item Réseau de neurone
-\item Apprentissage non supervisé
+\item Réseau de neurones
+	\begin{itemize}
+	\item Fonction de transfert pour chaque neurone
+	\item Relation entre les neurones
+	\item Organisation du réseau (couches)
+	\end{itemize}
+\item Apprentissage non-supervisé
+	\begin{itemize}
+	\item
+	\end{itemize}
 \end{itemize}
 }
+
+
 
 \end{document}

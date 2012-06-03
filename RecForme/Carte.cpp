@@ -52,7 +52,6 @@ int Carte::getPPN() {
             res = i;
         }
     }
-
     return res;
 }
 

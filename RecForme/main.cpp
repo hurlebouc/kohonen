@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
     chiffre->simplifier();
     cout<<chiffre->getNbrComposantes()<<"\n";
     InputLayerPNG* input = new InputLayerPNG(chiffre);
-    CartePNG* carte = new CartePNG(input, 100, 1, INT32_MAX);
+    CartePNG* carte = new CartePNG(input, 10, 10, INT32_MAX);
     
     char* snum = (char*) malloc(sizeof(char)*10);
     for (int i = 0; i<500 ; i++) {

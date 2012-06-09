@@ -58,10 +58,27 @@
 
 \diapo{Application : ROC}{
 	\begin{itemize}
-	\item Une carte de dimension 2
-	\item 
+	\item la couche d'entrée est un agencement en 2 dimensions de neurone représentant chacun un pixel de l'image.
+	\item La carte de Kohonen est de dimension 2
+	\item L'ensemble des poids d'un neurone de la carte peut être vu comme la moyenne des pixels ayant été vue par ce neurone. Chaque neurone est donc une moyenne d'image qu'il a rencontrées.
 	\end{itemize}
+	\texttt{http://hurlebouc.github.com/kohonen/doc/inherits.html}
 }
+
+\diapo{Exemple}{
+	\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=5cm]{images/res.eps}
+	\caption{Carte de \textsc{Kohonen} après apprentissage}.
+	\end{figure}
+}
+
+\section{Amélioration}
+
+\diapo{Discution}{
+	
+}
+
 
 
 \end{document}

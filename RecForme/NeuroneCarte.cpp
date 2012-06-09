@@ -36,19 +36,19 @@ double NeuroneCarte::fct_transfert() {
     return sqrt(res);
 }
 
-void NeuroneCarte::maj_poid(double attenuation){
+void NeuroneCarte::maj_poid(double attenuationVoisin){
     for (int i = 0; i < nbrPoids; i++) {
-        this->maj_poid_numero(i, attenuation);
+        this->maj_poid_numero(i, attenuationVoisin);
     }
-    tempsApprentissage += attenuation;
+    tempsApprentissage += attenuationVoisin;
 }
 
-void NeuroneCarte::maj_poid_numero(int index, double attenuation) {
+void NeuroneCarte::maj_poid_numero(int index, double attenuationVoisin) {
     int nbrComposantes = getNbrComposantes();
     for (int i = 0; i<nbrComposantes; i++) {
         double ecart = input->getNeurone(index)->getComposante(i) - poids[index*nbrComposantes + i];
-//        poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*tempsApprentissage/CONST_APPRENTISSAGE)*attenuation;
-        poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*etapeApprentissage/CONST_APPRENTISSAGE)*attenuation;
+//        poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*tempsApprentissage/CONST_APPRENTISSAGE)*attenuationVoisin;
+        poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*etapeApprentissage/CONST_APPRENTISSAGE)*attenuationVoisin;
 
     }
 }

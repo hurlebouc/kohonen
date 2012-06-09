@@ -26,7 +26,7 @@ private:
     InputLayer* input;
     double tempsApprentissage;
     
-    void maj_poid_numero(int index, double distance);
+    void maj_poid_numero(int index, double attenuationVoisin);
     
 public:
     static const int AMMORTISSEMENT = 1;
@@ -40,7 +40,7 @@ public:
      */
     NeuroneCarte(InputLayer* input, AleaBox* alea);
     double fct_transfert();
-    void maj_poid(double attenuation);
+    void maj_poid(double attenuationVoisin);
     double getPoid(long indexPoid, int indexComposante);
     int getNbrComposantes();
     double getTempsApprentissage();

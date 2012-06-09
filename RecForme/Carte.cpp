@@ -34,9 +34,9 @@ NeuroneCarte* Carte::getNeurone(int i) {
 
 void Carte::maj_neurone(int index) {
     for (int i = 0; i < mapsize; i++) {
-        double attenuation = facteurAttenuationVoisin(index, i);
+        double attenuationVoisin = facteurAttenuationVoisin(index, i);
         NeuroneCarte* n = getNeurone(i);
-        n->maj_poid(attenuation);
+        n->maj_poid(attenuationVoisin);
     }
 }
 

@@ -16,13 +16,7 @@ using namespace std;
 
 
 
-int main(int argc, const char * argv[])
-{
-    
-//    Image* lena = new Image("/Users/hubert/Desktop/Lenna.png");
-//    lena->simplifier();
-//    lena->write("/Users/hubert/Desktop/Lenna2.png");
-//    delete lena;
+int main(int argc, const char * argv[]){
     
     uint32_t t = time(NULL);
     srand(time(NULL));
@@ -56,6 +50,7 @@ int main(int argc, const char * argv[])
     cout<<"fin du classement";
     carte->getImage()->write("/Users/hubert/Desktop/res.png");
 //    carte->getImageWithClass()->write("/Users/hubert/Desktop/res.png");
+    carte->getImageWithFreq()->write("/Users/hubert/Desktop/freq.png");
     
     delete chiffre;
     

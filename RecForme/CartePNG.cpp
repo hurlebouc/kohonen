@@ -303,6 +303,7 @@ void CartePNG::representeFrequences(char* cheminEnregistrement){
 }
 
 Image* CartePNG::getImageWithFreq(){
+    int tailleCarre = 28;
     double maxTemps = 0;
     for (int x = 0; x<width; x++) {
         for (int y = 0; y<heigth; y++) {
@@ -312,13 +313,13 @@ Image* CartePNG::getImageWithFreq(){
             }
         }
     }
-    Image* res = new Image(width*10, heigth*10, 1);
+    Image* res = new Image(width*tailleCarre, heigth*tailleCarre, 1);
     for (int x = 0; x<width; x++) {
         for (int y = 0; y<heigth; y++) {
             double temps = getNeurone(getNumero(x, y))->getTempsApprentissage();
-            for (int i = 0; i<10; i++) {
-                for (int j = 0; j<10; j++) {
-                    res->setPix(x+i, y+j, new Pixel(temps/maxTemps*255));
+            for (int i = 0; i<tailleCarre; i++) {
+                for (int j = 0; j<tailleCarre; j++) {
+                    res->setPix(x*tailleCarre+i, y*tailleCarre+j, new Pixel((int) (temps/maxTemps*255)));
                 }
             }
         }

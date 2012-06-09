@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_carte.html" title="Carte" alt="" coords="5,5,59,32"/>
+<area shape="rect" id="node3" href="$class_carte_p_n_g.html" title="CartePNG" alt="" coords="107,5,189,32"/>
+</map>

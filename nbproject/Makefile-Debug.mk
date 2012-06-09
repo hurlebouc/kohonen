@@ -62,13 +62,13 @@ LDLIBSOPTIONS=-L/opt/local/lib -L/usr/X11 /opt/local/lib/libpng.dylib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code: /opt/local/lib/libpng.dylib
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen: /opt/local/lib/libpng.dylib
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/RecForme/Image.o: nbproject/Makefile-${CND_CONF}.mk RecForme/Image.cpp 
 	${MKDIR} -p ${OBJECTDIR}/RecForme
@@ -116,7 +116,7 @@ ${OBJECTDIR}/RecForme/InputLayer.o: nbproject/Makefile-${CND_CONF}.mk RecForme/I
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen-code
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kohonen
 
 # Subprojects
 .clean-subprojects:

@@ -8,3 +8,5 @@ presentation/presentation.snm
 presentation/presentation.synctex.gz
 presentation/presentation.toc
 struct.log
+/dist/Release/
+/build/Release/

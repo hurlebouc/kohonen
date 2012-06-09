@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=kohonen-code
+PROJECTNAME=kohonen
 
 # Active Configuration
 DEFAULTCONF=Debug

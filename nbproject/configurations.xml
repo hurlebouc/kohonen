@@ -6,7 +6,7 @@
                    projectFiles="true">
       <itemPath>RecForme/Carte.h</itemPath>
       <itemPath>RecForme/CartePNG.h</itemPath>
-      <itemPath>/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen-code/RecForme/Image.h</itemPath>
+      <itemPath>RecForme/Image.h</itemPath>
       <itemPath>RecForme/InputLayer.h</itemPath>
       <itemPath>RecForme/InputLayerPNG.h</itemPath>
       <itemPath>RecForme/NeuroneCarte.h</itemPath>

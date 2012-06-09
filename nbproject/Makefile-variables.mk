@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=kohonen-code
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/kohonen-code
+CND_ARTIFACT_NAME_Debug=kohonen
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/kohonen
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=kohonen-code.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/kohonen-code.tar
+CND_PACKAGE_NAME_Debug=kohonen.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/kohonen.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=kohonen-code
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/kohonen-code
+CND_ARTIFACT_NAME_Release=kohonen
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/kohonen
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=kohonen-code.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/kohonen-code.tar
+CND_PACKAGE_NAME_Release=kohonen.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/kohonen.tar
 #
 # include compiler specific variables
 #

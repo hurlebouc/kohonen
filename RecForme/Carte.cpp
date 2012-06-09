@@ -75,15 +75,12 @@ double Carte::min_dst(int n){
     double min;
     if (n == 0) {
         min = getNeurone(tabCurs[n])->distance(getNeurone(tabCurs[1]));
-//        min = distance(tabCurs[n], tabCurs[1]);
     } else {
         min = getNeurone(tabCurs[n])->distance(getNeurone(tabCurs[0]));
-//        min = distance(tabCurs[n], tabCurs[0]);
     }
     for (int i = 0; i<nbrCurs; i++) {
         if (i!=n) {
             double k = getNeurone(tabCurs[n])->distance(getNeurone(tabCurs[i]));
-//            double k = distance(tabCurs[n], tabCurs[i]);
             if (k<min) {
                 min = k;
             }

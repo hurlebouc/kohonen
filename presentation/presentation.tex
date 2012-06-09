@@ -8,6 +8,8 @@
 \usepackage{pst-plot} % For axes
 
 \newcommand{\diapo}[2]{\frame{\frametitle{#1}#2}}
+\newcommand{\imp}[1]{\textit{\textbf{#1}} }
+
 
 
 \title{Carte de Kohonen}
@@ -41,6 +43,15 @@
 
 \diapo{Structure}{
 	\input{input/struct.tex}
+}
+
+\diapo{Apprentissage}{
+	\begin{itemize}
+	\item Porte sur les neurones de la carte
+	\item On repère le neurone \imp{vainqueur} qui est le plus "proche" de la couche d'entrée au sens des poids.
+	\item Ses poids sont modifiés pour diminuer cette distance.
+	\item Cette modification est propagée aux neurones voisins du vainqueur.
+	\end{itemize}
 }
 
 

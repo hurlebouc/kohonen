@@ -1,6 +1,6 @@
-/* 
- * File:   CartePNG.h
- * Author: hubert
+/** 
+ * @file:   CartePNG.h
+ * @author: hubert
  *
  * Created on 14 avril 2012, 14:40
  */

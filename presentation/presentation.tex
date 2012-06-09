@@ -2,6 +2,11 @@
 \usepackage[francais]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{beamerthemesplit}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+
 \newcommand{\diapo}[2]{\frame{\frametitle{#1}#2}}
 
 
@@ -28,11 +33,15 @@
 	\end{itemize}
 \item Apprentissage non-supervisé
 	\begin{itemize}
-	\item
+	\item Le réseau évolue seul en fonction des entrées qui lui sont données.
+	\item 
 	\end{itemize}
 \end{itemize}
 }
 
+\diapo{Structure}{
+	\input{input/struct.tex}
+}
 
 
 \end{document}

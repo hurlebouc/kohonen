@@ -21,19 +21,88 @@ private:
     uint8_t* composantes;
     
 public:
+    /**
+     * Constructeur d'un pixel ayant 4 composantes
+     * @param r
+     * @param g
+     * @param b
+     * @param a
+     */
     Pixel(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+    
+    /**
+     * Constructeur d'un pixel ayant 3 composantes
+     * @param r
+     * @param g
+     * @param b
+     */
     Pixel(uint8_t r, uint8_t g, uint8_t b);
+    
+    /**
+     * Constructeur d'un pixel ayant 1 composante
+     * @param g
+     */
     Pixel(uint8_t g);
+    
+    /**
+     * Constructeur d'un pixel ayant 2 composantes
+     * @param g
+     * @param a
+     */
     Pixel(uint8_t g, uint8_t a);
+    
+    /**
+     * Destructeur d'un pixel
+     */
     ~Pixel();
     
+    /**
+     * Donne le format d'un pixel
+     * @return 
+     */
     GLenum getFormat();
+    
+    /**
+     * Donne la composante de rouge d'un pixel
+     * @return 
+     */
     uint8_t getRed();
+    
+    /**
+     * Donne la composante de vert d'un pixel
+     * @return 
+     */
     uint8_t getGreen();
+    
+    /**
+     * Donne la composante de bleu d'un pixel
+     * @return 
+     */
     uint8_t getBlue();
+    
+    /**
+     * Donne la composante alpha d'un pixel
+     * @return 
+     */
     uint8_t getAlpha();
+    
+    /**
+     * Donne la composante de gris d'un pixel
+     * @return 
+     */
     uint8_t getGray();
+    
+    /**
+     * Donne la composante numéro i d'un pixel
+     * @param i
+     * @return 
+     */
     uint8_t getComposante(int i);
+    
+    /**
+     * Formate un pixel
+     * @param nbrComposantes
+     */
     void setFormat(int nbrComposantes);
     void setComposante(int indexComposante, uint8_t byte);
 };

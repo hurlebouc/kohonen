@@ -17,29 +17,74 @@ private:
 public:
     AleaBoxPNG();
     int aleatoire();
-    
+
 };
 
 /* ======================================================================= */
 
-class CartePNG : public Carte{
+class CartePNG : public Carte {
 private:
     int width, heigth;
+    /**
+     * Donne l'index dans la classe Carte du neurone de coordonnée x et y
+     * @param x
+     * @param y
+     * @return 
+     */
     int getNumero(int x, int y);
     int* getVoisins(int index);
     void representeWithClass(char* chemin);
     void representeFrequences(char* cheminEnregistrement);
-    
+
 protected:
     double facteurAttenuationVoisin(int i1, int i2);
     double distance(int i1, int i2);
+
+    /**
+     * Donne les voisins directs du neurone à la place (x,y)
+     * @param x
+     * @param y
+     * @return 
+     */
     int* getVoisins(int x, int y);
-    
+
 public:
+
+    /**
+     * Constructeur de la carte
+     * @param input
+     * @param width
+     * @param height
+     * @param nbrApprentissage
+     */
     CartePNG(InputLayer* input, int width, int height, int nbrApprentissage);
-    CartePNG(Image* png, int width, int height);
+
+    /**
+     * Construction d'une carte à partir d'une image
+     * @param png
+     * @param width
+     * @param height
+     * @param nbrApprentissage
+     */
+    CartePNG(Image* png, int width, int height, int nbrApprentissage);
+
+    /**
+     * Renvoie une image de la carte
+     * @return 
+     */
     Image* getImage();
+
+    /**
+     * Renvoie une image de la carte sur laquelle sont ajouté les neurones de 
+     * référence de chaque classe
+     * @return 
+     */
     Image* getImageWithClass();
+    /**
+     * Donne une image représentant les fréquences d'utilisation de chaque de 
+     * la carte
+     * @return 
+     */
     Image* getImageWithFreq();
 };
 

@@ -28,9 +28,10 @@ private:
     int getNumero(int x, int y);
     int* getVoisins(int index);
     void representeWithClass(char* chemin);
+    void representeFrequences(char* cheminEnregistrement);
     
 protected:
-    double facteurAttenuation(int i1, int i2);
+    double facteurAttenuationVoisin(int i1, int i2);
     double distance(int i1, int i2);
     int* getVoisins(int x, int y);
     
@@ -39,6 +40,7 @@ public:
     CartePNG(Image* png, int width, int height);
     Image* getImage();
     Image* getImageWithClass();
+    Image* getImageWithFreq();
 };
 
 #endif	/* CARTEPNG_H */

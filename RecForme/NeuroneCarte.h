@@ -43,6 +43,10 @@ public:
     void maj_poid(double attenuation);
     double getPoid(long indexPoid, int indexComposante);
     int getNbrComposantes();
+    double getTempsApprentissage();
+    
+    /* ------------- classification ------------ */
+    
     double distance(NeuroneCarte* n);
     
 };

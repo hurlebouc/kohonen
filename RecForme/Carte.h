@@ -53,6 +53,14 @@ private:
     
 protected:
     
+    InputLayer* getInputLayer();
+    int* getTabCurs();
+    int getNbrCurs();
+    bool estCurs(int index);
+    uint64_t getNbrPoid();
+    
+    /* --------------------------- ABSTRACT ----------------------------- */
+    
     /**
      * Cette méthode permet de trouver le facteur d'atténuation (qui sert à 
      * répercuter la modification des poids d'un neurone central sur ses 
@@ -63,15 +71,11 @@ protected:
      * @param i2
      * @return 
      */
-    virtual double facteurAttenuation(int i1, int i2) = 0;
+    virtual double facteurAttenuationVoisin(int i1, int i2) = 0;
     virtual double distance(int i1, int i2) = 0;
     virtual int* getVoisins(int index) = 0; // le premier élément donne le nombre de voisins
     virtual void representeWithClass(char* chemin) = 0;
-    InputLayer* getInputLayer();
-    int* getTabCurs();
-    int getNbrCurs();
-    bool estCurs(int index);
-    uint64_t getNbrPoid();
+    virtual void representeFrequences(char* cheminEnregistrement) = 0;
     
 public:
     int ITERATION_MAX;

@@ -45,7 +45,7 @@ double CartePNG::distance(int i1, int i2){
     return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 }
 
-double CartePNG::facteurAttenuation(int i1, int i2){
+double CartePNG::facteurAttenuationVoisin(int i1, int i2){
     double distance = this->distance(i1, i2);
 //    double res = exp(-distance/(double) ((width + heigth)/10.0));
     double res = exp(-distance/(double) 2);    
@@ -295,3 +295,55 @@ Image* CartePNG::getImageWithClass(){
     }
     return png;
 }
+
+void CartePNG::representeFrequences(char* cheminEnregistrement){
+    Image* image = getImageWithFreq();
+    image->write(cheminEnregistrement);
+    delete image;
+}
+
+Image* CartePNG::getImageWithFreq(){
+    double maxTemps = 0;
+    for (int x = 0; x<width; x++) {
+        for (int y = 0; y<heigth; y++) {
+            double m2 = getNeurone(getNumero(x, y))->getTempsApprentissage();
+            if (maxTemps<m2) {
+                maxTemps=m2;
+            }
+        }
+    }
+    Image* res = new Image(width*10, heigth*10, 1);
+    for (int x = 0; x<width; x++) {
+        for (int y = 0; y<heigth; y++) {
+            double temps = getNeurone(getNumero(x, y))->getTempsApprentissage();
+            for (int i = 0; i<10; i++) {
+                for (int j = 0; j<10; j++) {
+                    res->setPix(x+i, y+j, new Pixel(temps/maxTemps*255));
+                }
+            }
+        }
+    }
+    return res;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

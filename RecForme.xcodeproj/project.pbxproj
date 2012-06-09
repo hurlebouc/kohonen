@@ -39,12 +39,12 @@
 		B4254A4F1535ECF500E7D173 /* NeuroneCarte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NeuroneCarte.h; sourceTree = "<group>"; };
 		B4254A501535EF5900E7D173 /* NeuroneInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NeuroneInput.cpp; sourceTree = "<group>"; };
 		B4254A521535EF6600E7D173 /* NeuroneInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NeuroneInput.h; sourceTree = "<group>"; };
-		B4254A531535EF7800E7D173 /* Carte.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Carte.cpp; sourceTree = "<group>"; };
-		B4254A551535EF8200E7D173 /* Carte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Carte.h; sourceTree = "<group>"; };
+		B4254A531535EF7800E7D173 /* Carte.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Carte.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		B4254A551535EF8200E7D173 /* Carte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Carte.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B45E78EB15386D8400A6A0D8 /* InputLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputLayer.h; sourceTree = "<group>"; };
 		B45E78ED15386DA100A6A0D8 /* InputLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputLayer.cpp; sourceTree = "<group>"; };
-		B45EAA8D1539AD32007C44EB /* CartePNG.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CartePNG.cpp; sourceTree = "<group>"; };
-		B45EAA8E1539AD32007C44EB /* CartePNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartePNG.h; sourceTree = "<group>"; };
+		B45EAA8D1539AD32007C44EB /* CartePNG.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = CartePNG.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		B45EAA8E1539AD32007C44EB /* CartePNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CartePNG.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B4626BA41538850100F96483 /* InputLayerPNG.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputLayerPNG.cpp; sourceTree = "<group>"; };
 		B4626BA71538850D00F96483 /* InputLayerPNG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputLayerPNG.h; sourceTree = "<group>"; };
 		B4FE1F9C1536E06A001B7000 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };

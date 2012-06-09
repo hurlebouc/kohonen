@@ -65,6 +65,12 @@ int NeuroneCarte::getNbrComposantes(){
     return input->getNbrComposantes();
 }
 
+double NeuroneCarte::getTempsApprentissage(){
+    return tempsApprentissage;
+}
+
+/*-------------- classification ------------------*/
+
 double NeuroneCarte::distance(NeuroneCarte *n){
     if (n->nbrPoids != this->nbrPoids) {
         std::cout<<"NeuroneCarte::distance() : les deux neurones n'ont pas le même nombre de poids\n";

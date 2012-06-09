@@ -30,7 +30,8 @@ private:
     
 public:
     static const int AMMORTISSEMENT = 1;
-    static const double CONST_APPRENTISSAGE = 100;
+    static const double CONST_APPRENTISSAGE;
+    static int etapeApprentissage;
     
     /**
      * Contructeur permettant de choisir la classe d'entrée et la méthode d'initialisation aléatoire des neurones de la carte

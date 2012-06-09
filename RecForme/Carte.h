@@ -23,7 +23,6 @@ private:
     NeuroneCarte** carte;
     InputLayer* input;
     int mapsize;
-    int iteration;
     int nbrCurs;
     int* tabCurs;
     

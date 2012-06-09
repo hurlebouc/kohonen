@@ -20,7 +20,6 @@ Carte::Carte(InputLayer* input, int mapsize, AleaBox* alea, int n) {
     carte = (NeuroneCarte**) malloc(sizeof (NeuroneCarte*) * mapsize);
     this->input = input;
     this->mapsize = mapsize;
-    this->iteration = 0;
     for (int i = 0; i < mapsize; i++) {
         carte[i] = new NeuroneCarte(input, alea);
     }
@@ -58,11 +57,10 @@ int Carte::getPPN() {
 void Carte::reconnaitre() {
 
     int n = getPPN();
-    //cout<<n<<"\n";
-    if (iteration < ITERATION_MAX) {
+    if (NeuroneCarte::etapeApprentissage < ITERATION_MAX) {
         maj_neurone(n);
     }
-    iteration++;
+    NeuroneCarte::etapeApprentissage++;
 }
 
 InputLayer* Carte::getInputLayer(){

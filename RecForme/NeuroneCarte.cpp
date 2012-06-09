@@ -10,6 +10,9 @@
 #include <cmath>
 #include "NeuroneCarte.h"
 
+int NeuroneCarte::etapeApprentissage = 0;
+const double NeuroneCarte::CONST_APPRENTISSAGE = 100;
+
 NeuroneCarte::NeuroneCarte(InputLayer* input, AleaBox* alea) {
     int nbrComposantes = input->getNbrComposantes();
     this->input = input;
@@ -44,8 +47,9 @@ void NeuroneCarte::maj_poid_numero(int index, double attenuation) {
     int nbrComposantes = getNbrComposantes();
     for (int i = 0; i<nbrComposantes; i++) {
         double ecart = input->getNeurone(index)->getComposante(i) - poids[index*nbrComposantes + i];
-        poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*tempsApprentissage/CONST_APPRENTISSAGE)*attenuation;
-        //std::cout<<CONST_APPRENTISSAGE<<"\n";
+//        poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*tempsApprentissage/CONST_APPRENTISSAGE)*attenuation;
+        poids[index*nbrComposantes + i] += ecart*exp(-AMMORTISSEMENT*etapeApprentissage/CONST_APPRENTISSAGE)*attenuation;
+
     }
 }
 

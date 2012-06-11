@@ -11,6 +11,7 @@
 #include "Image.h"
 #include "InputLayerPNG.h"
 #include "CartePNG.h"
+#include "Tests.h"
 
 using namespace std;
 
@@ -30,7 +31,7 @@ int main(int argc, const char * argv[]){
     CartePNG* carte = new CartePNG(input, 10, 10, INT32_MAX);
     
     char* snum = (char*) malloc(sizeof(char)*10);
-    for (int i = 0; i<2000 ; i++) {
+    for (int i = 0; i<100 ; i++) {
         
         carte->reconnaitre();
         
@@ -56,9 +57,7 @@ int main(int argc, const char * argv[]){
     i3->write("/Users/hubert/Desktop/classe.png");
     delete i3;
     
-//    CartePNG* copie = new CartePNG(i1, i2, 28, 28);
-//    copie->getImage()->write("/Users/hubert/Desktop/copie.png");
-//    copie->getImageWithFreq()->write("/Users/hubert/Desktop/copie_freq.png");
+    runTests();
     
     int* tabMax = carte->getMaxLoc();
     for (int i = 1; i<=tabMax[0]; i++) {
@@ -67,6 +66,9 @@ int main(int argc, const char * argv[]){
     
     delete chiffre;
     
+    //    CartePNG* copie = new CartePNG(i1, i2, 28, 28);
+    //    copie->getImage()->write("/Users/hubert/Desktop/copie.png");
+    //    copie->getImageWithFreq()->write("/Users/hubert/Desktop/copie_freq.png");
     
     return 0;
 }

@@ -27,12 +27,19 @@ static ClasseChiffre* sept = new ClasseChiffre(7);
 static ClasseChiffre* huit = new ClasseChiffre(8);
 static ClasseChiffre* neuf = new ClasseChiffre(9);
 
-void setTest(){
+static void setTest(){
     carte->getNeurone(2,0)->setClasse(neuf);
     carte->getNeurone(5,2)->setClasse(sept);
     carte->getNeurone(9,4)->setClasse(un);
     carte->getNeurone(1,6)->setClasse(six);
     carte->getNeurone(5,8)->setClasse(cinq);
     carte->getNeurone(9,9)->setClasse(cinq);
+}
+
+void runTests(){
+    setTest();
+    carte->initInput("/Volumes/Chiffres_redimensionnes/mnist_test_/9_29.png");
+    carte->classify();
+    cout<<carte->getClasse()->toString()<<"\n";
 }
 

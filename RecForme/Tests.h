@@ -14,4 +14,5 @@
 
 #endif
 
-void setTest();
+
+void runTests();

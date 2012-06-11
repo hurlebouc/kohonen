@@ -33,6 +33,13 @@ CartePNG::CartePNG(InputLayer* input, int width, int height, int n)
     this->heigth = height;
 }
 
+void CartePNG::initInput(char* chemin){
+    Image* image = new Image(chemin);
+    image->simplifier();
+    
+    delete image;
+}
+
 int CartePNG::getNumero(int x, int y){
     return y*width + x;
 }
@@ -260,6 +267,7 @@ Image* CartePNG::getImage(){
                     png->setPix(X*input->getWidth() + x,
                                 Y*input->getHeight() + y,
                                 pix);
+                    delete pix;
                 }
             }
         }
@@ -297,6 +305,7 @@ Image* CartePNG::getImageWithCurs(){
                     png->setPix(X*input->getWidth() + x,
                                 Y*input->getHeight() + y,
                                 pix);
+                    delete pix;
                 }
             }
         }
@@ -327,7 +336,9 @@ Image* CartePNG::getImageWithFreq(){
             double temps = getNeurone(getNumero(x, y))->getTempsApprentissage();
             for (int i = 0; i<tailleCarre; i++) {
                 for (int j = 0; j<tailleCarre; j++) {
-                    res->setPix(x*tailleCarre+i, y*tailleCarre+j, new Pixel((int) (temps/maxTemps*255)));
+                    Pixel* pix = new Pixel((int) (temps/maxTemps*255));
+                    res->setPix(x*tailleCarre+i, y*tailleCarre+j, pix);
+                    delete pix;
                 }
             }
         }
@@ -345,13 +356,22 @@ Image* CartePNG::getImageWithClass(){
             int ref = getNeurone(x, y)->getIndexRef();
             for (int i = 0; i<tailleCarre; i++) {
                 for (int j = 0; j<tailleCarre; j++) {
-                    res->setPix(x*tailleCarre+i, y*tailleCarre+j, 
-                                new Pixel((int) (ref*19))); // melange
+                    Pixel* pix = new Pixel((int) (ref*19));
+                    res->setPix(x*tailleCarre+i, y*tailleCarre+j, pix); // melange
+//                    delete pix;
                 }
             }
         }
     }
     return res;
+}
+
+CartePNG::CartePNG(Image* carte, Image* freq, int segX, int segY)
+: Carte(new InputLayerPNG(segX, segY, 1),
+        (carte->getWidth()/segX)*(carte->getHeight()/segY), 
+        new AleaBoxPNG(),
+        0){
+    
 }
 
 

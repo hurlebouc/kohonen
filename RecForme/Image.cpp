@@ -582,6 +582,7 @@ void Image::save(){
             if (format == GL_RGBA || format == GL_LUMINANCE_ALPHA) {
                 *row++ = pixel->getAlpha();
             }
+            delete pixel;
         }
     }
     

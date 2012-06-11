@@ -46,12 +46,15 @@ int main(int argc, const char * argv[]){
     }
     carte->reconnaitre();
     cout<<"fin de la reconnaissance\n";
-//    carte->getClasses(10);
-    cout<<"fin du classement\n";
-    carte->getImage()->write("/Users/hubert/Desktop/res.png");
-//    carte->getImageWithClass()->write("/Users/hubert/Desktop/res.png");
-    carte->getImageWithFreq()->write("/Users/hubert/Desktop/freq.png");
-    carte->getImageWithClass()->write("/Users/hubert/Desktop/classe.png");
+    Image* i1 = carte->getImage();
+    i1->write("/Users/hubert/Desktop/res.png");
+    delete i1;
+    Image* i2 = carte->getImageWithFreq();
+    i2->write("/Users/hubert/Desktop/freq.png");
+    delete i2;
+    Image* i3 = carte->getImageWithClass();
+    i3->write("/Users/hubert/Desktop/classe.png");
+    delete i3;
     
     int* tabMax = carte->getMaxLoc();
     for (int i = 1; i<=tabMax[0]; i++) {

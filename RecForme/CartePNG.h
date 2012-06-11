@@ -58,15 +58,10 @@ public:
      * @param nbrApprentissage
      */
     CartePNG(InputLayer* input, int width, int height, int nbrApprentissage);
-
-    /**
-     * Construction d'une carte à partir d'une image
-     * @param png
-     * @param width
-     * @param height
-     * @param nbrApprentissage
-     */
-    CartePNG(Image* png, int width, int height, int nbrApprentissage);
+    
+    CartePNG(Image* carte, Image* freq, int segX, int segY);
+    
+    void initInput(char*);
 
     /**
      * Renvoie une image de la carte

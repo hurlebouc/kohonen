@@ -55,6 +55,7 @@ public:
     double distance(NeuroneCarte* n);
     int getIndexRef();
     void setIndexRef(int);
+    void setClasse(Classe*);
     
 };
 

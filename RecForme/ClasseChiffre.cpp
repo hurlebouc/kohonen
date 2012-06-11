@@ -1,5 +1,5 @@
 //
-//  Classe.cpp
+//  ClasseChiffre.cpp
 //  RecForme
 //
 //  Created by Hubert Godfroy on 11/06/12.
@@ -7,7 +7,5 @@
 //
 
 #include <iostream>
-#include "Classe.h"
+#include "ClasseChiffre.h"
 
-Classe::Classe(){}
-Classe::~Classe(){}

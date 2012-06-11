@@ -13,7 +13,10 @@ class Classe {
     
     
 public:
+    Classe();
+    ~Classe();
     
+    virtual bool equals(Classe* t) = 0;
 };
 
 #endif

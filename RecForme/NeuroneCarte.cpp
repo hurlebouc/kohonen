@@ -111,5 +111,9 @@ void NeuroneCarte::setIndexRef(int index){
     indexRef = index;
 }
 
+void NeuroneCarte::setClasse(Classe* t){
+    this->classe = t;
+}
+
 
 

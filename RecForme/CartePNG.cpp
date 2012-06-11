@@ -381,3 +381,9 @@ int* CartePNG::getMaxLoc(){
 
 
 
+
+
+
+
+
+

@@ -25,6 +25,7 @@ private:
     double* poids;
     InputLayer* input;
     double tempsApprentissage;
+    int indexRef;
     
     void maj_poid_numero(int index, double attenuationVoisin);
     

@@ -22,6 +22,7 @@ NeuroneCarte::NeuroneCarte(InputLayer* input, AleaBox* alea) {
         poids[i] = alea->aleatoire();
     }
     tempsApprentissage = 0;
+    indexRef = -1;
 }
 
 double NeuroneCarte::fct_transfert() {

@@ -165,6 +165,7 @@ public:
     void getClasses_k_means(int nbrcurs);
     
     virtual int* getMaxLoc() = 0;
+    void classify();
 };
 
 #endif

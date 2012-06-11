@@ -199,3 +199,20 @@ void Carte::getClasses(int nbrCurs){
     }
     free(tabDst);
 }
+
+
+void Carte::classify(){
+    int* tabMax = getMaxLoc();
+    int nbrRef = tabMax[0];
+    for (int i = 0; i<mapsize; i++) {
+        int classe = -1;
+        int min = 0;
+        for (int n = 1; n<=nbrRef; n++) {
+            int min2 = distance(i, tabMax[n]);
+            if (min2 <= min) {
+                classe = tabMax[n];
+                min = min2;
+            }
+        }
+    }
+}

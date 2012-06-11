@@ -156,7 +156,7 @@ public:
      */
     NeuroneCarte* getNeurone(int i);
     
-    virtual void initInput(char*) = 0;
+    virtual void initInput(std::string) = 0;
     
     /**
      * lance la procédure d'apprentissage 

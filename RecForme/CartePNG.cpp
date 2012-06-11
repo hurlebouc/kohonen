@@ -33,10 +33,11 @@ CartePNG::CartePNG(InputLayer* input, int width, int height, int n)
     this->heigth = height;
 }
 
-void CartePNG::initInput(char* chemin){
+void CartePNG::initInput(std::string chemin){
     Image* image = new Image(chemin);
     image->simplifier();
-    
+    InputLayerPNG* input = (InputLayerPNG*)getInputLayer();
+    input->initInputLayerPNG(image);
     delete image;
 }
 

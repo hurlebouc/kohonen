@@ -61,7 +61,7 @@ public:
     
     CartePNG(Image* carte, Image* freq, int segX, int segY);
     
-    void initInput(char*);
+    void initInput(std::string);
 
     /**
      * Renvoie une image de la carte

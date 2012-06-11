@@ -30,19 +30,19 @@ int main(int argc, const char * argv[]){
     CartePNG* carte = new CartePNG(input, 10, 10, INT32_MAX);
     
     char* snum = (char*) malloc(sizeof(char)*10);
-    for (int i = 0; i<100 ; i++) {
+    for (int i = 0; i<1000 ; i++) {
+        
+        carte->reconnaitre();
+        
+        //nouvelle initialisation
         string s = "/Volumes/Chiffres_redimensionnes/mnist_test_/";
         int num = rand()%10;
         int n = 1 + (rand()%800);
         sprintf(snum, "%d_%d.png", num, n);
         s.append(snum);
-        //cout<<s<<"\n";
-        carte->reconnaitre();
         
-        //nouvelle initialisation
-        chiffre->initImage(s);
-        chiffre->simplifier();
-        input->initInputLayerPNG(chiffre);
+        carte->initInput(s);
+        
     }
     carte->reconnaitre();
     cout<<"fin de la reconnaissance\n";

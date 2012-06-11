@@ -30,7 +30,7 @@ int main(int argc, const char * argv[]){
     CartePNG* carte = new CartePNG(input, 10, 10, INT32_MAX);
     
     char* snum = (char*) malloc(sizeof(char)*10);
-    for (int i = 0; i<2000 ; i++) {
+    for (int i = 0; i<100 ; i++) {
         string s = "/Volumes/Chiffres_redimensionnes/mnist_test_/";
         int num = rand()%10;
         int n = 1 + (rand()%800);

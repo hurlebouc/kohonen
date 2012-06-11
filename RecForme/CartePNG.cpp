@@ -222,7 +222,7 @@ int* CartePNG::getVoisins(int x, int y){
         voisins[5] = getNumero(x+1, y-1);
         return voisins;
     }
-    voisins = (int*) malloc(sizeof(int)*8);
+    voisins = (int*) malloc(sizeof(int)*9);
     voisins[0] = 8;
     voisins[1] = getNumero(x-1, y-1);
     voisins[2] = getNumero(x-1, y);
@@ -358,7 +358,7 @@ Image* CartePNG::getImageWithClass(){
                 for (int j = 0; j<tailleCarre; j++) {
                     Pixel* pix = new Pixel((int) (ref*19));
                     res->setPix(x*tailleCarre+i, y*tailleCarre+j, pix); // melange
-//                    delete pix;
+                    delete pix;
                 }
             }
         }

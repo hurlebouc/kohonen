@@ -51,7 +51,7 @@ int main(int argc, const char * argv[]){
     carte->getImage()->write("/Users/hubert/Desktop/res.png");
 //    carte->getImageWithClass()->write("/Users/hubert/Desktop/res.png");
     carte->getImageWithFreq()->write("/Users/hubert/Desktop/freq.png");
-    carte->getImageWithClasses()->write("/Users/hubert/Desktop/classe.png");
+    carte->getImageWithClass()->write("/Users/hubert/Desktop/classe.png");
     
     int* tabMax = carte->getMaxLoc();
     for (int i = 1; i<=tabMax[0]; i++) {

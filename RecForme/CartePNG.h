@@ -78,8 +78,9 @@ public:
      * Renvoie une image de la carte sur laquelle sont ajouté les neurones de 
      * référence de chaque classe
      * @return 
+     * @deprecated
      */
-    Image* getImageWithClass();
+    Image* getImageWithCurs();
     /**
      * Donne une image représentant les fréquences d'utilisation de chaque de 
      * la carte
@@ -87,7 +88,11 @@ public:
      */
     Image* getImageWithFreq();
     
-    Image* getImageWithClasses();
+    /**
+     * Donne une image représentant le découpage en classes
+     * @return 
+     */
+    Image* getImageWithClass();
     
     NeuroneCarte* getNeurone(int x);
     NeuroneCarte* getNeurone(int x, int y);

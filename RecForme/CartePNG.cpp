@@ -235,7 +235,7 @@ int* CartePNG::getVoisins(int index){
 }
 
 void CartePNG::representeWithClass(char* chemin){
-    Image* image = getImageWithClass();
+    Image* image = getImageWithCurs();
     image->write(chemin);
     delete image;
 }
@@ -267,7 +267,7 @@ Image* CartePNG::getImage(){
     return png;
 }
 
-Image* CartePNG::getImageWithClass(){
+Image* CartePNG::getImageWithCurs(){
     InputLayerPNG* input = (InputLayerPNG*) getInputLayer();
     int nbrComposantes = input->getNbrComposantes();
     int ewidth = width*input->getWidth();
@@ -335,7 +335,7 @@ Image* CartePNG::getImageWithFreq(){
     return res;
 }
 
-Image* CartePNG::getImageWithClasses(){
+Image* CartePNG::getImageWithClass(){
     int tailleCarre = 28;
     Image* res = new Image(width*tailleCarre, heigth*tailleCarre, 1);
     classify();
@@ -346,7 +346,7 @@ Image* CartePNG::getImageWithClasses(){
             for (int i = 0; i<tailleCarre; i++) {
                 for (int j = 0; j<tailleCarre; j++) {
                     res->setPix(x*tailleCarre+i, y*tailleCarre+j, 
-                                new Pixel((int) (ref*255))); // melange
+                                new Pixel((int) (ref*19))); // melange
                 }
             }
         }

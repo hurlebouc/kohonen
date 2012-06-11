@@ -368,11 +368,30 @@ Image* CartePNG::getImageWithClass(){
 }
 
 CartePNG::CartePNG(Image* carte, Image* freq, int segX, int segY)
-: Carte(new InputLayerPNG(segX, segY, 1),
+: Carte(new InputLayerPNG(segX, segY, carte->getNbrComposantes()),
         (carte->getWidth()/segX)*(carte->getHeight()/segY), 
         new AleaBoxPNG(),
         0){
-    
+    width = carte->getWidth()/segX;
+    heigth = carte->getHeight()/segY;
+    int nbrComp = carte->getNbrComposantes();
+    for (int i = 0; i<width; i++) {
+        for (int j = 0; j<heigth; j++) {
+            NeuroneCarte* neurone = getNeurone(i,j);
+            Pixel* pix_freq = freq->getPix(i*segX, j*segY);
+            neurone->setTempsApprentissage(pix_freq->getGray());
+            delete pix_freq;
+            for (int x = 0; x<segX; x++) {
+                for (int y = 0; y<segY; y++) {
+                    Pixel* pix_map = carte->getPix(i*segX + x, j*segY + y);
+                    for (int comp = 0; comp<nbrComp; comp++) {
+                        neurone->setPoid(y*segX+x,comp,pix_map->getComposante(comp));
+                    }
+                    delete pix_map;
+                }
+            }
+        }
+    }
 }
 
 

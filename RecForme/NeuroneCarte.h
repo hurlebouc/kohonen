@@ -43,8 +43,10 @@ public:
     double fct_transfert();
     void maj_poid(double attenuationVoisin);
     double getPoid(long indexPoid, int indexComposante);
+    void setPoid(long indexPoid, int indexComposante, double val);
     int getNbrComposantes();
     double getTempsApprentissage();
+    void setTempsApprentissage(double);
     
     /* ------------- classification ------------ */
     

@@ -62,12 +62,24 @@ double NeuroneCarte::getPoid(long indexPoid, int indexComposante){
     return poids[indexPoid* getNbrComposantes() + indexComposante];
 }
 
+void NeuroneCarte::setPoid(long indexPoid, int indexComposante, double val){
+    if (indexPoid>=nbrPoids) {
+        std::cout<<"NeuroneCarte : out of poids : "<<indexPoid<<" (taille "<<nbrPoids<<"(\n";
+        exit(EXIT_FAILURE);
+    }
+    poids[indexPoid* getNbrComposantes() + indexComposante] = val;
+}
+
 int NeuroneCarte::getNbrComposantes(){
     return input->getNbrComposantes();
 }
 
 double NeuroneCarte::getTempsApprentissage(){
     return tempsApprentissage;
+}
+
+void NeuroneCarte::setTempsApprentissage(double val){
+    this->tempsApprentissage = val;
 }
 
 /*-------------- classification ------------------*/

@@ -9,3 +9,10 @@
 #include <iostream>
 #include "ClasseChiffre.h"
 
+ClasseChiffre::ClasseChiffre(int n) : Classe(){
+    nombre = n;
+}
+
+bool ClasseChiffre::equals(ClasseChiffre *t){
+    return t->nombre == this->nombre;
+}

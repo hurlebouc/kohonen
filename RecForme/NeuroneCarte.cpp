@@ -95,7 +95,7 @@ int NeuroneCarte::getIndexRef(){
 }
 
 void NeuroneCarte::setIndexRef(int index){
-    indexRef = indexRef;
+    indexRef = index;
 }
 
 

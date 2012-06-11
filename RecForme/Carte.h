@@ -58,6 +58,7 @@ private:
      * @return 
      */
     bool updateDst(double* tabDst);
+    bool estMaxLoc(int i);
 
 protected:
 
@@ -164,7 +165,7 @@ public:
     void getClasses(int nbrCurs);
     void getClasses_k_means(int nbrcurs);
     
-    virtual int* getMaxLoc() = 0;
+    int* getMaxLoc();
     void classify();
 };
 

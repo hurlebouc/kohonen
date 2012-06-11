@@ -35,7 +35,6 @@ private:
     
     void representeWithClass(char* chemin);
     void representeFrequences(char* cheminEnregistrement);
-    bool estMaxLoc(int x, int y);
 
 protected:
     double facteurAttenuationVoisin(int i1, int i2);
@@ -91,7 +90,6 @@ public:
     NeuroneCarte* getNeurone(int x);
     NeuroneCarte* getNeurone(int x, int y);
     
-    int* getMaxLoc();
 };
 
 #endif	/* CARTEPNG_H */

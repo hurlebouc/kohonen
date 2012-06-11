@@ -200,6 +200,31 @@ void Carte::getClasses(int nbrCurs){
     free(tabDst);
 }
 
+bool Carte::estMaxLoc(int i){
+    int* tabVoisins = getVoisins(i);
+    double m = getNeurone(i)->getTempsApprentissage();
+    int n = tabVoisins[0];
+    for (int i = 1; i<=n; i++) {
+        double m2 = getNeurone(tabVoisins[i])->getTempsApprentissage();
+        if (m2>m) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int* Carte::getMaxLoc(){
+    int* res = (int*) malloc(sizeof(int)*mapsize);
+    res[0] = 0;
+    for (int i = 0; i<mapsize; i++) {
+        if (estMaxLoc(i)) {
+            res[0]++;
+            res[res[0]] = i;
+        }
+    }
+    return res;
+}
+
 
 void Carte::classify(){
     int* tabMax = getMaxLoc();

@@ -335,34 +335,6 @@ Image* CartePNG::getImageWithFreq(){
     return res;
 }
 
-bool CartePNG::estMaxLoc(int x, int y){
-    int* tabVoisins = getVoisins(x, y);
-    double m = getNeurone(x, y)->getTempsApprentissage();
-    int n = tabVoisins[0];
-    for (int i = 1; i<=n; i++) {
-        double m2 = getNeurone(tabVoisins[i])->getTempsApprentissage();
-        if (m2>m) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int* CartePNG::getMaxLoc(){
-    int* res = (int*) malloc(sizeof(int)*width*heigth);
-    res[0] = 0;
-    for (int x = 0; x<width; x++) {
-        for (int y = 0; y<heigth; y++) {
-            if (estMaxLoc(x, y)) {
-                res[0]++;
-                res[res[0]] = getNumero(x, y);
-            }
-        }
-    }
-    return res;
-}
-
-
 
 
 

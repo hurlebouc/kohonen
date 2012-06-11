@@ -129,7 +129,7 @@ bool Carte::updateDst(double *tabDst){
     return valide;
 }
 
-void Carte::getClasses(int nbrCurs){
+void Carte::findBestCurs(int nbrCurs){
     char path[1024];
     strcpy(path, chemin);
     this->nbrCurs = nbrCurs;
@@ -241,4 +241,8 @@ void Carte::classify(){
             }
         }
     }
+}
+
+Classe* Carte::getClasse(){
+    return getNeurone(getPPN())->getClasse();
 }

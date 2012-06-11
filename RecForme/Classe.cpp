@@ -11,3 +11,7 @@
 
 Classe::Classe(){}
 Classe::~Classe(){}
+
+std::string Classe::toString(){
+    return "classe abstraite !!!";
+}

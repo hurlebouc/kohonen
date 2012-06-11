@@ -17,3 +17,7 @@ bool ClasseChiffre::equals(Classe *t){
     ClasseChiffre* n = (ClasseChiffre*) t;
     return n->nombre == this->nombre;
 }
+
+std::string ClasseChiffre::toString(){
+    return "" + nombre;
+}

@@ -14,7 +14,7 @@ using namespace std;
 static string chemin = "/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen/tests/";
 static Image* map = new Image( "/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen/tests/res.png");
 static Image* freq = new Image("/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen/tests/freq.png");
-static Carte* carte = new CartePNG(CartePNG(map, freq, 28, 28));
+static CartePNG* carte = new CartePNG(CartePNG(map, freq, 28, 28));
 
 static ClasseChiffre* zero = new ClasseChiffre(0);
 static ClasseChiffre* un = new ClasseChiffre(1);
@@ -27,6 +27,12 @@ static ClasseChiffre* sept = new ClasseChiffre(7);
 static ClasseChiffre* huit = new ClasseChiffre(8);
 static ClasseChiffre* neuf = new ClasseChiffre(9);
 
-static void setTest(){
-    
+void setTest(){
+    carte->getNeurone(2,0)->setClasse(neuf);
+    carte->getNeurone(5,2)->setClasse(sept);
+    carte->getNeurone(9,4)->setClasse(un);
+    carte->getNeurone(1,6)->setClasse(six);
+    carte->getNeurone(5,8)->setClasse(cinq);
+    carte->getNeurone(9,9)->setClasse(cinq);
 }
+

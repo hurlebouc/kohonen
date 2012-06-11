@@ -13,3 +13,5 @@
 #include "ClasseChiffre.h"
 
 #endif
+
+void setTest();

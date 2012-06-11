@@ -15,7 +15,7 @@ class Classe {
 public:
     Classe();
     ~Classe();
-    
+    virtual std::string toString();
     virtual bool equals(Classe* t) = 0;
 };
 

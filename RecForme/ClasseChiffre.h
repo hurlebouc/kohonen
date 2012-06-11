@@ -16,6 +16,7 @@ class ClasseChiffre : public Classe{
     
 public:
     ClasseChiffre(int n);
+    std::string toString();
     bool equals(Classe*);
 };
 

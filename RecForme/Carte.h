@@ -164,11 +164,12 @@ public:
     void reconnaitre();
     
 
-    void getClasses(int nbrCurs);
-    void getClasses_k_means(int nbrcurs);
+    void findBestCurs(int nbrCurs);
+    void findBestCurs_k_means(int nbrcurs);
     
     int* getMaxLoc();
     void classify();
+    Classe* getClasse();
 };
 
 #endif

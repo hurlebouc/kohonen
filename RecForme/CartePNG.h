@@ -87,6 +87,8 @@ public:
      */
     Image* getImageWithFreq();
     
+    Image* getImageWithClasses();
+    
     NeuroneCarte* getNeurone(int x);
     NeuroneCarte* getNeurone(int x, int y);
     

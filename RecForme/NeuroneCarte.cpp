@@ -90,5 +90,13 @@ double NeuroneCarte::distance(NeuroneCarte *n){
     return sqrt(res);
 }
 
+int NeuroneCarte::getIndexRef(){
+    return indexRef;
+}
+
+void NeuroneCarte::setIndexRef(int index){
+    indexRef = indexRef;
+}
+
 
 

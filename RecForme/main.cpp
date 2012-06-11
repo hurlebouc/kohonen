@@ -30,7 +30,7 @@ int main(int argc, const char * argv[]){
     CartePNG* carte = new CartePNG(input, 10, 10, INT32_MAX);
     
     char* snum = (char*) malloc(sizeof(char)*10);
-    for (int i = 0; i<1000 ; i++) {
+    for (int i = 0; i<100 ; i++) {
         string s = "/Volumes/Chiffres_redimensionnes/mnist_test_/";
         int num = rand()%10;
         int n = 1 + (rand()%800);
@@ -51,6 +51,8 @@ int main(int argc, const char * argv[]){
     carte->getImage()->write("/Users/hubert/Desktop/res.png");
 //    carte->getImageWithClass()->write("/Users/hubert/Desktop/res.png");
     carte->getImageWithFreq()->write("/Users/hubert/Desktop/freq.png");
+    carte->getImageWithClasses()->write("/Users/hubert/Desktop/classe.png");
+    
     int* tabMax = carte->getMaxLoc();
     for (int i = 1; i<=tabMax[0]; i++) {
         cout<<tabMax[i]%10 << ", " << tabMax[i] / 10 <<"\n";

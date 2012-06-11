@@ -49,6 +49,8 @@ public:
     /* ------------- classification ------------ */
     
     double distance(NeuroneCarte* n);
+    int getIndexRef();
+    void setIndexRef(int);
     
 };
 

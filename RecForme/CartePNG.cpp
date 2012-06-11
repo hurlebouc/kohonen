@@ -335,7 +335,24 @@ Image* CartePNG::getImageWithFreq(){
     return res;
 }
 
-
+Image* CartePNG::getImageWithClasses(){
+    int tailleCarre = 28;
+    Image* res = new Image(width*tailleCarre, heigth*tailleCarre, 1);
+    classify();
+    
+    for (int x = 0; x<width; x++) {
+        for (int y = 0; y<heigth; y++) {
+            int ref = getNeurone(x, y)->getIndexRef();
+            for (int i = 0; i<tailleCarre; i++) {
+                for (int j = 0; j<tailleCarre; j++) {
+                    res->setPix(x*tailleCarre+i, y*tailleCarre+j, 
+                                new Pixel((int) (ref*255))); // melange
+                }
+            }
+        }
+    }
+    return res;
+}
 
 
 

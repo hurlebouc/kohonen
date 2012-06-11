@@ -230,12 +230,14 @@ void Carte::classify(){
     int* tabMax = getMaxLoc();
     int nbrRef = tabMax[0];
     for (int i = 0; i<mapsize; i++) {
-        int classe = -1;
-        int min = 0;
+        int min = INT32_MAX;
         for (int n = 1; n<=nbrRef; n++) {
             int min2 = distance(i, tabMax[n]);
+            printf("%d, ", min2);
+            printf("%d\n", tabMax[n]);
             if (min2 <= min) {
-                classe = tabMax[n];
+                printf("caca\n");
+                getNeurone(i)->setIndexRef(tabMax[n]);
                 min = min2;
             }
         }

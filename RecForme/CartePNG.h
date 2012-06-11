@@ -32,14 +32,15 @@ private:
      * @return 
      */
     int getNumero(int x, int y);
-    int* getVoisins(int index);
+    
     void representeWithClass(char* chemin);
     void representeFrequences(char* cheminEnregistrement);
+    bool estMaxLoc(int x, int y);
 
 protected:
     double facteurAttenuationVoisin(int i1, int i2);
     double distance(int i1, int i2);
-
+    int* getVoisins(int index);
     /**
      * Donne les voisins directs du neurone à la place (x,y)
      * @param x
@@ -86,6 +87,11 @@ public:
      * @return 
      */
     Image* getImageWithFreq();
+    
+    NeuroneCarte* getNeurone(int x);
+    NeuroneCarte* getNeurone(int x, int y);
+    
+    int* getMaxLoc();
 };
 
 #endif	/* CARTEPNG_H */

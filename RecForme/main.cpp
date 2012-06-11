@@ -47,10 +47,14 @@ int main(int argc, const char * argv[]){
     carte->reconnaitre();
     cout<<"fin de la reconnaissance\n";
 //    carte->getClasses(10);
-    cout<<"fin du classement";
+    cout<<"fin du classement\n";
     carte->getImage()->write("/Users/hubert/Desktop/res.png");
 //    carte->getImageWithClass()->write("/Users/hubert/Desktop/res.png");
     carte->getImageWithFreq()->write("/Users/hubert/Desktop/freq.png");
+    int* tabMax = carte->getMaxLoc();
+    for (int i = 1; i<=tabMax[0]; i++) {
+        cout<<tabMax[i]%10 << ", " << tabMax[i] / 10 <<"\n";
+    }
     
     delete chiffre;
     

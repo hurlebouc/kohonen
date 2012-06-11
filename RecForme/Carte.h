@@ -163,6 +163,8 @@ public:
 
     void getClasses(int nbrCurs);
     void getClasses_k_means(int nbrcurs);
+    
+    virtual int* getMaxLoc() = 0;
 };
 
 #endif

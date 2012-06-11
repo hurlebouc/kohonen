@@ -115,5 +115,9 @@ void NeuroneCarte::setClasse(Classe* t){
     this->classe = t;
 }
 
+Classe* NeuroneCarte::getClasse(){
+    return classe;
+}
+
 
 

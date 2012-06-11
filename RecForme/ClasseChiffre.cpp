@@ -13,6 +13,7 @@ ClasseChiffre::ClasseChiffre(int n) : Classe(){
     nombre = n;
 }
 
-bool ClasseChiffre::equals(ClasseChiffre *t){
-    return t->nombre == this->nombre;
+bool ClasseChiffre::equals(Classe *t){
+    ClasseChiffre* n = (ClasseChiffre*) t;
+    return n->nombre == this->nombre;
 }

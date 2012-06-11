@@ -236,6 +236,7 @@ void Carte::classify(){
             min2 = getNeurone(i)->distance(getNeurone(tabMax[n]));
             if (min2 <= min) {
                 getNeurone(i)->setIndexRef(tabMax[n]);
+                getNeurone(i)->setClasse(getNeurone(tabMax[n])->getClasse());
                 min = min2;
             }
         }

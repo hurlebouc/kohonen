@@ -16,7 +16,7 @@ class ClasseChiffre : public Classe{
     
 public:
     ClasseChiffre(int n);
-    bool equals(ClasseChiffre*);
+    bool equals(Classe*);
 };
 
 #endif

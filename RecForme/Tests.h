@@ -9,6 +9,7 @@
 #ifndef RecForme_Tests_h
 #define RecForme_Tests_h
 
-
+#include "CartePNG.h"
+#include "ClasseChiffre.h"
 
 #endif

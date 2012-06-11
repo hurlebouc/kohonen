@@ -56,6 +56,7 @@ public:
     int getIndexRef();
     void setIndexRef(int);
     void setClasse(Classe*);
+    Classe* getClasse();
     
 };
 

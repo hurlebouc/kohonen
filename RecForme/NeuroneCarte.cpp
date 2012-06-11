@@ -23,6 +23,7 @@ NeuroneCarte::NeuroneCarte(InputLayer* input, AleaBox* alea) {
     }
     tempsApprentissage = 0;
     indexRef = -1;
+    classe = NULL;
 }
 
 double NeuroneCarte::fct_transfert() {

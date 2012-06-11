@@ -12,6 +12,7 @@
 		B4254A4E1535E30C00E7D173 /* NeuroneCarte.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4254A4D1535E30C00E7D173 /* NeuroneCarte.cpp */; };
 		B4254A511535EF5900E7D173 /* NeuroneInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4254A501535EF5900E7D173 /* NeuroneInput.cpp */; };
 		B4254A541535EF7800E7D173 /* Carte.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4254A531535EF7800E7D173 /* Carte.cpp */; };
+		B437167A15869D4900FFDB5E /* Classe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B437167915869D4900FFDB5E /* Classe.cpp */; };
 		B45EAA8F1539AD32007C44EB /* CartePNG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B45EAA8D1539AD32007C44EB /* CartePNG.cpp */; };
 		B4626BA815388FF700F96483 /* InputLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B45E78ED15386DA100A6A0D8 /* InputLayer.cpp */; };
 		B4626BA915388FFA00F96483 /* InputLayerPNG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4626BA41538850100F96483 /* InputLayerPNG.cpp */; };
@@ -41,6 +42,8 @@
 		B4254A521535EF6600E7D173 /* NeuroneInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NeuroneInput.h; sourceTree = "<group>"; };
 		B4254A531535EF7800E7D173 /* Carte.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Carte.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		B4254A551535EF8200E7D173 /* Carte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Carte.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B437167915869D4900FFDB5E /* Classe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Classe.cpp; sourceTree = "<group>"; };
+		B437167C15869D5900FFDB5E /* Classe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Classe.h; sourceTree = "<group>"; };
 		B45E78EB15386D8400A6A0D8 /* InputLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputLayer.h; sourceTree = "<group>"; };
 		B45E78ED15386DA100A6A0D8 /* InputLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputLayer.cpp; sourceTree = "<group>"; };
 		B45EAA8D1539AD32007C44EB /* CartePNG.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = CartePNG.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
@@ -96,6 +99,7 @@
 				B4254A521535EF6600E7D173 /* NeuroneInput.h */,
 				B45E78EB15386D8400A6A0D8 /* InputLayer.h */,
 				B4626BA71538850D00F96483 /* InputLayerPNG.h */,
+				B437167C15869D5900FFDB5E /* Classe.h */,
 				B4254A4F1535ECF500E7D173 /* NeuroneCarte.h */,
 				B4254A551535EF8200E7D173 /* Carte.h */,
 				B45EAA8E1539AD32007C44EB /* CartePNG.h */,
@@ -110,6 +114,7 @@
 				B4254A501535EF5900E7D173 /* NeuroneInput.cpp */,
 				B45E78ED15386DA100A6A0D8 /* InputLayer.cpp */,
 				B4626BA41538850100F96483 /* InputLayerPNG.cpp */,
+				B437167915869D4900FFDB5E /* Classe.cpp */,
 				B4254A4D1535E30C00E7D173 /* NeuroneCarte.cpp */,
 				B4254A531535EF7800E7D173 /* Carte.cpp */,
 				B45EAA8D1539AD32007C44EB /* CartePNG.cpp */,
@@ -176,6 +181,7 @@
 				B4626BA815388FF700F96483 /* InputLayer.cpp in Sources */,
 				B4626BA915388FFA00F96483 /* InputLayerPNG.cpp in Sources */,
 				B45EAA8F1539AD32007C44EB /* CartePNG.cpp in Sources */,
+				B437167A15869D4900FFDB5E /* Classe.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

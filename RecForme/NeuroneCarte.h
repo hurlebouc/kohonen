@@ -10,6 +10,7 @@
 #define RecForme_NeuroneKohonen_h
 
 #include "InputLayer.h"
+#include "Classe.h"
 
 class AleaBox {
     
@@ -26,6 +27,7 @@ private:
     InputLayer* input;
     double tempsApprentissage;
     int indexRef;
+    Classe* classe;
     
     void maj_poid_numero(int index, double attenuationVoisin);
     

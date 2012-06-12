@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,15 +93,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>distance</b>(NeuroneCarte *n) (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>etapeApprentissage</b> (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>fct_transfert</b>() (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getClasse</b>() (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getIndexRef</b>() (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getNbrComposantes</b>() (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getPoid</b>(long indexPoid, int indexComposante) (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getTempsApprentissage</b>() (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>maj_poid</b>(double attenuationVoisin) (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_neurone_carte.html#afb9ca30aceae5a360d6933f7b406f64d">NeuroneCarte</a>(InputLayer *input, AleaBox *alea)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>setClasse</b>(Classe *) (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setIndexRef</b>(int) (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>setPoid</b>(long indexPoid, int indexComposante, double val) (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setTempsApprentissage</b>(double) (défini dans <a class="el" href="class_neurone_carte.html">NeuroneCarte</a>)</td><td class="entry"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Juin 9 2012 19:12:17 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 12 2012 10:45:05 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

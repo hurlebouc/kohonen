@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,23 +100,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <map name="_carte" id="_carte">
 <area shape="rect" id="node1" href="class_carte.html" title="Carte" alt="" coords="5,5,59,32"/><area shape="rect" id="node3" href="class_carte_p_n_g.html" title="CartePNG" alt="" coords="107,5,189,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_image"/>
+<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_classe"/>
+<map name="_classe" id="_classe">
+<area shape="rect" id="node1" href="class_classe.html" title="Classe" alt="" coords="6,5,69,32"/><area shape="rect" id="node3" href="class_classe_chiffre.html" title="ClasseChiffre" alt="" coords="117,5,216,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_image"/>
 <map name="_image" id="_image">
 <area shape="rect" id="node1" href="class_image.html" title="Image" alt="" coords="6,5,63,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_input_layer"/>
+<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_input_layer"/>
 <map name="_input_layer" id="_input_layer">
 <area shape="rect" id="node1" href="class_input_layer.html" title="InputLayer" alt="" coords="5,5,88,32"/><area shape="rect" id="node3" href="class_input_layer_p_n_g.html" title="InputLayerPNG" alt="" coords="137,5,247,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_neurone_carte"/>
+<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_neurone_carte"/>
 <map name="_neurone_carte" id="_neurone_carte">
 <area shape="rect" id="node1" href="class_neurone_carte.html" title="NeuroneCarte" alt="" coords="6,5,106,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_neurone_input"/>
+<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_neurone_input"/>
 <map name="_neurone_input" id="_neurone_input">
 <area shape="rect" id="node1" href="class_neurone_input.html" title="NeuroneInput" alt="" coords="6,5,103,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_pixel"/>
+<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_pixel"/>
 <map name="_pixel" id="_pixel">
 <area shape="rect" id="node1" href="class_pixel.html" title="Pixel" alt="" coords="6,5,55,32"/></map>
 </td></tr>
@@ -123,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Juin 9 2012 19:12:17 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 12 2012 10:45:06 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

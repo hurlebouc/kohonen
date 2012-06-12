@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,23 +108,36 @@ Graphe de collaboration de CartePNG:</div>
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a3d9f62ad984546ce7c3a0f3daf546963"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#a3d9f62ad984546ce7c3a0f3daf546963">CartePNG</a> (<a class="el" href="class_input_layer.html">InputLayer</a> *input, int width, int height, int nbrApprentissage)</td></tr>
-<tr class="memitem:a795f0881832d491e54d8d89ad6696510"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#a795f0881832d491e54d8d89ad6696510">CartePNG</a> (<a class="el" href="class_image.html">Image</a> *png, int width, int height, int nbrApprentissage)</td></tr>
+<tr class="memitem:afd47b547e403a8e13c88c925532b897d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd47b547e403a8e13c88c925532b897d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CartePNG</b> (<a class="el" href="class_image.html">Image</a> *carte, <a class="el" href="class_image.html">Image</a> *freq, int segX, int segY)</td></tr>
+<tr class="memitem:a2713f4978fe4b68868912826e3e0ec1d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2713f4978fe4b68868912826e3e0ec1d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initInput</b> (std::string)</td></tr>
 <tr class="memitem:abf4127b2f6b18c44d6aa32a2059b802b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_image.html">Image</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#abf4127b2f6b18c44d6aa32a2059b802b">getImage</a> ()</td></tr>
-<tr class="memitem:a2ebcd1e1aaac88c0f079df05f72f6340"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_image.html">Image</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#a2ebcd1e1aaac88c0f079df05f72f6340">getImageWithClass</a> ()</td></tr>
+<tr class="memitem:a80b12cb9d51c68812a52e321fc274fe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_image.html">Image</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#a80b12cb9d51c68812a52e321fc274fe1">getImageWithCurs</a> ()</td></tr>
 <tr class="memitem:a82c58ed8b4f81eef097f812246a24d20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_image.html">Image</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#a82c58ed8b4f81eef097f812246a24d20">getImageWithFreq</a> ()</td></tr>
+<tr class="memitem:a2ebcd1e1aaac88c0f079df05f72f6340"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_image.html">Image</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#a2ebcd1e1aaac88c0f079df05f72f6340">getImageWithClass</a> ()</td></tr>
+<tr class="memitem:a629678ee4edfef792f9e3e4b158323c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#a629678ee4edfef792f9e3e4b158323c5">getNeurone</a> (int x)</td></tr>
+<tr class="memitem:a8a3fa2221be241eb9177818d93b349f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a3fa2221be241eb9177818d93b349f4"></a>
+<a class="el" href="class_neurone_carte.html">NeuroneCarte</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNeurone</b> (int x, int y)</td></tr>
 <tr class="inherit_header pub_methods_class_carte"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_carte')"><img src="closed.png" alt="-"/>&nbsp;Fonctions membres publiques inherited from <a class="el" href="class_carte.html">Carte</a></td></tr>
 <tr class="memitem:a0dcf7689f34a9421848214bd33c7476a inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte.html#a0dcf7689f34a9421848214bd33c7476a">Carte</a> (<a class="el" href="class_input_layer.html">InputLayer</a> *input, int mapsize, <a class="el" href="class_alea_box.html">AleaBox</a> *alea, int nbrApprentissage)</td></tr>
-<tr class="memitem:a260b1a10b121856b707cda37df0950f4 inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte.html#a260b1a10b121856b707cda37df0950f4">getNeurone</a> (int i)</td></tr>
 <tr class="memitem:a05a8175fe2bf4a93befaf7a872b02670 inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte.html#a05a8175fe2bf4a93befaf7a872b02670">reconnaitre</a> ()</td></tr>
-<tr class="memitem:afdb28a7862c47850cc887847f2badb67 inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdb28a7862c47850cc887847f2badb67"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getClasses</b> (int nbrCurs)</td></tr>
-<tr class="memitem:a28411e1165817e3a4300ffbc63c4c7a4 inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28411e1165817e3a4300ffbc63c4c7a4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getClasses_k_means</b> (int nbrcurs)</td></tr>
+<tr class="memitem:ada641dd1f5273210bea4f3f5e7254512 inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada641dd1f5273210bea4f3f5e7254512"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>findBestCurs</b> (int nbrCurs)</td></tr>
+<tr class="memitem:a7d9a37aa5630cba3e9b62b70154d26ca inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d9a37aa5630cba3e9b62b70154d26ca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>findBestCurs_k_means</b> (int nbrcurs)</td></tr>
+<tr class="memitem:a4e0780c44a5e4bcce15c87a10d6af8ab inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e0780c44a5e4bcce15c87a10d6af8ab"></a>
+int *&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxLoc</b> ()</td></tr>
+<tr class="memitem:a423df1f5b285e113ed2e32df7d69fbec inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a423df1f5b285e113ed2e32df7d69fbec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>classify</b> ()</td></tr>
+<tr class="memitem:af6b291b878eb629cd1f761747e1253b5 inherit pub_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6b291b878eb629cd1f761747e1253b5"></a>
+<a class="el" href="class_classe.html">Classe</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getClasse</b> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
 Fonctions membres protégées</h2></td></tr>
 <tr class="memitem:ad57614bd80b844a5d3ad08cf43d2e638"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#ad57614bd80b844a5d3ad08cf43d2e638">facteurAttenuationVoisin</a> (int i1, int i2)</td></tr>
 <tr class="memitem:adef42f6f2bc29e16af4c972c4a50a481"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#adef42f6f2bc29e16af4c972c4a50a481">distance</a> (int i1, int i2)</td></tr>
+<tr class="memitem:a5e5a0ecef408926b46ef266b30fe488f"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#a5e5a0ecef408926b46ef266b30fe488f">getVoisins</a> (int index)</td></tr>
 <tr class="memitem:aa0dbedc08aee46d6af981014ed46f790"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte_p_n_g.html#aa0dbedc08aee46d6af981014ed46f790">getVoisins</a> (int x, int y)</td></tr>
 <tr class="inherit_header pro_methods_class_carte"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_carte')"><img src="closed.png" alt="-"/>&nbsp;Fonctions membres protégées inherited from <a class="el" href="class_carte.html">Carte</a></td></tr>
 <tr class="memitem:a7d6080b3f9fcc142d00751160323a9cf inherit pro_methods_class_carte"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_input_layer.html">InputLayer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_carte.html#a7d6080b3f9fcc142d00751160323a9cf">getInputLayer</a> ()</td></tr>
@@ -186,54 +200,6 @@ Fonctions membres protégées</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a795f0881832d491e54d8d89ad6696510"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CartePNG::CartePNG </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_image.html">Image</a> *&#160;</td>
-          <td class="paramname"><em>png</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nbrApprentissage</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Construction d'une carte à partir d'une image </p>
-<dl class="params"><dt>Paramètres:</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">png</td><td></td></tr>
-    <tr><td class="paramname">width</td><td></td></tr>
-    <tr><td class="paramname">height</td><td></td></tr>
-    <tr><td class="paramname">nbrApprentissage</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/><h2>Documentation des fonctions membres</h2>
 <a class="anchor" id="adef42f6f2bc29e16af4c972c4a50a481"></a>
 <div class="memitem">
@@ -278,7 +244,7 @@ Fonctions membres protégées</h2></td></tr>
 
 <p>Implémente <a class="el" href="class_carte.html#a333de7108f12cb3cbc820749e9768c0f">Carte</a>.</p>
 
-<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00040">40</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00056">56</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,7 +291,7 @@ Fonctions membres protégées</h2></td></tr>
 
 <p>Implémente <a class="el" href="class_carte.html#ad8ac41ab9530d7ec90ea4d639ef904be">Carte</a>.</p>
 
-<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00048">48</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00064">64</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
 
 </div>
 </div>
@@ -344,7 +310,7 @@ Fonctions membres protégées</h2></td></tr>
 <p>Renvoie une image de la carte </p>
 <dl class="section return"><dt>Renvoie:</dt><dd></dd></dl>
 
-<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00235">235</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00251">251</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
 
 </div>
 </div>
@@ -360,10 +326,30 @@ Fonctions membres protégées</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Renvoie une image de la carte sur laquelle sont ajouté les neurones de référence de chaque classe </p>
+<p>Donne une image représentant le découpage en classes </p>
 <dl class="section return"><dt>Renvoie:</dt><dd></dd></dl>
 
-<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00262">262</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00350">350</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80b12cb9d51c68812a52e321fc274fe1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_image.html">Image</a> * CartePNG::getImageWithCurs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renvoie une image de la carte sur laquelle sont ajouté les neurones de référence de chaque classe </p>
+<dl class="section return"><dt>Renvoie:</dt><dd></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Obsolète:</a></b></dt><dd></dd></dl>
+
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00279">279</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
 
 </div>
 </div>
@@ -382,7 +368,71 @@ Fonctions membres protégées</h2></td></tr>
 <p>Donne une image représentant les fréquences d'utilisation de chaque de la carte </p>
 <dl class="section return"><dt>Renvoie:</dt><dd></dd></dl>
 
-<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00305">305</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00323">323</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a629678ee4edfef792f9e3e4b158323c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a> * CartePNG::getNeurone </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Donne le neurone de la carte à l'indice i </p>
+<dl class="params"><dt>Paramètres:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie:</dt><dd></dd></dl>
+
+<p>Réimplémentée à partir de <a class="el" href="class_carte.html#a260b1a10b121856b707cda37df0950f4">Carte</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00048">48</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e5a0ecef408926b46ef266b30fe488f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int * CartePNG::getVoisins </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Donne les voisins directes d'un neurone </p>
+<dl class="params"><dt>Paramètres:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>index du neurone dont on souhaite connaitre les voisins </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie:</dt><dd>tableau d'entier dont le premier élément donne le nombre de voisins. Renvoie donc un tableau de n+1 cases si le neurone à n voisins. </dd></dl>
+
+<p>Implémente <a class="el" href="class_carte.html#a8d37d6202d874efc61e1028626970414">Carte</a>.</p>
+
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00239">239</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
 
 </div>
 </div>
@@ -427,7 +477,7 @@ Fonctions membres protégées</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Renvoie:</dt><dd></dd></dl>
 
-<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00055">55</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
+<p>Définition à la ligne <a class="el" href="_carte_p_n_g_8cpp_source.html#l00071">71</a> du fichier <a class="el" href="_carte_p_n_g_8cpp_source.html">CartePNG.cpp</a>.</p>
 
 </div>
 </div>
@@ -438,7 +488,7 @@ Fonctions membres protégées</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Juin 9 2012 19:12:17 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 12 2012 10:45:04 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

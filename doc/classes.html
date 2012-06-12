@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,25 +88,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_C">C</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a>&#160;|&#160;<a class="qindex" href="#letter_N">N</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter__">_</a></div>
 <table style="margin: 10px; white-space: nowrap;" align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
 <tr><td rowspan="2" valign="bottom"><a name="letter_A"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;A&#160;&#160;</div></td></tr></table>
-</td><td valign="top"><a class="el" href="class_carte_p_n_g.html">CartePNG</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_input_layer_p_n_g.html">InputLayerPNG</a>&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_P"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;P&#160;&#160;</div></td></tr></table>
+</td><td valign="top"><a class="el" href="class_carte_p_n_g.html">CartePNG</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_input_layer.html">InputLayer</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_neurone_input.html">NeuroneInput</a>&#160;&#160;&#160;</td><td></td></tr>
+<tr><td valign="top"><a class="el" href="class_classe.html">Classe</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_input_layer_p_n_g.html">InputLayerPNG</a>&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_P"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;P&#160;&#160;</div></td></tr></table>
 </td><td></td></tr>
-<tr><td rowspan="2" valign="bottom"><a name="letter_I"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;I&#160;&#160;</div></td></tr></table>
-</td><td rowspan="2" valign="bottom"><a name="letter_N"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;N&#160;&#160;</div></td></tr></table>
+<tr><td valign="top"><a class="el" href="class_alea_box.html">AleaBox</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_classe_chiffre.html">ClasseChiffre</a>&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_N"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;N&#160;&#160;</div></td></tr></table>
 </td><td></td></tr>
-<tr><td valign="top"><a class="el" href="class_alea_box.html">AleaBox</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_pixel.html">Pixel</a>&#160;&#160;&#160;</td><td></td></tr>
-<tr><td valign="top"><a class="el" href="class_alea_box_p_n_g.html">AleaBoxPNG</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_image.html">Image</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a>&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter__"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;_&#160;&#160;</div></td></tr></table>
-</td><td></td></tr>
+<tr><td valign="top"><a class="el" href="class_alea_box_p_n_g.html">AleaBoxPNG</a>&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_I"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;I&#160;&#160;</div></td></tr></table>
+</td><td valign="top"><a class="el" href="class_pixel.html">Pixel</a>&#160;&#160;&#160;</td><td></td></tr>
 <tr><td rowspan="2" valign="bottom"><a name="letter_C"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;C&#160;&#160;</div></td></tr></table>
-</td><td valign="top"><a class="el" href="class_input_layer.html">InputLayer</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_neurone_input.html">NeuroneInput</a>&#160;&#160;&#160;</td><td></td></tr>
-<tr><td></td><td></td><td valign="top"><a class="el" href="struct__curs.html">_curs</a>&#160;&#160;&#160;</td><td></td></tr>
-<tr><td valign="top"><a class="el" href="class_carte.html">Carte</a>&#160;&#160;&#160;</td><td></td><td></td><td></td><td></td></tr>
+</td><td valign="top"><a class="el" href="class_neurone_carte.html">NeuroneCarte</a>&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter__"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;_&#160;&#160;</div></td></tr></table>
+</td><td></td></tr>
+<tr><td valign="top"><a class="el" href="class_image.html">Image</a>&#160;&#160;&#160;</td><td></td><td></td></tr>
+<tr><td valign="top"><a class="el" href="class_carte.html">Carte</a>&#160;&#160;&#160;</td><td></td><td></td><td valign="top"><a class="el" href="struct__curs.html">_curs</a>&#160;&#160;&#160;</td><td></td></tr>
 <tr><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
 <div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_C">C</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a>&#160;|&#160;<a class="qindex" href="#letter_N">N</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter__">_</a></div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Juin 9 2012 19:12:17 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 12 2012 10:45:05 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -669,52 +670,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            <span class="keywordflow">if</span> (format == GL_RGBA || format == GL_LUMINANCE_ALPHA) {</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                *row++ = pixel-&gt;<a class="code" href="class_pixel.html#a3538de8e7f902b9a9c8073fa4f346217">getAlpha</a>();</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;            }</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        }</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    }</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    </div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    <span class="comment">/* PRINCIPE ACTIF */</span></div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    </div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    png_init_io (png_ptr, fp);</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    png_set_rows (png_ptr, info_ptr, row_pointers);</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    png_write_png (png_ptr, info_ptr, PNG_TRANSFORM_IDENTITY, NULL);</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        </div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    </div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="comment">/* libération mémoire */</span></div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    </div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    <span class="keywordflow">for</span> (y = 0; y &lt; height; y++) {</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        png_free (png_ptr, row_pointers[y]);</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    }</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    png_free (png_ptr, row_pointers);</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    png_destroy_write_struct (&amp;png_ptr, &amp;info_ptr);</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    fclose (fp);</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;}</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="keywordtype">void</span> Image::write(<span class="keywordtype">string</span> path){</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordtype">string</span> tampon = chemin;</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    chemin = path;</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    save();</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    chemin = tampon;</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;}</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="keywordtype">void</span> Image::simplifier(){</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    format = GL_LUMINANCE;</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    </div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    GLubyte* newtexels = (GLubyte*) malloc(<span class="keyword">sizeof</span>(GLubyte)*width*height);</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i&lt;height*width; i++) {</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;        <span class="keywordtype">int</span> tot = 0;</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j&lt;nbrComposantes; j++) {</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;            tot+=texels[i*nbrComposantes + j];</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        }</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        newtexels[i] = tot/nbrComposantes;</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    }</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    free(texels);</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    texels = newtexels;</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    nbrComposantes = 1;</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;}</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;            <span class="keyword">delete</span> pixel;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        }</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    }</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    </div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="comment">/* PRINCIPE ACTIF */</span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    </div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    png_init_io (png_ptr, fp);</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    png_set_rows (png_ptr, info_ptr, row_pointers);</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    png_write_png (png_ptr, info_ptr, PNG_TRANSFORM_IDENTITY, NULL);</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        </div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    </div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="comment">/* libération mémoire */</span></div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    </div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <span class="keywordflow">for</span> (y = 0; y &lt; height; y++) {</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        png_free (png_ptr, row_pointers[y]);</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    }</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    png_free (png_ptr, row_pointers);</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    png_destroy_write_struct (&amp;png_ptr, &amp;info_ptr);</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    fclose (fp);</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;}</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;<span class="keywordtype">void</span> Image::write(<span class="keywordtype">string</span> path){</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    <span class="keywordtype">string</span> tampon = chemin;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    chemin = path;</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    save();</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    chemin = tampon;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;}</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="keywordtype">void</span> Image::simplifier(){</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    format = GL_LUMINANCE;</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    </div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    GLubyte* newtexels = (GLubyte*) malloc(<span class="keyword">sizeof</span>(GLubyte)*width*height);</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i&lt;height*width; i++) {</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        <span class="keywordtype">int</span> tot = 0;</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j&lt;nbrComposantes; j++) {</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;            tot+=texels[i*nbrComposantes + j];</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        }</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        newtexels[i] = tot/nbrComposantes;</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    }</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    free(texels);</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    texels = newtexels;</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    nbrComposantes = 1;</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Juin 9 2012 19:12:16 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 12 2012 10:45:02 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

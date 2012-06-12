@@ -36,6 +36,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,12 +100,24 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>fct_transfert</b> (
 void&#160;</td><td class="memItemRight" valign="bottom"><b>maj_poid</b> (double attenuationVoisin)</td></tr>
 <tr class="memitem:a0eabd636b30100971295537ddc7f2d81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0eabd636b30100971295537ddc7f2d81"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getPoid</b> (long indexPoid, int indexComposante)</td></tr>
+<tr class="memitem:a2627468b0936a3f27fac0a96534c39ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2627468b0936a3f27fac0a96534c39ea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPoid</b> (long indexPoid, int indexComposante, double val)</td></tr>
 <tr class="memitem:a6ce5a9b52bddac1a843410f2948d0f3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ce5a9b52bddac1a843410f2948d0f3d"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getNbrComposantes</b> ()</td></tr>
 <tr class="memitem:a4c28318f229f5789ba0bc1e0e87a6310"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c28318f229f5789ba0bc1e0e87a6310"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getTempsApprentissage</b> ()</td></tr>
+<tr class="memitem:adc6defcbfbc44ed45e0ba72af5d1f62e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc6defcbfbc44ed45e0ba72af5d1f62e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTempsApprentissage</b> (double)</td></tr>
 <tr class="memitem:aa8df8f26da673c644e767e8557f0525a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8df8f26da673c644e767e8557f0525a"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>distance</b> (<a class="el" href="class_neurone_carte.html">NeuroneCarte</a> *n)</td></tr>
+<tr class="memitem:aecfa8139bdcf33028285ec3eeaa40e94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecfa8139bdcf33028285ec3eeaa40e94"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndexRef</b> ()</td></tr>
+<tr class="memitem:aefd9a3a4e50eae427aebea47abf908bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aefd9a3a4e50eae427aebea47abf908bb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setIndexRef</b> (int)</td></tr>
+<tr class="memitem:a37fe4912ea83f7ec3d438e5d245ad48c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37fe4912ea83f7ec3d438e5d245ad48c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setClasse</b> (<a class="el" href="class_classe.html">Classe</a> *)</td></tr>
+<tr class="memitem:aaa39b314e035b211e64e3352f543759b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa39b314e035b211e64e3352f543759b"></a>
+<a class="el" href="class_classe.html">Classe</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getClasse</b> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Attributs publics statiques</h2></td></tr>
@@ -117,7 +130,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>etapeApprentiss
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock">
-<p>Définition à la ligne <a class="el" href="_neurone_carte_8h_source.html#l00020">20</a> du fichier <a class="el" href="_neurone_carte_8h_source.html">NeuroneCarte.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="_neurone_carte_8h_source.html#l00021">21</a> du fichier <a class="el" href="_neurone_carte_8h_source.html">NeuroneCarte.h</a>.</p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
 <a class="anchor" id="afb9ca30aceae5a360d6933f7b406f64d"></a>
 <div class="memitem">
@@ -162,7 +175,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>etapeApprentiss
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Juin 9 2012 19:12:17 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 12 2012 10:45:05 pour Kohonen par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

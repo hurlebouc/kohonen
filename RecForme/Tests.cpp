@@ -34,12 +34,30 @@ static void setTest(){
     carte->getNeurone(1,6)->setClasse(six);
     carte->getNeurone(5,8)->setClasse(cinq);
     carte->getNeurone(9,9)->setClasse(cinq);
+    carte->classify();
 }
 
 void runTests(){
+    char* snum = (char*) malloc(sizeof(char)*10);
     setTest();
-    carte->initInput("/Volumes/Chiffres_redimensionnes/mnist_test_/9_29.png");
-    carte->classify();
-    cout<<carte->getClasse()->toString()<<"\n";
+    
+    int tot = 0;
+    
+    for (int i = 0; i<100; i++) {
+        string s = "/Volumes/Chiffres_redimensionnes/mnist_test_/";
+        int num = 9;
+        int n = 1 + (rand()%800);
+        sprintf(snum, "%d_%d.png", num, n);
+        s.append(snum);
+        
+        
+        carte->initInput(s);
+        Classe* ref = new ClasseChiffre(num);
+        Classe* res = carte->getClasse();
+        if (res->equals(ref)) {
+            tot++;
+        }
+    }
+    cout<<"fiabilité : "<<tot<<" \%\n";
 }
 

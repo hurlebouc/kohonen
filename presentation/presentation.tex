@@ -36,7 +36,7 @@
 \item Apprentissage non-supervisé
 	\begin{itemize}
 	\item Le réseau évolue seul en fonction des entrées qui lui sont données.
-	\item 
+	\item Il modifie les poids des liaisons entre neurones.
 	\end{itemize}
 \end{itemize}
 }
@@ -69,15 +69,46 @@
 	\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=5cm]{images/res.eps}
-	\caption{Carte de \textsc{Kohonen} après apprentissage}.
+	\caption{Carte de \textsc{Kohonen} après apprentissage}
 	\end{figure}
 }
 
-\section{Amélioration}
+\section{Discussion}
 
-\diapo{Discution}{
-	
+\diapo{Discussion}{
+	\begin{itemize}
+	\item Comment utiliser cette carte dans la ROC ?
+	\item Comment établir un classement ?
+	\end{itemize}
 }
+
+\diapo{Sélection des classes par étude des fréquences}{
+	\begin{figure}
+		\centering
+		\includegraphics[width=5cm]{images/freq.eps}
+		\caption{Représentation des fréquences}
+	\end{figure}
+}
+
+\diapo{Interprétation}{
+	\begin{itemize}
+	\item Les références sont les maxima locaux.
+	\item Les classes sont obtenues à partir d'un diagramme de \textsc{Voronoi}.
+	\end{itemize}
+}
+
+\diapo{Classification}{
+	\begin{figure}
+		\centering
+		\includegraphics[width=5cm]{images/classe.eps}
+		\caption{Diagramme de \textsc{Voronoi}}
+	\end{figure}
+}
+
+
+
+
+
 
 
 

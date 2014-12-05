@@ -109,7 +109,7 @@ uint8_t Pixel::getComposante(int i){
     return composantes[i];
 }
 
-GLenum Pixel::getFormat(){
+format_t Pixel::getFormat(){
     return format;
 }
 
@@ -304,7 +304,7 @@ void Image::initImage(string path){
     
     
     /* we can now allocate memory for storing pixel data */
-    this->texels = (GLubyte *)malloc (sizeof (GLubyte) * this->width
+    this->texels = (byte_t *)malloc (sizeof (byte_t) * this->width
                                       * this->height * this->nbrComposantes);
     
     png_bytep *row_pointers;
@@ -358,7 +358,7 @@ Image::Image(int width, int height, int nbrComposantes){
         default:
             break;
     }
-    this->texels = (GLubyte *) malloc (sizeof (GLubyte) * this->width
+    this->texels = (byte_t *) malloc (sizeof (byte_t) * this->width
                                        * this->height * this->nbrComposantes);
 }
 
@@ -384,7 +384,7 @@ Image::Image(int width, int height, int nbrComposantes,string path){
         default:
             break;
     }
-    this->texels = (GLubyte *) malloc (sizeof (GLubyte) * this->width
+    this->texels = (byte_t *) malloc (sizeof (byte_t) * this->width
                                        * this->height * this->nbrComposantes);
 }
 
@@ -403,10 +403,10 @@ Pixel* Image::getPix(int x, int y){
         <<" (taille : "<<height<<")\n";
         exit(EXIT_FAILURE);
     }
-    GLubyte r;
-    GLubyte g;
-    GLubyte b;
-    GLubyte a;
+    byte_t r;
+    byte_t g;
+    byte_t b;
+    byte_t a;
     switch (format) {
         case GL_RGB:
             r = texels[y*width*nbrComposantes + x*nbrComposantes];
@@ -613,7 +613,7 @@ void Image::write(string path){
 void Image::simplifier(){
     format = GL_LUMINANCE;
     
-    GLubyte* newtexels = (GLubyte*) malloc(sizeof(GLubyte)*width*height);
+    byte_t* newtexels = (byte_t*) malloc(sizeof(byte_t)*width*height);
     for (int i = 0; i<height*width; i++) {
         int tot = 0;
         for (int j = 0; j<nbrComposantes; j++) {

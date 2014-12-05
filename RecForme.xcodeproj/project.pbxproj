@@ -225,16 +225,9 @@
 				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-lX11",
-					"-lpng",
-				);
-				PRELINK_LIBS = "-lX11";
+				OTHER_LDFLAGS = "-lpng";
 				SDKROOT = macosx;
-				SECTORDER_FLAGS = (
-					"-lX11",
-					"-lpng",
-				);
+				SECTORDER_FLAGS = "-lpng";
 			};
 			name = Debug;
 		};
@@ -256,28 +249,15 @@
 				HEADER_SEARCH_PATHS = /opt/local/include;
 				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = (
-					"-lX11",
-					"-lpng",
-				);
-				PRELINK_LIBS = "-lX11";
+				OTHER_LDFLAGS = "-lpng";
 				SDKROOT = macosx;
-				SECTORDER_FLAGS = (
-					"-lX11",
-					"-lpng",
-				);
+				SECTORDER_FLAGS = "-lpng";
 			};
 			name = Release;
 		};
 		B4254A491535D86F00E7D173 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/local/lib,
-					/usr/X11/lib,
-				);
-				OTHER_LDFLAGS = "-lX11";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -285,12 +265,6 @@
 		B4254A4A1535D86F00E7D173 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/local/lib,
-					/usr/X11/lib,
-				);
-				OTHER_LDFLAGS = "-lX11";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

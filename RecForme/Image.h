@@ -11,13 +11,25 @@
 #ifndef RecForme_Image_h
 #define RecForme_Image_h
 
-#include <GL/gl.h>
+#define GL_ALPHA                          0x1906
+#define GL_RGB                            0x1907
+#define GL_RGBA                           0x1908
+#define GL_LUMINANCE                      0x1909
+#define GL_LUMINANCE_ALPHA                0x190A
+
+//#include <GL/gl.h>
+
+typedef unsigned int    format_t;       // GLenum
+typedef int             composante_t;   // GLint
+typedef unsigned int    taille_t;       // GLuint
+typedef unsigned char   byte_t;         // GLubyte
+
 
 class Pixel {
     
 private:
-    GLenum  format;          /* RVB, RVBA, Luminance, Luminance Alpha */
-    GLint   nbrComposantes;  /* composantes d'un texel */
+    format_t  format;          /* RVB, RVBA, Luminance, Luminance Alpha */
+    composante_t   nbrComposantes;  /* composantes d'un texel */
     uint8_t* composantes;
     
 public:
@@ -60,7 +72,7 @@ public:
      * Donne le format d'un pixel
      * @return 
      */
-    GLenum getFormat();
+    format_t getFormat();
     
     /**
      * Donne la composante de rouge d'un pixel
@@ -113,11 +125,11 @@ class Image {
     
 private:
     std::string chemin;
-    GLuint  width;           /* largeur */
-    GLuint  height;          /* hauteur */
-    GLenum  format;          /* RVB, RVBA, Luminance, Luminance Alpha */
-    GLint   nbrComposantes;  /* composantes d'un texel */
-    GLubyte *texels;         /* données de l'image */
+    taille_t  width;           /* largeur */
+    taille_t  height;          /* hauteur */
+    format_t  format;          /* RVB, RVBA, Luminance, Luminance Alpha */
+    composante_t   nbrComposantes;  /* composantes d'un texel */
+    byte_t *texels;         /* données de l'image */
     
 public:
     

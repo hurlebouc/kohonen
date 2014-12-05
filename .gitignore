@@ -10,3 +10,6 @@ presentation/presentation.toc
 struct.log
 /dist/Release/
 /build/Release/
+RecForme.xcodeproj/project.xcworkspace/xcuserdata
+RecForme.xcodeproj/xcuserdata
+RecForme.xccheckout

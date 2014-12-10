@@ -11,7 +11,7 @@
 #ifndef RecForme_Image_h
 #define RecForme_Image_h
 
-#define GL_ALPHA                          0x1906
+//#define GL_ALPHA                          0x1906
 #define GL_RGB                            0x1907
 #define GL_RGBA                           0x1908
 #define GL_LUMINANCE                      0x1909
@@ -81,10 +81,22 @@ public:
     uint8_t getRed();
     
     /**
+     * Change la composante de rouge d'un pixel
+     * @param composante rouge
+     */
+    void setRed(byte_t);
+    
+    /**
      * Donne la composante de vert d'un pixel
      * @return 
      */
     uint8_t getGreen();
+    
+    /**
+     * Change la composante de vert d'un pixel
+     * @param composante verte
+     */
+    void setGreen(byte_t);
     
     /**
      * Donne la composante de bleu d'un pixel
@@ -93,16 +105,34 @@ public:
     uint8_t getBlue();
     
     /**
+     * Change la composante de bleu d'un pixel
+     * @param composante bleue
+     */
+    void setBlue(byte_t);
+    
+    /**
      * Donne la composante alpha d'un pixel
      * @return 
      */
     uint8_t getAlpha();
     
     /**
+     * Change la composante de alpha d'un pixel
+     * @param composante alpha
+     */
+    void setAlpha(byte_t);
+    
+    /**
      * Donne la composante de gris d'un pixel
      * @return 
      */
     uint8_t getGray();
+    
+    /**
+     * Change la composante de gris d'un pixel
+     * @param composante grise
+     */
+    void setGray(byte_t);
     
     /**
      * Donne la composante numéro i d'un pixel
@@ -130,6 +160,10 @@ private:
     format_t  format;          /* RVB, RVBA, Luminance, Luminance Alpha */
     composante_t   nbrComposantes;  /* composantes d'un texel */
     byte_t *texels;         /* données de l'image */
+    void flouterRGB(int);
+    void flouterRGBA(int);
+    void flouterG(int);
+    void flouterGA(int);
     
 public:
     
@@ -139,7 +173,7 @@ public:
     ~Image();
     
     void initImage(std::string path);
-    Pixel* getPix(int x, int y);
+    Pixel* getPix(int x, int y); // *nouveau* pixel (copy)
     void setPix(int x, int y, Pixel* pix);
     int getWidth();
     int getHeight();
@@ -147,6 +181,11 @@ public:
     void save();
     void write(std::string path);
     void simplifier();
+    /**
+     * FLoute la photo
+     * @param r rayon de floutage
+     */
+    void flouter(int r);
 };
 
 #endif

@@ -12,9 +12,9 @@
 using namespace std;
 
 static string chemin = "/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen/tests/";
-static Image* map = new Image( "/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen/tests/res.png");
-static Image* freq = new Image("/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen/tests/freq.png");
-static CartePNG* carte = new CartePNG(CartePNG(map, freq, 28, 28));
+static Image* map;
+static Image* freq;
+static CartePNG* carte;
 
 static ClasseChiffre* zero = new ClasseChiffre(0);
 static ClasseChiffre* un = new ClasseChiffre(1);
@@ -38,6 +38,10 @@ static void setTest(){
 }
 
 void runTests(){
+    map = new Image( "/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen/tests/res.png");
+    freq = new Image("/Users/hubert/Dropbox/personnel/developpeur/projet/kohonen/tests/freq.png");
+    carte = new CartePNG(CartePNG(map, freq, 28, 28));
+    
     char* snum = (char*) malloc(sizeof(char)*10);
     setTest();
     

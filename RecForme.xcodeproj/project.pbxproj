@@ -74,6 +74,8 @@
 		B4254A331535D86E00E7D173 = {
 			isa = PBXGroup;
 			children = (
+				B4B2D8F01A38BA3C00D08648 /* imagerie */,
+				B4B2D8EF1A38BA0500D08648 /* input/output */,
 				B4254A411535D86F00E7D173 /* RecForme */,
 				B4254A3F1535D86F00E7D173 /* Products */,
 			);
@@ -90,9 +92,9 @@
 		B4254A411535D86F00E7D173 /* RecForme */ = {
 			isa = PBXGroup;
 			children = (
+				B4254A421535D86F00E7D173 /* main.cpp */,
 				B4254A4B1535E14300E7D173 /* headers */,
 				B4254A4C1535E2E300E7D173 /* sources */,
-				B4254A421535D86F00E7D173 /* main.cpp */,
 				B4254A441535D86F00E7D173 /* RecForme.1 */,
 			);
 			path = RecForme;
@@ -101,7 +103,6 @@
 		B4254A4B1535E14300E7D173 /* headers */ = {
 			isa = PBXGroup;
 			children = (
-				B4FE1F9F1536E07B001B7000 /* Image.h */,
 				B4254A521535EF6600E7D173 /* NeuroneInput.h */,
 				B45E78EB15386D8400A6A0D8 /* InputLayer.h */,
 				B4626BA71538850D00F96483 /* InputLayerPNG.h */,
@@ -118,7 +119,6 @@
 		B4254A4C1535E2E300E7D173 /* sources */ = {
 			isa = PBXGroup;
 			children = (
-				B4FE1F9C1536E06A001B7000 /* Image.cpp */,
 				B4254A501535EF5900E7D173 /* NeuroneInput.cpp */,
 				B45E78ED15386DA100A6A0D8 /* InputLayer.cpp */,
 				B4626BA41538850100F96483 /* InputLayerPNG.cpp */,
@@ -130,6 +130,23 @@
 				B43716841586A33200FFDB5E /* Tests.cpp */,
 			);
 			name = sources;
+			sourceTree = "<group>";
+		};
+		B4B2D8EF1A38BA0500D08648 /* input/output */ = {
+			isa = PBXGroup;
+			children = (
+				B4FE1F9F1536E07B001B7000 /* Image.h */,
+				B4FE1F9C1536E06A001B7000 /* Image.cpp */,
+			);
+			name = input/output;
+			path = RecForme;
+			sourceTree = "<group>";
+		};
+		B4B2D8F01A38BA3C00D08648 /* imagerie */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = imagerie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -15,9 +15,17 @@
 
 using namespace std;
 
-
-
 int main(int argc, const char * argv[]){
+    cout <<"plop\n";
+    Image image("/Users/hubert/Desktop/Victorienne-gray-small.png");
+    image.flouter(10);
+//    image.simplifier();
+    image.write("/Users/hubert/Desktop/Victorienne2.png");
+    return EXIT_SUCCESS;
+}
+
+
+int main2(int argc, const char * argv[]){
     
     uint32_t t = time(NULL);
     srand(time(NULL));

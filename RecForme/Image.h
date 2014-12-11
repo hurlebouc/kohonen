@@ -173,8 +173,8 @@ public:
     ~Image();
     
     void initImage(std::string path);
-    Pixel* getPix(int x, int y); // *nouveau* pixel (copy)
-    void setPix(int x, int y, Pixel* pix);
+    Pixel getPix(int x, int y); // *nouveau* pixel (copy)
+    void setPix(int x, int y, Pixel &pix);
     int getWidth();
     int getHeight();
     int getNbrComposantes();

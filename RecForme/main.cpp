@@ -17,7 +17,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]){
     cout <<"plop\n";
-    Image image("/Users/hubert/Desktop/Victorienne-gray-small.png");
+    Image image("/Users/hubert/Desktop/Victorienne-small.png");
     image.flouter(10);
 //    image.simplifier();
     image.write("/Users/hubert/Desktop/Victorienne2.png");

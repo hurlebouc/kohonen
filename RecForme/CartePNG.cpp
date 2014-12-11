@@ -259,16 +259,15 @@ Image* CartePNG::getImage(){
             NeuroneCarte* n = getNeurone(Y*width + X);
             for (int x = 0; x<input->getWidth(); x++) {
                 for (int y = 0; y<input->getHeight(); y++) {
-                    Pixel* pix = new Pixel(0); // stub
-                    pix->setFormat(nbrComposantes);
+                    Pixel pix(0); // stub
+                    pix.setFormat(nbrComposantes);
                     for (int i = 0; i<nbrComposantes; i++) {
                         uint8_t b = n->getPoid(y*input->getWidth() + x, i);
-                        pix->setComposante(i, b);
+                        pix.setComposante(i, b);
                     }
                     png->setPix(X*input->getWidth() + x,
                                 Y*input->getHeight() + y,
                                 pix);
-                    delete pix;
                 }
             }
         }
@@ -290,23 +289,22 @@ Image* CartePNG::getImageWithCurs(){
             NeuroneCarte* n = getNeurone(Y*width + X);
             for (int x = 0; x<input->getWidth(); x++) {
                 for (int y = 0; y<input->getHeight(); y++) {
-                    Pixel* pix = new Pixel(0); // stub
-                    pix->setFormat(nbrComposantes);
+                    Pixel pix(0); // stub
+                    pix.setFormat(nbrComposantes);
                     for (int i = 0; i<nbrComposantes; i++) {
                         uint8_t b = n->getPoid(y*input->getWidth() + x, i);
-                        pix->setComposante(i, b);
+                        pix.setComposante(i, b);
                     }
                     if (estCurs(Y*width + X)) {
                         if (x<2 || x>= input->getWidth() - 2 || y<2 || y>= input->getWidth() - 2) {
-                            pix->setComposante(0, 255);
-                            pix->setComposante(1, 0);
-                            pix->setComposante(2, 0);
+                            pix.setComposante(0, 255);
+                            pix.setComposante(1, 0);
+                            pix.setComposante(2, 0);
                         }
                     }
                     png->setPix(X*input->getWidth() + x,
                                 Y*input->getHeight() + y,
                                 pix);
-                    delete pix;
                 }
             }
         }
@@ -337,9 +335,8 @@ Image* CartePNG::getImageWithFreq(){
             double temps = getNeurone(getNumero(x, y))->getTempsApprentissage();
             for (int i = 0; i<tailleCarre; i++) {
                 for (int j = 0; j<tailleCarre; j++) {
-                    Pixel* pix = new Pixel((int) (temps/maxTemps*255));
+                    Pixel pix((int) (temps/maxTemps*255));
                     res->setPix(x*tailleCarre+i, y*tailleCarre+j, pix);
-                    delete pix;
                 }
             }
         }
@@ -357,9 +354,8 @@ Image* CartePNG::getImageWithClass(){
             int ref = getNeurone(x, y)->getIndexRef();
             for (int i = 0; i<tailleCarre; i++) {
                 for (int j = 0; j<tailleCarre; j++) {
-                    Pixel* pix = new Pixel((int) (ref*19));
+                    Pixel pix((int) (ref*19));
                     res->setPix(x*tailleCarre+i, y*tailleCarre+j, pix); // melange
-                    delete pix;
                 }
             }
         }
@@ -378,16 +374,14 @@ CartePNG::CartePNG(Image* carte, Image* freq, int segX, int segY)
     for (int i = 0; i<width; i++) {
         for (int j = 0; j<heigth; j++) {
             NeuroneCarte* neurone = getNeurone(i,j);
-            Pixel* pix_freq = freq->getPix(i*segX, j*segY);
-            neurone->setTempsApprentissage(pix_freq->getGray());
-            delete pix_freq;
+            Pixel pix_freq = freq->getPix(i*segX, j*segY);
+            neurone->setTempsApprentissage(pix_freq.getGray());
             for (int x = 0; x<segX; x++) {
                 for (int y = 0; y<segY; y++) {
-                    Pixel* pix_map = carte->getPix(i*segX + x, j*segY + y);
+                    Pixel pix_map = carte->getPix(i*segX + x, j*segY + y);
                     for (int comp = 0; comp<nbrComp; comp++) {
-                        neurone->setPoid(y*segX+x,comp,pix_map->getComposante(comp));
+                        neurone->setPoid(y*segX+x,comp,pix_map.getComposante(comp));
                     }
-                    delete pix_map;
                 }
             }
         }

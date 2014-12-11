@@ -443,7 +443,7 @@ Image::~Image(){
     free(this->texels);
 }
 
-Pixel* Image::getPix(int x, int y){
+Pixel Image::getPix(int x, int y){
     if (x>=width) {
         cout<<"Image : depassement de la largeur de l'image : "<<x
         <<" (taille : "<<width<<")\n";
@@ -463,7 +463,7 @@ Pixel* Image::getPix(int x, int y){
             r = texels[y*width*nbrComposantes + x*nbrComposantes];
             g = texels[y*width*nbrComposantes + x*nbrComposantes + 1];
             b = texels[y*width*nbrComposantes + x*nbrComposantes + 2];
-            return new Pixel(r, g, b);
+            return Pixel(r, g, b);
             break;
             
         case GL_RGBA:
@@ -471,18 +471,18 @@ Pixel* Image::getPix(int x, int y){
             g = texels[y*width*nbrComposantes + x*nbrComposantes + 1];
             b = texels[y*width*nbrComposantes + x*nbrComposantes + 2];
             a = texels[y*width*nbrComposantes + x*nbrComposantes + 3];
-            return new Pixel(r, g, b, a);
+            return Pixel(r, g, b, a);
             break;
             
         case GL_LUMINANCE:
             g = texels[y*width*nbrComposantes + x*nbrComposantes];
-            return new Pixel(g);
+            return Pixel(g);
             break;
             
         case GL_LUMINANCE_ALPHA:
             g = texels[y*width*nbrComposantes + x*nbrComposantes];
             a = texels[y*width*nbrComposantes + x*nbrComposantes + 1];
-            return new Pixel(g, a);
+            return Pixel(g, a);
             break;
             
         default:
@@ -492,7 +492,7 @@ Pixel* Image::getPix(int x, int y){
     }
 }
 
-void Image::setPix(int x, int y, Pixel *pix){
+void Image::setPix(int x, int y, Pixel &pix){
     if (x>=width) {
         cout<<"Image : depassement de la largeur de l'image : "<<x
         <<" (taille : "<<width<<")\n";
@@ -503,31 +503,31 @@ void Image::setPix(int x, int y, Pixel *pix){
         <<" (taille : "<<height<<")\n";
         exit(EXIT_FAILURE);
     }
-    if (pix->getFormat() != this->format) {
+    if (pix.getFormat() != this->format) {
         cout<<"Image : format de pixel incompatible avec le format de l'image\n";
         exit(EXIT_FAILURE);
     }
     switch (format) {
         case GL_RGB:
-            texels[y*width*nbrComposantes + x*nbrComposantes]=pix->getRed();
-            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix->getGreen();
-            texels[y*width*nbrComposantes + x*nbrComposantes + 2]=pix->getBlue();
+            texels[y*width*nbrComposantes + x*nbrComposantes]=pix.getRed();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix.getGreen();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 2]=pix.getBlue();
             break;
             
         case GL_RGBA:
-            texels[y*width*nbrComposantes + x*nbrComposantes]=pix->getRed();
-            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix->getGreen();
-            texels[y*width*nbrComposantes + x*nbrComposantes + 2]=pix->getBlue();
-            texels[y*width*nbrComposantes + x*nbrComposantes + 3]=pix->getAlpha();
+            texels[y*width*nbrComposantes + x*nbrComposantes]=pix.getRed();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix.getGreen();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 2]=pix.getBlue();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 3]=pix.getAlpha();
             break;
             
         case GL_LUMINANCE:
-            texels[y*width*nbrComposantes + x*nbrComposantes]=pix->getGray();
+            texels[y*width*nbrComposantes + x*nbrComposantes]=pix.getGray();
             break;
             
         case GL_LUMINANCE_ALPHA:
-            texels[y*width*nbrComposantes + x*nbrComposantes]=pix->getGray();
-            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix->getAlpha();
+            texels[y*width*nbrComposantes + x*nbrComposantes]=pix.getGray();
+            texels[y*width*nbrComposantes + x*nbrComposantes + 1]=pix.getAlpha();
             break;
             
         default:
@@ -621,19 +621,18 @@ void Image::save(){
         png_byte *row = (png_byte*) png_malloc (png_ptr, sizeof (uint8_t) * width * nbrComposantes);
         row_pointers[y] = row;
         for (x = 0; x < width; ++x) {
-            Pixel* pixel = this->getPix(x, height-1 - y);
+            Pixel pixel = this->getPix(x, height-1 - y);
             if (format == GL_RGB || format == GL_RGBA) {
-                *row++ = pixel->getRed();
-                *row++ = pixel->getGreen();
-                *row++ = pixel->getBlue();
+                *row++ = pixel.getRed();
+                *row++ = pixel.getGreen();
+                *row++ = pixel.getBlue();
             }
             if (format == GL_LUMINANCE || format == GL_LUMINANCE_ALPHA) {
-                *row++ = pixel->getGray();
+                *row++ = pixel.getGray();
             }
             if (format == GL_RGBA || format == GL_LUMINANCE_ALPHA) {
-                *row++ = pixel->getAlpha();
+                *row++ = pixel.getAlpha();
             }
-            delete pixel;
         }
     }
     
@@ -694,21 +693,22 @@ void Image::flouterRGB(int r){
             int sumr = 0;
             int sumg = 0;
             int sumb = 0;
-            Pixel* pix = getPix(i, j);
+            Pixel pix = getPix(i, j);
             for (int ii = -r; ii<=r; ii++) {
                 for (int jj = -r; jj <=r; jj++) {
-                    if (ii >= 0 && ii < width && jj >= 0 && jj < height) {
+                    if (i+ii >= 0 && i+ii < width && j+jj >= 0 && j+jj < height) {
                         count++;
-                        Pixel* piix = getPix(ii, jj);
-                        sumr += piix->getRed();
-                        sumg += piix->getGreen();
-                        sumb += piix->getBlue();
+                        Pixel piix = getPix(i+ii, j+jj);
+                        sumr += piix.getRed();
+                        sumg += piix.getGreen();
+                        sumb += piix.getBlue();
                     }
                 }
             }
-            pix->setRed(sumr/count);
-            pix->setGreen(sumg/count);
-            pix->setBlue(sumb/count);
+            pix.setRed(sumr/count);
+            pix.setGreen(sumg/count);
+            pix.setBlue(sumb/count);
+            setPix(i, j, pix);
         }
     }
 }
@@ -721,23 +721,24 @@ void Image::flouterRGBA(int r){
             int sumg = 0;
             int sumb = 0;
             int suma = 0;
-            Pixel* pix = getPix(i, j);
+            Pixel pix = getPix(i, j);
             for (int ii = -r; ii<=r; ii++) {
                 for (int jj = -r; jj <=r; jj++) {
-                    if (ii >= 0 && ii < width && jj >= 0 && jj < height) {
+                    if (i+ii >= 0 && i+ii < width && j+jj >= 0 && j+jj < height) {
                         count++;
-                        Pixel* piix = getPix(ii, jj);
-                        sumr += piix->getRed();
-                        sumg += piix->getGreen();
-                        sumb += piix->getBlue();
-                        suma += piix->getAlpha();
+                        Pixel piix = getPix(i+ii, j+jj);
+                        sumr += piix.getRed();
+                        sumg += piix.getGreen();
+                        sumb += piix.getBlue();
+                        suma += piix.getAlpha();
                     }
                 }
             }
-            pix->setRed(sumr/count);
-            pix->setGreen(sumg/count);
-            pix->setBlue(sumb/count);
-            pix->setAlpha(suma/count);
+            pix.setRed(sumr/count);
+            pix.setGreen(sumg/count);
+            pix.setBlue(sumb/count);
+            pix.setAlpha(suma/count);
+            setPix(i, j, pix);
         }
     }
 }
@@ -747,25 +748,21 @@ void Image::flouterG(int r){
         for (taille_t j = 0; j<height; j++) {
             int count = 0;
             int sumg = 0;
-            Pixel* pix = getPix(i, j);
-            cout << (int) pix->getGray() << "\n";
             for (int ii = -r; ii<=r; ii++) {
                 for (int jj = -r; jj <=r; jj++) {
-                    if (ii >= 0 && ii < width && jj >= 0 && jj < height) {
+                    if (i+ii >= 0 && i+ii < width && j+jj >= 0 && j+jj < height) {
                         count++;
-                        cout << "(" << ii << ", " << jj << ") ";
-                        Pixel* piix = getPix(ii, jj);
-                        int k = piix->getGray();
-                        cout << k << "\n";
-                        sumg += k;
-
+                        Pixel piix = getPix(i+ii, j+jj);
+                        sumg += piix.getGray();
+//                        cout << sumg << "\n";
                     }
                 }
             }
-            cout << sumg/count << "\n";
-            pix->setGray(sumg/count);
-            cout << (int) pix->getGray() << "\n";
-            exit(EXIT_FAILURE);
+            Pixel pix = getPix(i, j);
+//            cout << (int) pix.getGray() << "\n";
+            pix.setGray(sumg/count);
+            setPix(i, j, pix);
+//            cout << "(" << sumg << ", " << count << ")" << (int) pix.getGray() << "\n";
         }
     }
 }
@@ -776,19 +773,20 @@ void Image::flouterGA(int r){
             int count = 0;
             int sumg = 0;
             int suma = 0;
-            Pixel* pix = getPix(i, j);
+            Pixel pix = getPix(i, j);
             for (int ii = -r; ii<=r; ii++) {
                 for (int jj = -r; jj <=r; jj++) {
-                    if (ii >= 0 && ii < width && jj >= 0 && jj < height) {
+                    if (i+ii >= 0 && i+ii < width && j+jj >= 0 && j+jj < height) {
                         count++;
-                        Pixel* piix = getPix(ii, jj);
-                        sumg += piix->getGray();
-                        suma += piix->getAlpha();
+                        Pixel piix = getPix(i+ii, j+jj);
+                        sumg += piix.getGray();
+                        suma += piix.getAlpha();
                     }
                 }
             }
-            pix->setGray(sumg/count);
-            pix->setAlpha(suma/count);
+            pix.setGray(sumg/count);
+            pix.setAlpha(suma/count);
+            setPix(i, j, pix);
         }
     }
 }

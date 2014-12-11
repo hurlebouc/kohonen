@@ -754,15 +754,12 @@ void Image::flouterG(int r){
                         count++;
                         Pixel piix = getPix(i+ii, j+jj);
                         sumg += piix.getGray();
-//                        cout << sumg << "\n";
                     }
                 }
             }
             Pixel pix = getPix(i, j);
-//            cout << (int) pix.getGray() << "\n";
             pix.setGray(sumg/count);
             setPix(i, j, pix);
-//            cout << "(" << sumg << ", " << count << ")" << (int) pix.getGray() << "\n";
         }
     }
 }
@@ -805,13 +802,59 @@ void Image::flouter(int r){
         case GL_LUMINANCE_ALPHA:
             flouterGA(r);
             break;
-
-            
         default:
             break;
     }
 }
 
+void Image::filtrerParComposante(Filtre** filtres){
+    for (composante_t c = 0; c<nbrComposantes; c++) {
+        Filtre* filtre = filtres[c];
+        for (int i = 0; i<width; i++) {
+            for (int j = 0; j<height; j++) {
+                int count = 0;
+                int sum = 0;
+                int r = filtre->getDim()/2;
+                for (int ii = -r; ii<=r; ii++) {
+                    for (int jj = -r; jj <=r; jj++) {
+                        if (i+ii >= 0 && i+ii < width && j+jj >= 0 && j+jj < height) {
+                            int p = filtre->get(ii+r, jj+r);
+                            count+= p;
+                            Pixel piix = getPix(i+ii, j+jj);
+                            sum += p * piix.getComposante(c);
+                        }
+                    }
+                }
+                if (count == 0) {
+                    count = 1;
+                }
+                Pixel pix = getPix(i, j);
+//                cout << sum << "\n";
+                pix.setComposante(c, sum/count);
+                setPix(i, j, pix);
+            }
+        }
+    }
+}
+
+void Image::filtrer(Filtre* filtre){
+    if(format ==  GL_LUMINANCE){
+        Filtre* filtres[1] = {filtre};
+        filtrerParComposante(filtres);
+    } else if(format ==  GL_LUMINANCE_ALPHA){
+        Filtre* filtres[2] = {filtre, filtre};
+        filtrerParComposante(filtres);
+    } else if(format ==  GL_RGB){
+        Filtre* filtres[3] = {filtre, filtre, filtre};
+        filtrerParComposante(filtres);
+    } else if(format ==  GL_RGBA){
+        Filtre* filtres[4] = {filtre, filtre, filtre, filtre};
+        filtrerParComposante(filtres);
+    } else {
+        cout << "format inconnu\n";
+        exit(EXIT_FAILURE);
+    }
+}
 
 
 

@@ -18,7 +18,9 @@
 		B45EAA8F1539AD32007C44EB /* CartePNG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B45EAA8D1539AD32007C44EB /* CartePNG.cpp */; };
 		B4626BA815388FF700F96483 /* InputLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B45E78ED15386DA100A6A0D8 /* InputLayer.cpp */; };
 		B4626BA915388FFA00F96483 /* InputLayerPNG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4626BA41538850100F96483 /* InputLayerPNG.cpp */; };
+		B48A89851A39DFEB00D08648 /* matrice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B48A89831A39DFEB00D08648 /* matrice.cpp */; };
 		B4FE1F9D1536E06A001B7000 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4FE1F9C1536E06A001B7000 /* Image.cpp */; };
+		B4FE565C1A39C6F400D08648 /* filtre.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B4FE565A1A39C6F400D08648 /* filtre.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,8 +58,12 @@
 		B45EAA8E1539AD32007C44EB /* CartePNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CartePNG.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B4626BA41538850100F96483 /* InputLayerPNG.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputLayerPNG.cpp; sourceTree = "<group>"; };
 		B4626BA71538850D00F96483 /* InputLayerPNG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputLayerPNG.h; sourceTree = "<group>"; };
+		B48A89831A39DFEB00D08648 /* matrice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrice.cpp; sourceTree = "<group>"; };
+		B48A89841A39DFEB00D08648 /* matrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = matrice.h; path = ../matrice.h; sourceTree = "<group>"; };
 		B4FE1F9C1536E06A001B7000 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
 		B4FE1F9F1536E07B001B7000 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		B4FE565A1A39C6F400D08648 /* filtre.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filtre.cpp; sourceTree = "<group>"; };
+		B4FE565B1A39C6F400D08648 /* filtre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = filtre.h; path = ../filtre.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 		B4254A4B1535E14300E7D173 /* headers */ = {
 			isa = PBXGroup;
 			children = (
+				B4FE565B1A39C6F400D08648 /* filtre.h */,
+				B48A89841A39DFEB00D08648 /* matrice.h */,
+				B4FE1F9F1536E07B001B7000 /* Image.h */,
 				B4254A521535EF6600E7D173 /* NeuroneInput.h */,
 				B45E78EB15386D8400A6A0D8 /* InputLayer.h */,
 				B4626BA71538850D00F96483 /* InputLayerPNG.h */,
@@ -135,7 +144,6 @@
 		B4B2D8EF1A38BA0500D08648 /* input/output */ = {
 			isa = PBXGroup;
 			children = (
-				B4FE1F9F1536E07B001B7000 /* Image.h */,
 				B4FE1F9C1536E06A001B7000 /* Image.cpp */,
 			);
 			name = input/output;
@@ -145,6 +153,8 @@
 		B4B2D8F01A38BA3C00D08648 /* imagerie */ = {
 			isa = PBXGroup;
 			children = (
+				B48A89831A39DFEB00D08648 /* matrice.cpp */,
+				B4FE565A1A39C6F400D08648 /* filtre.cpp */,
 			);
 			name = imagerie;
 			sourceTree = "<group>";
@@ -209,6 +219,8 @@
 				B4626BA915388FFA00F96483 /* InputLayerPNG.cpp in Sources */,
 				B45EAA8F1539AD32007C44EB /* CartePNG.cpp in Sources */,
 				B437167A15869D4900FFDB5E /* Classe.cpp in Sources */,
+				B48A89851A39DFEB00D08648 /* matrice.cpp in Sources */,
+				B4FE565C1A39C6F400D08648 /* filtre.cpp in Sources */,
 				B437168015869FC600FFDB5E /* ClasseChiffre.cpp in Sources */,
 				B43716851586A33200FFDB5E /* Tests.cpp in Sources */,
 			);

@@ -16,6 +16,7 @@
 #define GL_RGBA                           0x1908
 #define GL_LUMINANCE                      0x1909
 #define GL_LUMINANCE_ALPHA                0x190A
+#include "filtre.h"
 
 //#include <GL/gl.h>
 
@@ -181,11 +182,23 @@ public:
     void save();
     void write(std::string path);
     void simplifier();
+    
+    /**
+     * Autant de filtres que de composantes (au moins)
+     * Filtre de taille impaire
+     * Dans l'ordre RGBA ou GA
+     */
+    void filtrerParComposante(Filtre*[]);
+    
+    void filtrer(Filtre*);
+
+    
     /**
      * FLoute la photo
      * @param r rayon de floutage
      */
     void flouter(int r);
+    void deriver(int r);
 };
 
 #endif

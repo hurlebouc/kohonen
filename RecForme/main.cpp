@@ -17,9 +17,22 @@ using namespace std;
 
 int main(int argc, const char * argv[]){
     cout <<"plop\n";
-    Image image("/Users/hubert/Desktop/Victorienne-small.png");
+    Image image("/Users/hubert/Desktop/Victorienne-gray-small.png");
     image.flouter(10);
+    Filtre f(3, 3);
+    f.set(0, 0, 1);
+    f.set(0, 1, 2);
+    f.set(0, 2, 1);
+    f.set(1, 0, 2);
+    f.set(1, 1, 4);
+    f.set(1, 2, 2);
+    f.set(2, 0, 1);
+    f.set(2, 1, 2);
+    f.set(2, 2, 1);
+    
+    Filtre f2(1,1); f2.set(0, 0, -1);
 //    image.simplifier();
+//    image.filtrer(&f);
     image.write("/Users/hubert/Desktop/Victorienne2.png");
     return EXIT_SUCCESS;
 }

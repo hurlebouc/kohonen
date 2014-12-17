@@ -35,3 +35,5 @@ template <typename T>
 int Matrice<T>::getDim(){
     return width;
 }
+
+ template class Matrice<int>;

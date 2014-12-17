@@ -34,6 +34,7 @@ public:
     int get(int x, int y);
     void set(int x, int y, int d);
     int getDim();
+    void initFlou();
 };
 
 #endif /* defined(__RecForme__filtre__) */

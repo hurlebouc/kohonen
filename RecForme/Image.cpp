@@ -628,6 +628,7 @@ void Image::save(){
                 *row++ = pixel.getBlue();
             }
             if (format == GL_LUMINANCE || format == GL_LUMINANCE_ALPHA) {
+//                cout << (int) pixel.getGray() << "\n";
                 *row++ = pixel.getGray();
             }
             if (format == GL_RGBA || format == GL_LUMINANCE_ALPHA) {
@@ -807,8 +808,37 @@ void Image::flouter(int r){
     }
 }
 
+composante_t Image::getNbrVisibleComp(){
+    composante_t res = nbrComposantes;
+    if (format == GL_LUMINANCE_ALPHA || format == GL_RGBA) {
+        res--;
+    }
+    return res;
+}
+
+void Image::removeAlfa(){
+    if (format == GL_RGB || format == GL_LUMINANCE) {
+        return;
+    }
+    nbrComposantes--;
+    byte_t* ntexel = (byte_t *) malloc(width*height*nbrComposantes);
+    for (taille_t i = 0; i<height*width; i++) {
+        for (taille_t j = 0; j<nbrComposantes; j++) {
+            ntexel[i*nbrComposantes + j] = texels[i*(nbrComposantes + 1) + j];
+        }
+    }
+    free(texels);
+    texels = ntexel;
+    if (format == GL_LUMINANCE_ALPHA) {
+        format = GL_LUMINANCE;
+    } else if (format == GL_RGBA){
+        format = GL_RGB;
+    }
+}
+
 void Image::filtrerParComposante(Filtre** filtres){
     for (composante_t c = 0; c<nbrComposantes; c++) {
+        Image* nimge = new Image(width, height, nbrComposantes);
         Filtre* filtre = filtres[c];
         for (int i = 0; i<width; i++) {
             for (int j = 0; j<height; j++) {
@@ -829,27 +859,37 @@ void Image::filtrerParComposante(Filtre** filtres){
                     count = 1;
                 }
                 Pixel pix = getPix(i, j);
-//                cout << sum << "\n";
+//                cout << sum/count << "\n";
                 pix.setComposante(c, sum/count);
-                setPix(i, j, pix);
+                nimge->setPix(i, j, pix);
+//                cout << (int) (nimge->getPix(i, j).getComposante(c)) << "\n";
             }
         }
+        byte_t* tmp = this->texels;
+        this->texels = nimge->texels;
+        nimge->texels = tmp;
+        delete nimge;
     }
 }
 
 void Image::filtrer(Filtre* filtre){
+    removeAlfa();
     if(format ==  GL_LUMINANCE){
         Filtre* filtres[1] = {filtre};
+        cout << "gray\n";
         filtrerParComposante(filtres);
-    } else if(format ==  GL_LUMINANCE_ALPHA){
-        Filtre* filtres[2] = {filtre, filtre};
-        filtrerParComposante(filtres);
+//    } else if(format ==  GL_LUMINANCE_ALPHA){
+//        cout << "agray\n";
+//        Filtre* filtres[2] = {filtre, filtre};
+//        filtrerParComposante(filtres);
     } else if(format ==  GL_RGB){
+        cout << "rgb\n";
         Filtre* filtres[3] = {filtre, filtre, filtre};
         filtrerParComposante(filtres);
-    } else if(format ==  GL_RGBA){
-        Filtre* filtres[4] = {filtre, filtre, filtre, filtre};
-        filtrerParComposante(filtres);
+//    } else if(format ==  GL_RGBA){
+//        cout << "argb\n";
+//        Filtre* filtres[4] = {filtre, filtre, filtre, filtre};
+//        filtrerParComposante(filtres);
     } else {
         cout << "format inconnu\n";
         exit(EXIT_FAILURE);

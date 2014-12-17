@@ -19,6 +19,14 @@ Filtre::~Filtre() {
     free(data);
 }
 
+void Filtre::initFlou(){
+    for (int i = 0; i<width; i++) {
+        for (int j = 0; j<height; j++) {
+            this->set(i, j, 1);
+        }
+    }
+}
+
 int Filtre::get(int x, int y) {
     return data[x + y * height];
 }

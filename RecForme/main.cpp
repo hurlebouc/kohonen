@@ -12,28 +12,34 @@
 #include "InputLayerPNG.h"
 #include "CartePNG.h"
 #include "Tests.h"
+#include "matrice.h"
 
 using namespace std;
 
 int main(int argc, const char * argv[]){
-    cout <<"plop\n";
-    Image image("/Users/hubert/Desktop/Victorienne-gray-small.png");
-    image.flouter(10);
-    Filtre f(3, 3);
-    f.set(0, 0, 1);
-    f.set(0, 1, 2);
-    f.set(0, 2, 1);
-    f.set(1, 0, 2);
-    f.set(1, 1, 4);
-    f.set(1, 2, 2);
-    f.set(2, 0, 1);
-    f.set(2, 1, 2);
-    f.set(2, 2, 1);
+    Matrice<int> truc(2,2);
+    truc.get(1, 1);
+    Image image("/Users/hubert/Desktop/IP/lena-alpha.png");
+//    image.flouter(10);
+    Filtre diff(3, 3);
+    diff.set(0, 0, 0);
+    diff.set(0, 1, 1);
+    diff.set(0, 2, 0);
+    diff.set(1, 0, -1);
+    diff.set(1, 1, 0);
+    diff.set(1, 2, 1);
+    diff.set(2, 0, 0);
+    diff.set(2, 1, -1);
+    diff.set(2, 2, 0);
+    
+    Filtre flou(10, 10);
+    flou.initFlou();
     
     Filtre f2(1,1); f2.set(0, 0, -1);
 //    image.simplifier();
-//    image.filtrer(&f);
-    image.write("/Users/hubert/Desktop/Victorienne2.png");
+    image.filtrer(&diff);
+//    image.removeAlfa();
+    image.write("/Users/hubert/Desktop/IP/lena2.png");
     return EXIT_SUCCESS;
 }
 

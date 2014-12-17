@@ -161,10 +161,12 @@ private:
     format_t  format;          /* RVB, RVBA, Luminance, Luminance Alpha */
     composante_t   nbrComposantes;  /* composantes d'un texel */
     byte_t *texels;         /* données de l'image */
+    
     void flouterRGB(int);
     void flouterRGBA(int);
     void flouterG(int);
     void flouterGA(int);
+    composante_t getNbrVisibleComp();
     
 public:
     
@@ -182,6 +184,7 @@ public:
     void save();
     void write(std::string path);
     void simplifier();
+    void removeAlfa();
     
     /**
      * Autant de filtres que de composantes (au moins)

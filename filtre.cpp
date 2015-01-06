@@ -10,6 +10,10 @@
 #include <stdlib.h>
 
 Filtre::Filtre(int w, int h) {
+    if (w % 2 == 0 || h % 2 == 0) {
+        printf("Filtre : les dimentions du filtres ne sont pas toutes impaires : (%ud, %ud)\n", w, h);
+        exit(EXIT_FAILURE);
+    }
     width = w;
     height = h;
     data = (int*) malloc(w*h*sizeof(int));

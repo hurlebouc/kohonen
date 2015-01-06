@@ -859,10 +859,8 @@ void Image::filtrerParComposante(Filtre** filtres){
                     count = 1;
                 }
                 Pixel pix = getPix(i, j);
-//                cout << sum/count << "\n";
                 pix.setComposante(c, sum/count);
                 nimge->setPix(i, j, pix);
-//                cout << (int) (nimge->getPix(i, j).getComposante(c)) << "\n";
             }
         }
         byte_t* tmp = this->texels;

@@ -29,7 +29,7 @@ private:
     int height;
     
 public:
-    Filtre(int w, int h);
+    Filtre(int w, int h); // w et h doivent être impairs
     ~Filtre();
     int get(int x, int y);
     void set(int x, int y, int d);

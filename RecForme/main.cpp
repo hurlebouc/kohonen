@@ -32,14 +32,13 @@ int main(int argc, const char * argv[]){
     diff.set(2, 1, -1);
     diff.set(2, 2, 0);
     
-    Filtre flou(10, 10);
+    Filtre flou(11, 11);
     flou.initFlou();
     
     Filtre f2(1,1); f2.set(0, 0, -1);
 //    image.simplifier();
-    image.filtrer(&diff);
-//    image.removeAlfa();
-    image.write("/Users/hubert/Desktop/IP/lena2.png");
+    image.filtrer(&flou);
+    image.write("/Users/hubert/Desktop/IP/lena-flou.png");
     return EXIT_SUCCESS;
 }
 
